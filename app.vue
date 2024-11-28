@@ -5,8 +5,21 @@
         <button v-for="(button, index) in buttons" 
                 :key="index" 
                 @click="setActiveComponent(index)">
+                
           {{ button }}
+          <template>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <NuxtLink to="/Component1">Component1</NuxtLink>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </template>
         </button>
+      
       </div>
   
       <!-- Main Content Area -->
@@ -19,6 +32,7 @@
     </div>
        
    <NuxtLayout>
+  
     <NuxtPage/>
    </NuxtLayout>
   </template>
@@ -26,9 +40,7 @@
   <script>
 
 
-
-
-//import Component1 from '@/components/Component1.vue';  // Correct for components
+import Component1 from '@/pages/Component1.vue';  // Correct for components
 
 
 
@@ -37,10 +49,10 @@
     data() {
       return {
         activeComponent: 0, // İlk başta ilk komponent aktif
-        buttons: Array.from({ length: 10 }, (_, i) => `Button ${i + 1}`), // 10 buton ismi
+        buttons: Array.from({ length: 10 }, (_, i) => `Component ${i + 1}`), // 10 buton ismi
         components: [
           'Component1',
-          'Component2',
+         'Component2',
           'Component3',
           'Component4',
           'Component5',
