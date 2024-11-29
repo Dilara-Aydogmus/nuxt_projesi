@@ -1,42 +1,77 @@
 <template>
     <div class="center-container">
-      <UVerticalNavigation :links="links">
-        <template #default="{ link }">
-          <span class="group-hover:text-primary relative link-label hover:bg-transparent-lightblue">
-            <!-- Icon at the start of the label -->
+      <ul class="navigation-list">
+        <li v-for="link in links" :key="link.label" class="navigation-item">
+          <div
+            class="link-label"
+            @click="toggleSubmenu(link.label)"
+          >
+          
             <img :src="getIconForLink(link.label)" alt="link icon" class="link-icon" />
-            <!-- Label text, starts immediately after the icon -->
+           
             <span class="link-text">{{ link.label }}</span>
-            <!-- OK icon aligned to the far right -->
-            <span class="material-symbols-outlined">
-              <img src="/pages/ok.png" alt="arrow icon" class="link-icon" />
-            </span>
-          </span>
-        </template>
-      </UVerticalNavigation>
+           
+            <img
+              src="/pages/ok.png"
+              alt="toggle icon"
+              class="toggle-icon"
+              :class="{ expanded: expandedLink === link.label }"
+            />
+          </div>
+         
+          <ul
+            v-if="expandedLink === link.label"
+            class="submenu"
+          >
+            <li
+              v-for="(subItem, index) in link.subItems"
+              :key="index"
+              class="submenu-item"
+            >
+              <span>{{ subItem }}</span>
+             
+              <img
+                src="/pages/ok.png"
+                alt="submenu toggle icon"
+                class="submenu-toggle-icon"
+              />
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </template>
   
   <script setup lang="ts">
+  import { ref } from 'vue';
+  
+  
   const links = [
-    { label: 'Components & Storage', to: '/components/vertical-navigation' },
-    { label: 'Computer Systems', to: '/components/command-palette' },
-    { label: 'Computer Peripherals', to: '/components/table' },
-    { label: 'Server & Components', to: '/components/form' },
-    { label: 'Appliances', to: '/components/card' },
-    { label: 'Electronics', to: '/components/dropdown' },
-    { label: 'Gaming & VR', to: '/components/modal' },
-    { label: 'Networking', to: '/components/pagination' },
-    { label: 'Smart Home & Security', to: '/components/tooltip' },
-    { label: 'Office Solutions', to: '/components/avatar' },
-    { label: 'Software & Services', to: '/components/breadcrumb' },
-    { label: 'Automotive & Tools', to: '/components/tabs' },
-    { label: 'Home & Outdoors', to: '/components/alert' },
-    { label: 'Health & Sports', to: '/components/badge' },
-    { label: 'Toys, Drones & Maker', to: '/components/timeline' },
+    { label: 'Components & Storage', subItems: ['Core Component', 'Storage Device', 'Deals by Categories'] },
+    { label: 'Computer Systems', subItems: ['Desktops', 'Laptops', 'Gaming Laptop'] },
+    { label: 'Computer Peripherals', subItems: ['Keyboards', 'Mice', 'Monitors'] },
+    { label: 'Server & Components', subItems: ['Servers', 'Processors', 'Memory'] },
+    { label: 'Appliances', subItems: ['Kitchen Appliances', 'Home Appliances', 'Small Gadgets'] },
+    { label: 'Electronics', subItems: ['Smartphones', 'Tablets', 'Wearables'] },
+    { label: 'Gaming & VR', subItems: ['Consoles', 'Accessories', 'VR Headsets'] },
+    { label: 'Networking', subItems: ['Routers', 'Switches', 'Cables'] },
+    { label: 'Smart Home & Security', subItems: ['Cameras', 'Sensors', 'Automation Devices'] },
+    { label: 'Office Solutions', subItems: ['Printers', 'Scanners', 'Office Chairs'] },
+    { label: 'Software & Services', subItems: ['Operating Systems', 'Productivity Tools', 'Subscriptions'] },
+    { label: 'Automotive & Tools', subItems: ['Car Accessories', 'Power Tools', 'Hand Tools'] },
+    { label: 'Home & Outdoors', subItems: ['Furniture', 'Gardening Tools', 'Camping Gear'] },
+    { label: 'Health & Sports', subItems: ['Fitness Equipment', 'Sports Gear', 'Wellness Devices'] },
+    { label: 'Toys, Drones & Maker', subItems: ['Drones', 'Robotics', 'DIY Kits'] },
   ];
   
-  // Function to get icon for each label dynamically
+  const expandedLink = ref<string | null>(null);
+  
+  
+  function toggleSubmenu(label: string) {
+    expandedLink.value = expandedLink.value === label ? null : label;
+  }
+  
+  
   function getIconForLink(label: string): string {
     const iconMap: { [key: string]: string } = {
       'Components & Storage': '/a.svg',
@@ -55,7 +90,6 @@
       'Health & Sports': '/sports.svg',
       'Toys, Drones & Maker': '/drone.svg',
     };
-    console.log("Icon path:", iconMap[label]);  
     return iconMap[label] || '/pages/default-icon.png'; // Fallback to default icon
   }
   </script>
@@ -65,33 +99,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 30%;
-    height: 50%;
-    background-color: white;
-    color: black;
     margin: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    padding: 16px;
     background-image: url('/bkg.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    border-radius: 8px;
   }
   
-  .link-label {
-    color: white;
-    padding: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: background-color 0.3s ease;
+  .navigation-list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navigation-item {
+    margin-bottom: 8px;
     width: 100%;
   }
   
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    margin-left: 168px;
-    width: 13px;
+  .link-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease;
   }
   
   .link-label:hover {
@@ -99,36 +136,57 @@
     background-size: cover;
     background-position: center;
     border-radius: 4px;
-    color: white;
-  }
-  
-  .material-symbols-outlined:hover {
     color: white;
   }
   
   .link-icon {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
   }
   
   .link-text {
+    flex-grow: 1;
+    padding-left: 8px;
     color: white;
-    padding-left: 8px; /* Space between icon and text */
-    flex-grow: 1; /* Ensures the text takes available space */
   }
   
-  .ok-icon {
+  .toggle-icon {
     width: 16px;
     height: 16px;
-    margin-left: 179px; /* Adjust position of OK icon */
+    transition: transform 0.3s ease;
   }
   
-  .link-label:hover {
-    background-image: url('/mavi.png');
-    background-size: cover;
-    background-position: center;
+  .toggle-icon.expanded {
+    transform: rotate(180deg);
+  }
+  
+  .submenu {
+    margin-top: 4px;
+    padding-left: 16px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .submenu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
     border-radius: 4px;
     color: white;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submenu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .submenu-toggle-icon {
+    width: 16px;
+    height: 16px;
   }
   </style>
   

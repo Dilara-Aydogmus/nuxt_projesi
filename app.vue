@@ -1,64 +1,39 @@
 <template>
-    
     <div class="layout">
-      <!-- Sidebar Navigation -->
+    
       <div class="sidebar">
-        <button v-for="(button, index) in buttons" 
-                :key="index" 
-                @click="setActiveComponent(index)">
-          {{ button }}
-        </button>
+        
   
         <header>
           <nav>
             <ul>
-              <li>
-                <NuxtLink to="/Component1">Component1</NuxtLink>
+             
+              <li v-for="(button, index) in buttons" :key="index">
+                <NuxtLink :to="`/Component${index + 1}`">Component {{ index + 1 }}</NuxtLink>
               </li>
             </ul>
           </nav>
         </header>
       </div>
   
-      <!-- Main Content Area -->
+ 
       <div class="main-content">
-        <component v-for="(component, index) in components" 
-                   :key="index" 
-                   :is="component" 
-                   v-show="activeComponent === index" />
+        
+        <NuxtPage />
       </div>
     </div>
-    
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
   </template>
   
   <script>
-  import Component1 from '@/pages/Component1.vue';  // Correct for components
-  
   export default {
     data() {
       return {
-        activeComponent: 0, // Initially, the first component is active
-        buttons: Array.from({ length: 10 }, (_, i) => `Component ${i + 1}`), // 10 button names
-        components: [
-          'Component1',
-          'Component2',
-          'Component3',
-          'Component4',
-          'Component5',
-          'Component6',
-          'Component7',
-          'Component8',
-          'Component9',
-          'Component10'
-        ] // Component names
+        buttons: Array.from({ length: 10 }, (_, i) => `Component ${i + 1}`), 
       };
     },
     methods: {
       setActiveComponent(index) {
-        this.activeComponent = index; // Change active component when a button is clicked
+      
       }
     }
   };
@@ -78,16 +53,16 @@
   
   .sidebar button {
     display: block;
-    margin-bottom: 8px; /* Reduced margin */
-    padding: 6px 12px;  /* Smaller padding */
-    font-size: 14px;    /* Smaller font size */
+    margin-bottom: 8px; 
+    padding: 6px 12px;  
+    font-size: 14px;    
     width: 100%;
-    background-color: #e0e0e0; /* Optional: light background color for buttons */
-    border: 1px solid #ccc;   /* Optional: add a border around buttons */
+    background-color: #e0e0e0; 
+    border: 1px solid #ccc;   
   }
   
   .sidebar button:hover {
-    background-color: #ccc; /* Optional: change background on hover */
+    background-color: #ccc; 
   }
   
   .main-content {
@@ -96,3 +71,4 @@
     background-color: #f4f4f4;
   }
   </style>
+  
