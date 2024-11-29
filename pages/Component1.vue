@@ -4,7 +4,9 @@
         <template #default="{ link }">
           <span class="group-hover:text-primary relative link-label hover:bg-transparent-lightblue">
             {{ link.label }}
-            <span class="material-symbols-outlined">arrow_forward</span> 
+            <span class="material-symbols-outlined">
+                  <img src="/pages/ok.png" alt="arrow icon" class="link-icon" />
+                </span> 
           </span>
         </template>
       </UVerticalNavigation>
@@ -13,21 +15,21 @@
   
   <script setup lang="ts">
   const links = [
-    { label: 'Vertical Navigation', to: '/components/vertical-navigation' },
-    { label: 'Command Palette', to: '/components/command-palette' },
-    { label: 'Table', to: '/components/table' },
-    { label: 'Form', to: '/components/form' },
-    { label: 'Card', to: '/components/card' },
-    { label: 'Dropdown', to: '/components/dropdown' },
-    { label: 'Modal', to: '/components/modal' },
-    { label: 'Pagination', to: '/components/pagination' },
-    { label: 'Tooltip', to: '/components/tooltip' },
-    { label: 'Avatar', to: '/components/avatar' },
-    { label: 'Breadcrumb', to: '/components/breadcrumb' },
-    { label: 'Tabs', to: '/components/tabs' },
-    { label: 'Alert', to: '/components/alert' },
-    { label: 'Badge', to: '/components/badge' },
-    { label: 'Timeline', to: '/components/timeline' },
+    { label: 'Components & Storage', to: '/components/vertical-navigation' },
+    { label: 'Computer Systems', to: '/components/command-palette' },
+    { label: 'Computer Peripherals', to: '/components/table' },
+    { label: 'Server & Components', to: '/components/form' },
+    { label: 'Appliances', to: '/components/card' },
+    { label: 'Electronics', to: '/components/dropdown' },
+    { label: 'Gaming & VR', to: '/components/modal' },
+    { label: 'Networking', to: '/components/pagination' },
+    { label: 'Smart Home & Security', to: '/components/tooltip' },
+    { label: 'Office Solutions', to: '/components/avatar' },
+    { label: 'Software & Services', to: '/components/breadcrumb' },
+    { label: 'Automotive & Tools', to: '/components/tabs' },
+    { label: 'Home & Outdoors', to: '/components/alert' },
+    { label: 'Health & Sports', to: '/components/badge' },
+    { label: 'Toys, Drones & Maker', to: '/components/timeline' },
   ];
   </script>
   
@@ -36,7 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%; 
+    width: 30%; 
     height: 50%; 
     background-color: white; 
     color: black;
@@ -66,7 +68,8 @@
       'wght' 400,
       'GRAD' 0,
       'opsz' 24;
-    margin-left: 8px; 
+    margin-left: 168px; 
+    width: 13px;
   }
   
   .link-label:hover {
@@ -74,6 +77,12 @@
     background-size: cover; 
     background-position: center; 
     border-radius: 4px;
+    color:white;
   }
+
+  .material-symbols-outlined:hover {
+  color: white;
+}
+
   </style>
   
