@@ -51,6 +51,7 @@
         <button class="remove-button">REMOVE</button>
 
         <div class="alt4">Available Promo Discount</div>
+        
       </div>
   
 
@@ -58,10 +59,23 @@
 
       <!-- Sağ Konteyner -->
       <div class="container-item container-item-right">
-        <div class="container-title">Sağ Konteyner</div>
-        <p>Sağ konteyner içeriği</p>
-      </div>
+        <div class="container-title">Summary</div>
+       <div class="sag1"> Item(s): </div>
+       <div class="sag2">Est. Delivery: </div>
+       <div class="sag3">Promo Code Discount:</div>
+       <div class="sag4">Apply Promo Code</div>
+
+       <div class="search-container">
+  <input type="text" class="search-bar"  />
+  <button class="apply-button">Apply</button>
+</div>
+
+<div class="sag5">Est. Total:</div>
+<button class="checkout">SECURE CHECKOUT</button>
+<div class="or">OR</div>
+<button class="checkout2">PAYPAL ile satın alın</button>
     </div>
+</div>
   </template>
   
   <style scoped>
@@ -357,6 +371,66 @@
 }
 
 
+.sag1 {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+ 
+  padding: 5px;
+  position: relative;  /* Use relative positioning */
+  top: 0;  /* Remove or adjust if needed */
+  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  right: 30px; 
+}
+
+.sag2 {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+ 
+  padding: 5px;
+  position: relative;  /* Use relative positioning */
+  top: 5;  /* Remove or adjust if needed */
+  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  right: 15px; 
+  white-space: nowrap;
+}
+
+.sag3 {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+ 
+  padding: 5px;
+  position: relative;  /* Use relative positioning */
+  top: 5;  /* Remove or adjust if needed */
+  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  right: -15px; 
+  white-space: nowrap;
+}
+
+.sag4 {
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+ font-weight: bold;
+  padding: 5px;
+  position: relative;  /* Use relative positioning */
+  top: 5;  /* Remove or adjust if needed */
+  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  right: -15px; 
+  white-space: nowrap;
+}
+
+
+
+.sag5 {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+ font-weight:normal;
+  padding: 5px;
+  position: relative;  /* Use relative positioning */
+  top: 5;  /* Remove or adjust if needed */
+  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  right: 15px; 
+  white-space: nowrap;
+}
 
 
 
@@ -409,5 +483,105 @@
     position: relative;
     
   }
+
+
+
+  .search-container {
+  display: flex;
+  align-items: center;  /* Vertically align the items */
+  gap: 10px;  /* Add space between the search bar and button */
+  margin-left: 27px;  /* Move the entire search bar and button to the right */
+}
+
+/* Styling for the search bar */
+.search-bar {
+  height: 35px;
+  width: 250px;
+  padding: 0 15px;
+  border-radius: 5px;  /* Rounded edges */
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;  /* Remove default focus outline */
+  background-color: white;
+  color: black;  /* Set text color to black */
+}
+
+/* Focus style for the search bar */
+.search-bar:focus {
+  border-color: #007bff;  /* Change border color when focused */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  /* Add subtle shadow */
+}
+
+/* Styling for the Apply button */
+.apply-button {
+  height: 35px;
+  padding: 0 20px;
+  border-radius: 5px;  /* Rounded edges */
+  border: 1px solid #ccc;
+  background-color: #ffffff;  /* Initial button background color */
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+
+
+.checkout {
+  margin-left: 27px;
+  width: 300px;
+  height: 30px; /* Increased height for better visual appearance */
+  padding: 0 30px;
+  background-color: orange;  /* Orange background */
+  color: rgb(0, 0, 0);  /* Black text color */
+  border: 1px solid rgb(255, 100, 0);  /* Border with a specified width */
+  border-radius: 4px;  /* Rounded corners */
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;  /* Smooth transition for background color change */
+  text-align: center;
+}
+
+/* Hover effect to change background color */
+.checkout:hover {
+  background-color: darkorange;
+
+}
+
+
+.or{
+    color:#333;
+    padding: 10px;
+    margin-left: 150px;
+}
+
+
+
+.checkout2 {
+  margin-left: 55px;
+  width: 250px;
+  height: 30px; /* Increased height for better visual appearance */
+  padding: 0 30px;
+  background-color: rgb(23, 87, 198);  /* Orange background */
+  color: rgb(255, 255, 255);  /* Black text color */
+    /* Border with a specified width */
+  border-radius: 4px;  /* Rounded corners */
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;  /* Smooth transition for background color change */
+  text-align: center;
+}
+
+/* Hover effect to change background color */
+.checkout2:hover {
+  background-color: rgb(21, 80, 182);
+
+}
+
+
+
   </style>
   
