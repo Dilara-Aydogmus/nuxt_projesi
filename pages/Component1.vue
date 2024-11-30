@@ -2,15 +2,9 @@
     <div class="center-container">
       <ul class="navigation-list">
         <li v-for="link in links" :key="link.label" class="navigation-item">
-          <div
-            class="link-label"
-            @click="toggleSubmenu(link.label)"
-          >
-          
+          <div class="link-label" @click="toggleSubmenu(link.label)">
             <img :src="getIconForLink(link.label)" alt="link icon" class="link-icon" />
-           
             <span class="link-text">{{ link.label }}</span>
-           
             <img
               src="/pages/ok.png"
               alt="toggle icon"
@@ -18,18 +12,10 @@
               :class="{ expanded: expandedLink === link.label }"
             />
           </div>
-         
-          <ul
-            v-if="expandedLink === link.label"
-            class="submenu"
-          >
-            <li
-              v-for="(subItem, index) in link.subItems"
-              :key="index"
-              class="submenu-item"
-            >
+          <!-- Submenu that appears when the link is expanded -->
+          <ul v-if="expandedLink === link.label" class="submenu">
+            <li v-for="(subItem, index) in link.subItems" :key="index" class="submenu-item">
               <span>{{ subItem }}</span>
-             
               <img
                 src="/pages/ok.png"
                 alt="submenu toggle icon"
@@ -44,7 +30,6 @@
   
   <script setup lang="ts">
   import { ref } from 'vue';
-  
   
   const links = [
     { label: 'Components & Storage', subItems: ['Core Component', 'Storage Device', 'Deals by Categories'] },
@@ -66,11 +51,9 @@
   
   const expandedLink = ref<string | null>(null);
   
-  
   function toggleSubmenu(label: string) {
     expandedLink.value = expandedLink.value === label ? null : label;
   }
-  
   
   function getIconForLink(label: string): string {
     const iconMap: { [key: string]: string } = {
@@ -161,11 +144,13 @@
     transform: rotate(180deg);
   }
   
+  /* Removed background color for the submenu */
   .submenu {
     margin-top: 4px;
     padding-left: 16px;
     list-style: none;
     padding: 0;
+    display: none;
   }
   
   .submenu-item {

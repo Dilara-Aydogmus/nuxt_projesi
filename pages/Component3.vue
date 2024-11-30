@@ -3,7 +3,7 @@
       <div class="navbar-container">
         <!-- PNG Image at the start of the navbar -->
         <img src="/logo.SVG" alt="Logo" class="navbar-logo" />
-  
+    
         <!-- Button with bold text, "Select Address" under it, and PNG image -->
         <button class="navbar-button">
           <img src="/konum.png" alt="Icon" class="button-image" />
@@ -12,32 +12,29 @@
             <span class="button-bold">Select Address</span>
           </div>
         </button>
-  
+    
         <div class="navbar-search">
           <input type="text" placeholder="Search..." class="search-input" />
-          <!-- Button inside the search bar -->
           <button class="search-button">
             <img src="/search.png" alt="Search" class="search-icon" />
           </button>
-  
+    
           <button class="search-button2">
             ssd hard drive
           </button>
-  
-          <!-- Notification buttons (Two bells) aligned horizontally -->
+    
           <button class="notification-button">
             <img src="/zil.png" alt="Notification" class="notification-icon" />
           </button>
           <button class="notification-button">
             <img src="/bayrak.png" alt="Notification" class="notification-icon" />
           </button>
-  
-          <!-- Custom Toggle -->
+    
           <label class="switch">
             <input type="checkbox" v-model="toggleState" />
             <span class="slider"></span>
           </label>
-  
+    
           <button class="navbar-button">
             <img src="/insan.png" alt="Icon" class="button-image" />
             <div class="button-text">
@@ -45,36 +42,94 @@
               <span class="button-bold">Sign in / Register</span>
             </div>
           </button>
-  
+    
           <button class="navbar-button">
             <div class="button-text">
               <span class="button-subtext">Returns</span>
               <span class="button-bold">& Orders</span>
             </div>
           </button>
-  
+    
           <button class="notification-button">
             <img src="/avm.png" alt="Notification" class="notification-icon" />
           </button>
         </div>
       </div>
-
-
   
       <!-- New row and text added below the navbar container -->
       <div class="new-row">
+
+
+
         <!-- Toggle menu button -->
-        <button class="toggle-menu-button">
-          <img src="/cizgiler.png" alt="Menu" class="menu-icon" />
-        </button>
-        <p class="new-text">Your new row of text can go here.</p>
-      </div>
+        <button class="toggle-menu-button" @click="toggleMenu">
+   <img src="/cizgiler.png" alt="Icon" class="button-image" />
+            <div class="button-text">
+              <span class="button-bold">Menu</span>
+            </div>
+</button>
 
+<button class="yazilar">
+    <div class="button-text">
+        <span class="button-bold">
+            Shell Shocker Deals
+        </span>
+    </div>
+</button>
 
+<button class="yazilar2">
+    <div class="button-text">
+        <span class="button-bold">
+           Pc Builder
+        </span>
+    </div>
+</button>
       
+      </div>
+  
+      <!-- Menu that will show/hide based on the toggle state -->
+      <div v-if="menuVisible" class="dropdown-menu">
+        <div class="dropdown-lists">
+        <!-- Left List -->
+        <ul class="list-left">
+          <li><a href="#">Today's Best Deals</a></li>
+          <li><a href="#">Email Deals</a></li>
+          <li><a href="#">Clearance - up to 70% off</a></li>
+          <li><a href="#">Refreshed - Like new </a></li>
+          <li><a href="#">Newegg Store Credit Card</a></li>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Black Friday Ultimate Sale</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#">Shopping Tools</a></li>
+        </ul>
+
+        <!-- Right List -->
+        <ul class="list-right ">
+          <li><a href="#">Custom PC Builder</a></li>
+          <li><a href="#">ASUS NUC Configurator</a></li>
+          <li><a href="#">Menu Item 11</a></li>
+          <li><a href="#">Menu Item 12</a></li>
+          <li><a href="#">Menu Item 13</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+          <li><a href="#">Menu Item 14</a></li>
+        </ul>
+      </div>
+      </div>
     </nav>
-
-
   </template>
   
   <script>
@@ -82,7 +137,13 @@
     data() {
       return {
         toggleState: false, // Keeps track of the toggle state (false = off, true = on)
+        menuVisible: false,  // This controls the visibility of the menu
       };
+    },
+    methods: {
+      toggleMenu() {
+        this.menuVisible = !this.menuVisible; // Toggles the visibility of the menu
+      },
     },
   };
   </script>
@@ -142,6 +203,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    color:black;
   }
   
   .button-bold {
@@ -308,18 +370,164 @@
   }
   
   .toggle-menu-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 10px; /* Position the button on the left */
-    top: 50%;
-    transform: translateY(-50%);
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 10px; /* Position the button on the left */
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 25px; /* Rounded corners */
+  height: 40px; /* Thinner button */
+  width: 120px; /* Longer button */
+  display: flex;
+  align-items: center; /* Aligns text and image vertically */
+  justify-content: center; /* Centers content horizontally */
+  padding: 0 10px; /* Padding for left and right */
+  color:black;
+}
+  
+.toggle-menu-button:hover {
+  background-color: #dcdcdc; /* Light gray color when hovered */
+}
+
+  .menu-icon {
+    width: 35px;
+    height: 40px;
   }
   
-  .menu-icon {
-    width: 24px;
-    height: 24px;
-  }
+  /* Dropdown Menu */
+  .dropdown-menu {
+  position: absolute;
+  left: 50px; /* Adjust the position based on where you want it */
+  top: 120px;
+  background-color: rgb(221, 229, 238);
+  border: 1px solid #ddd;
+  padding: 0px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 600px; /* Set a fixed height */
+  overflow-y: auto; /* Allow scrolling if items overflow */
+  width: 500px;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  margin-bottom: 8px;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  color: #3a1f8e;
+}
+
+.dropdown-lists {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.list-left, .list-right {
+  flex: 1; /* Both lists take equal width */
+  padding: 10px;
+
+}
+
+
+.list-left li,
+.list-right li {
+  margin-bottom: 8px;
+  margin-top:  20px;
+}
+
+.list-left a,
+.list-right a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.list-left a:hover,
+.list-right a:hover {
+  color: #3a1f8e;
+}
+
+.list-right {
+  background-color: white; /* White background for the right list */
+  border-radius: 0px;
+ 
+ 
+}
+
+.list-left {
+  background-color: rgba(235, 245, 253, 0.9); /* White background for the right list */
+  border-radius: 0px;
+
+}
+
+/* Styling for webkit-based browsers */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Thumb color */
+  border-radius: 10px; /* Rounded edges for the thumb */
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background-color: transparent; /* Track color */}
+
+  .yazilar {
+  position: absolute; /* Position it absolutely within the container */
+  left: 150px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+}
+
+.yazilar .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+}
+
+.yazilar .button-bold {
+  font-weight: bold;
+  font-size: 14px; /* Adjust font size if needed */
+  color: black;
+}
+
+
+.yazilar2 {
+  position: absolute; /* Position it absolutely within the container */
+  left: 300px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+}
+
+.yazilar2 .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+}
+
+.yazilar2 .button-bold {
+  font-weight: bold;
+  font-size: 14px; /* Adjust font size if needed */
+  color: black;
+}
   </style>
   
