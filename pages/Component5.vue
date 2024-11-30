@@ -40,8 +40,22 @@
             <a href="#" class="clickable-link2">Limit 5</a>
         </div>
         <div class="test2"> <a href="#" class="clickable-link3">2,000+ people have this item in their cart.</a></div>
+
+        <div class="alt1">Operating Systems: Windows 11</div>
+        <div class="alt2">Bit Version: 64 Bit</div>
+        <div class="alt3">Version: Home</div>
+
+
+        <button class="wish-button">MOVE TO WISHLIST</button>
+        <button class="save-button">SAVE FOR LATER</button>
+        <button class="remove-button">REMOVE</button>
+
+        <div class="alt4">Available Promo Discount</div>
       </div>
   
+
+
+
       <!-- Sağ Konteyner -->
       <div class="container-item container-item-right">
         <div class="container-title">Sağ Konteyner</div>
@@ -142,6 +156,68 @@
     top: 25px;
   }
   
+
+
+
+  .wish-button {
+  color: black;
+  background-color: rgba(193, 189, 189, 0.648);
+  font-weight: bold;
+  height: 30px;
+  width: 160px; /* Increase width to make the button longer */
+  border: 1px solid rgba(0, 0, 0, 0.258);
+  margin-right: 215px;
+  position: relative;  /* Add relative positioning */
+  top: -190px;  /* Adjust this to move the button upwards */
+  font-size: 11px;
+  padding: 5px;
+  right: 5px;
+  border-radius: 4px;
+  text-align: center; /* Align text to the center */
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+}
+
+
+.save-button{
+    color: black;
+  background-color: rgba(193, 189, 189, 0.648);
+  font-weight: bold;
+  height: 30px;
+  width: 160px; /* Increase width to make the button longer */
+  border: 1px solid rgba(0, 0, 0, 0.258);
+  margin-right: 215px;
+  position: relative;  /* Add relative positioning */
+  top: -220px;  /* Adjust this to move the button upwards */
+  font-size: 11px;
+  padding: 5px;
+  right: -310px;
+  border-radius: 4px;
+  text-align: center; /* Align text to the center */
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+}
+
+
+
+.remove-button{
+    color: black;
+  background-color: rgba(193, 189, 189, 0.648);
+  font-weight: bold;
+  height: 30px;
+  width: 80px; /* Increase width to make the button longer */
+  border: 1px solid rgba(0, 0, 0, 0.258);
+  margin-right: 215px;
+  position: relative;  /* Add relative positioning */
+  top: -220px;  /* Adjust this to move the button upwards */
+  font-size: 11px;
+  padding: 5px;
+  right: -240px;
+  border-radius: 4px;
+  text-align: center; /* Align text to the center */
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+}
+
+
+
   /* Image, text, and dropdown container */
   .image-text-container {
     display: flex;
@@ -230,6 +306,60 @@
   font-weight: bold;
   padding: 5px;
 }
+
+
+
+
+  
+.alt1 {
+  color: rgb(0, 0, 0);
+  margin-right: 215px;
+  position: relative;  /* Add relative positioning */
+  top: -190px;  /* Adjust this to move the price upwards */
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.alt2 {
+  color: rgb(0, 0, 0);
+  margin-right: 215px;
+  position: relative;  /* Add relative positioning */
+  top: -190px;  /* Adjust this to move the price upwards */
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px;
+  right:36px;
+}
+
+.alt3 {
+  color: rgb(0, 0, 0);
+  margin-right: 215px;
+  position: relative;  /* Add relative positioning */
+  top: -190px;  /* Adjust this to move the price upwards */
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px;
+  right:45px;
+}
+
+
+
+.alt4 {
+  color: rgb(0, 0, 0);
+  margin-right: 215px;
+  position: relative;  /* Add relative positioning */
+  top: -190px;  /* Adjust this to move the price upwards */
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
+  right:6px;
+}
+
+
+
+
+
   /* Ensure clickable-link and clickable-link2 are positioned independently */
 .clickable-link {
   font-size: 12px;
