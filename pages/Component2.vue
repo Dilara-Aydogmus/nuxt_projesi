@@ -1,62 +1,81 @@
 <template>
-    <UCarousel 
-      v-slot="{ item }" 
-      :items="items" 
-      :ui="{ item: 'basis-full md:basis-1/3 lg:basis-1/4' }" 
-      indicators 
-      class="rounded-lg overflow-hidden flex gap-1"
-    >
-      <div class="relative">
-        <!-- Background Image for each item -->
-        <img 
-          :src="item.backgroundImage" 
-          class="w-full h-auto rounded-lg" 
-          draggable="false"
-          :style="{ width: '255px', height: '260px', marginRight: '0px' }" 
-        >
-        <!-- Text over the image -->
-        <div class="absolute inset-0 flex flex-col justify-center pl-4 space-y-1">
-          <!-- Heading -->
-          <div class="font-bold text-sm text-transparent bg-clip-text" :style="{ backgroundImage: 'url(/ff.jpeg)' }">
-            {{ item.heading }}
-          </div>
-      
-          <!-- Discount text -->
-          <div class="font-bold text-3xl text-transparent bg-clip-text" :style="{ backgroundImage: 'url(/ff.jpeg)' }">
-            {{ item.discount }}
-            <span class="text-sm font-normal font-bold">Off</span>
-          </div>
-      
-          <!-- Description -->
-          <div class="font-bold text-sm" :style="{ color: '#66ffff' }">
-            {{ item.description }}
-          </div>
-      
-          <!-- Small Image with separate size adjustment for carousel3.png and carousel4.png -->
-          <div>
+    <div class="carousel-container relative">
+      <!-- UCarousel component with items -->
+      <UCarousel
+        :items="items"
+        :ui="{ item: 'basis-full md:basis-1/3 lg:basis-1/4' }"
+        arrows
+        class="rounded-lg overflow-hidden flex gap-1"
+      >
+        <template v-slot="{ item }">
+          <div class="relative">
+            <!-- Background Image for each item -->
             <img 
-              :src="item.smallImage" 
-              alt="Small Image" 
-              :class="[
-                'custom-image',
-                { 'custom-image-carousel3': item.smallImage === '/carousel3.png' },
-                { 'custom-image-carousel4': item.smallImage === '/carousel4.png' }
-              ]" 
+              :src="item.backgroundImage" 
+              class="w-full h-auto rounded-lg" 
+              draggable="false"
+              :style="{ width: '255px', height: '260px', marginRight: '0px' }" 
             />
+            <!-- Text over the image -->
+            <div class="absolute inset-0 flex flex-col justify-center pl-4 space-y-1">
+              <div class="font-bold text-sm text-transparent bg-clip-text" :style="{ backgroundImage: 'url(/ff.jpeg)' }">
+                {{ item.heading }}
+              </div>
+              <div class="font-bold text-3xl text-transparent bg-clip-text" :style="{ backgroundImage: 'url(/ff.jpeg)' }">
+                {{ item.discount }}
+                <span class="text-sm font-normal font-bold">Off</span>
+              </div>
+              <div class="font-bold text-sm" :style="{ color: '#66ffff' }">
+                {{ item.description }}
+              </div>
+              <div>
+                <img 
+                  :src="item.smallImage" 
+                  alt="Small Image" 
+                  :class="[ 
+                    'custom-image',
+                    { 'custom-image-carousel3': item.smallImage === '/carousel3.png' },
+                    { 'custom-image-carousel4': item.smallImage === '/carousel4.png' }
+                  ]" 
+                />
+              </div>
+            </div>
           </div>
+        </template>
+    
+        <!-- Left Arrow Button (For Previous Slide) -->
+        <template #prev="{ onClick, disabled }">
+          <button :disabled="disabled" @click="onClick" class="left-button">
+            <div class="font-bold text-3xl text-transparent bg-clip-text flex justify-center items-center">
+  <img src="/ok2.png" alt="OK Image" class="w-8 h-8"  />
+</div>
+
+          </button>
+        </template>
+    
+        <!-- Right Arrow Button (For Next Slide) -->
+        <template #next="{ onClick, disabled }">
+          <button :disabled="disabled" @click="onClick" class="right-button">
+            <div class="font-bold text-3xl text-transparent bg-clip-text flex justify-center items-center">
+            <img src="/pages/ok.png" alt="OK Image" class="w-8 h-8" />
         </div>
-      </div>
-    </UCarousel>
+          </button>
+        </template>
+      </UCarousel>
+    </div>
   </template>
   
   <script setup lang="ts">
+  import { ref } from 'vue';
+  
+  // Items for carousel
   const items = [
     {
-      backgroundImage: '/bckg.png',  // Path to the background image
+      backgroundImage: '/bckg.png',
       heading: 'Up to 81%',
       discount: '81%',
       description: 'PCS & Laptops',
-      smallImage: '/carouselpc1.png',  // Path to the small image
+      smallImage: '/carouselpc1.png',
     },
     {
       backgroundImage: '/bckg.png',
@@ -70,14 +89,14 @@
       heading: 'Special Offer',
       discount: '50%',
       description: 'Home Office Essentials',
-      smallImage: '/carousel3.png', // This image will be smaller and with specific size
+      smallImage: '/carousel3.png',
     },
     {
       backgroundImage: '/bckg.png',
       heading: 'New Arrivals',
       discount: '30%',
       description: 'Smart Home Devices',
-      smallImage: '/carousel4.png', // This image will have a different size
+      smallImage: '/carousel4.png',
     },
     {
       backgroundImage: '/bckg.png',
@@ -90,32 +109,6 @@
   </script>
   
   <style scoped>
-  /* General styling for position */
-  .relative {
-    position: relative;
-  }
-  
-  .absolute {
-    position: absolute;
-  }
-  
-  /* Flex utilities */
-  .flex {
-    display: flex;
-  }
-  
-  .justify-center {
-    justify-content: center;
-  }
-  
-  .items-center {
-    align-items: center;
-  }
-  
-  .space-y-1 {
-    gap: 4px;  /* Reduced spacing between text items */
-  }
-  
   /* Styling for the text with background clip effect */
   .bg-clip-text {
     -webkit-background-clip: text;
@@ -146,25 +139,52 @@
     margin-left: 50px;
   }
   
-  /* Text styling */
-  .font-bold {
-    font-weight: bold;
+  /* Left Arrow Button Styling */
+  .left-button {
+    background-image: url('/bkg.jpg'); /* Add your desired background image */
+    background-size: cover;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    opacity: 0.7;
+    border: 2px solid #e60073;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border-radius: 50%;
   }
   
-  .text-sm {
-    font-size: 0.875rem;
+  .left-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
   
-  .text-3xl {
-    font-size: 3rem;
+  /* Right Arrow Button Styling */
+  .right-button {
+    background-image: url('/bkg.jpg'); /* Add your desired background image */
+    background-size: cover;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    opacity: 0.7;
+    border: 2px solid #e60073;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border-radius: 50%;
   }
   
-  .text-transparent {
-    color: transparent;
+  .right-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
   
-  .bg-clip-text {
-    background-clip: text;
+  button:hover:not(:disabled) {
+    opacity: 1;
   }
   </style>
   
