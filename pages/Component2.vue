@@ -22,9 +22,9 @@
                 {{ item.heading }}
               </div>
               <div class="font-bold text-3xl text-transparent bg-clip-text" :style="{ backgroundImage: 'url(/ff.jpeg)' }">
-                {{ item.discount }}
-                <span class="text-sm font-normal font-bold">Off</span>
-              </div>
+  {{ item.discount }}
+  <span class="text-sm font-bold" style="font-weight: 900;">Off</span>
+</div>
               <div class="font-bold text-sm" :style="{ color: '#66ffff' }">
                 {{ item.description }}
               </div>
@@ -47,9 +47,8 @@
         <template #prev="{ onClick, disabled }">
           <button :disabled="disabled" @click="onClick" class="left-button">
             <div class="font-bold text-3xl text-transparent bg-clip-text flex justify-center items-center">
-  <img src="/ok2.png" alt="OK Image" class="w-8 h-8"  />
-</div>
-
+              <img src="/ok2.png" alt="OK Image" class="w-8 h-8"  />
+            </div>
           </button>
         </template>
     
@@ -57,8 +56,8 @@
         <template #next="{ onClick, disabled }">
           <button :disabled="disabled" @click="onClick" class="right-button">
             <div class="font-bold text-3xl text-transparent bg-clip-text flex justify-center items-center">
-            <img src="/pages/ok.png" alt="OK Image" class="w-8 h-8" />
-        </div>
+              <img src="/pages/ok.png" alt="OK Image" class="w-8 h-8" />
+            </div>
           </button>
         </template>
       </UCarousel>
@@ -72,7 +71,7 @@
   const items = [
     {
       backgroundImage: '/bckg.png',
-      heading: 'Up to 81%',
+      heading: 'Up to',
       discount: '81%',
       description: 'PCS & Laptops',
       smallImage: '/carouselpc1.png',
@@ -185,6 +184,11 @@
   
   button:hover:not(:disabled) {
     opacity: 1;
+  }
+  
+  /* Set the height of the carousel to make it shorter */
+  .carousel-container {
+    height: 500px; /* Adjust the height as needed */
   }
   </style>
   
