@@ -1,13 +1,9 @@
 <template>
     <div class="layout">
-    
       <div class="sidebar">
-        
-  
         <header>
           <nav>
             <ul>
-             
               <li v-for="(button, index) in buttons" :key="index">
                 <NuxtLink :to="`/Component${index + 1}`">Component {{ index + 1 }}</NuxtLink>
               </li>
@@ -16,9 +12,7 @@
         </header>
       </div>
   
- 
       <div class="main-content">
-        
         <NuxtPage />
       </div>
     </div>
@@ -28,12 +22,12 @@
   export default {
     data() {
       return {
-        buttons: Array.from({ length: 10 }, (_, i) => `Component ${i + 1}`), 
+        buttons: Array.from({ length: 10 }, (_, i) => `Component ${i + 1}`),
       };
     },
     methods: {
       setActiveComponent(index) {
-      
+        
       }
     }
   };
@@ -48,21 +42,34 @@
     width: 200px;
     background-color: #f4f4f4;
     color: black;
-    padding: 20px;
+    padding: 25px;
   }
   
-  .sidebar button {
+  .sidebar header {
+    padding-top: 20px; /* Adds some top padding to the header if needed */
+  }
+  
+  .sidebar ul {
+    padding-left: 0; /* Ensure no extra padding on the left */
+    margin-top: 40px; /* Push the list down by 5 lines (adjust as needed) */
+  }
+  
+  .sidebar li {
+    list-style-type: none;
+  }
+  
+  .sidebar li a {
     display: block;
-    margin-bottom: 8px; 
-    padding: 6px 12px;  
-    font-size: 14px;    
-    width: 100%;
-    background-color: #e0e0e0; 
-    border: 1px solid #ccc;   
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: transparent; /* No background color for the text */
+    color: black; /* Make sure text is black */
+    text-decoration: none;
+    margin-bottom: 8px;
   }
   
-  .sidebar button:hover {
-    background-color: #ccc; 
+  .sidebar li a:hover {
+    background-color: #ccc; /* Optional hover effect */
   }
   
   .main-content {

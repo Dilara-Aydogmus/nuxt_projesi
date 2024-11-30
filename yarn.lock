@@ -4924,7 +4924,7 @@ nuxi@^3.15.0:
 
 nuxt@^3.14.1592:
   version "3.14.1592"
-  resolved "https://registry.npmjs.org/nuxt/-/nuxt-3.14.1592.tgz"
+  resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.14.1592.tgz#0f94132b7e0ffe9087b37392f295e2c7d5d05ee3"
   integrity sha512-roWAQH4Mb6WY72cNos+YVw0DgTCNAhNygiAMCedM7hbX6ESTR2n3VH7tU0yIWDPe/hfFdii4M4wWTTNHOtS44g==
   dependencies:
     "@nuxt/devalue" "^2.0.2"
