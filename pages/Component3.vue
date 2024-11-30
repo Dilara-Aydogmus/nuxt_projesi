@@ -19,11 +19,10 @@
           <button class="search-button">
             <img src="/search.png" alt="Search" class="search-icon" />
           </button>
-
+  
           <button class="search-button2">
-           ssd hard drive
+            ssd hard drive
           </button>
-          
   
           <!-- Notification buttons (Two bells) aligned horizontally -->
           <button class="notification-button">
@@ -38,32 +37,44 @@
             <input type="checkbox" v-model="toggleState" />
             <span class="slider"></span>
           </label>
-
+  
           <button class="navbar-button">
-          <img src="/insan.png" alt="Icon" class="button-image" />
-          <div class="button-text">
-            <span class="button-subtext">Welcome</span>
-            <span class="button-bold">Sign in / Register</span>
-          </div>
-        </button>
-
-
-        <button class="navbar-button">
-          <div class="button-text">
-            <span class="button-subtext">Returns</span>
-            <span class="button-bold">&Orders</span>
-          </div>
-        </button>
-
-        <button class="notification-button">
+            <img src="/insan.png" alt="Icon" class="button-image" />
+            <div class="button-text">
+              <span class="button-subtext">Welcome</span>
+              <span class="button-bold">Sign in / Register</span>
+            </div>
+          </button>
+  
+          <button class="navbar-button">
+            <div class="button-text">
+              <span class="button-subtext">Returns</span>
+              <span class="button-bold">& Orders</span>
+            </div>
+          </button>
+  
+          <button class="notification-button">
             <img src="/avm.png" alt="Notification" class="notification-icon" />
           </button>
-        
         </div>
-     
       </div>
-     
+
+
+  
+      <!-- New row and text added below the navbar container -->
+      <div class="new-row">
+        <!-- Toggle menu button -->
+        <button class="toggle-menu-button">
+          <img src="/cizgiler.png" alt="Menu" class="menu-icon" />
+        </button>
+        <p class="new-text">Your new row of text can go here.</p>
+      </div>
+
+
+      
     </nav>
+
+
   </template>
   
   <script>
@@ -87,7 +98,7 @@
     top: 0;
     left: 0;
     display: flex;
-    justify-content: flex-start; /* Align items closer together */
+    flex-direction: column; /* Allow navbar to grow vertically */
     align-items: center; /* Center items vertically */
   }
   
@@ -105,6 +116,7 @@
     margin-right: 20px; /* Add some margin to separate logo from next item */
   }
   
+  /* Button and image styles */
   .navbar-button {
     padding: 8px 16px; /* Reduced padding for a more compact look */
     font-size: 14px;
@@ -174,7 +186,7 @@
     cursor: pointer;
     position: absolute;
     right: 570px; /* Adjusted right positioning */
-    top: 50%;
+    top: 40px;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
@@ -189,6 +201,23 @@
   .search-icon {
     width: 22px;
     height: auto;
+  }
+  
+  .search-button2 {
+    background-color: #ffffffc8;
+    border: none;
+    border-radius: 5px;
+    padding: 1px 4px;
+    cursor: pointer;
+    position: absolute;
+    right: 700px; /* Adjusted right positioning */
+    top: 40px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    color: black;
   }
   
   /* Notification button styles */
@@ -258,21 +287,39 @@
   input:checked + .slider:before {
     transform: translateX(26px); /* Move the slider to the right */
   }
-  .search-button2 {
-    background-color: #ffffffc8;
+  
+  /* New row and text styles */
+  .new-row {
+    width: 100%;
+    background-color: white; /* Set background color to white */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    margin-top: 10px;
+    position: relative; /* To position the toggle menu on the left */
+  }
+  
+  .new-text {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin-left: 50px; /* Give space for the toggle menu */
+  }
+  
+  .toggle-menu-button {
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
-    padding: 1px 4px;
     cursor: pointer;
     position: absolute;
-    right: 700px; /* Adjusted right positioning */
+    left: 10px; /* Position the button on the left */
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    color:black;
+  }
+  
+  .menu-icon {
+    width: 24px;
+    height: 24px;
   }
   </style>
   
