@@ -1,39 +1,58 @@
 <template>
     <div class="grid-container">
-      <!-- 1st Row -->
+      <!-- 1st Row Container -->
       <div class="container">
         <div class="bookmark-icon">
           <span class="bookmark-text">01</span> <!-- Bookmark üzerindeki yazı -->
         </div>
+        <a href="#">
         <div class="circle-with-text">
           <div class="circle-container">
             <img src="/71.png" alt="Image 1" class="circle-image" />
           </div>
-          <p class="circle-text">Core Ultra 7</p> <!-- Altındaki metin -->
+          <p class="circle-text">Core Ultra 7</p>
         </div>
+    </a>
+
+    <a href="#">
         <div class="circle-with-text">
           <div class="circle-container">
             <img src="/72.png" alt="Image 2" class="circle-image" />
           </div>
           <p class="circle-text">Intel z890</p>
         </div>
+</a>
+
+
+<a href="#">
         <div class="circle-with-text">
           <div class="circle-container">
             <img src="/73.png" alt="Image 3" class="circle-image" />
           </div>
           <p class="circle-text">32GB DDR5</p>
         </div>
+        </a>
+
+        <a href="#">
         <div class="circle-with-text">
           <div class="circle-container">
             <img src="/74.png" alt="Image 4" class="circle-image" />
-       
           </div>
-
           <p class="circle-text">RTX 470Ti</p>
         </div>
+
+        </a>
+        <a href="#">
+        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+        </a>
+        <p class="yazilar">$2,150.89</p> 
+        <!-- Button under the price -->
+        <button class="white-button">VIEW DETAIL</button>
+        <button class="action-button">CUSTOMIZE IT</button>
       </div>
+      
   
-      <!-- 2nd Row -->
+      <!-- 2nd Row Container -->
       <div class="container">
         <div class="bookmark-icon">
           <span class="bookmark-text">02</span>
@@ -62,9 +81,10 @@
           </div>
           <p class="circle-text">Image 8</p>
         </div>
+        <p class="additional-text">This text appears after the 4th circle container in the second row.</p> <!-- 2. Container sonrası metin -->
       </div>
   
-      <!-- 3rd Row -->
+      <!-- 3rd Row Container -->
       <div class="container">
         <div class="bookmark-icon">
           <span class="bookmark-text">03</span>
@@ -93,9 +113,10 @@
           </div>
           <p class="circle-text">Image 12</p>
         </div>
+        <p class="additional-text">This text appears after the 4th circle container in the third row.</p> <!-- 3. Container sonrası metin -->
       </div>
   
-      <!-- 4th Row -->
+      <!-- 4th Row Container -->
       <div class="container">
         <div class="bookmark-icon">
           <span class="bookmark-text">04</span>
@@ -124,6 +145,7 @@
           </div>
           <p class="circle-text">Image 16</p>
         </div>
+        <p class="additional-text">This text appears after the 4th circle container in the fourth row.</p> <!-- 4. Container sonrası metin -->
       </div>
     </div>
   </template>
@@ -137,18 +159,19 @@
     padding: 20px;
   }
   
-  /* Styling for each rectangular container */
   .container {
-    background-color: #f8e2bb;
-    border-radius: 10px; /* Slight rounded corners */
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping for circle-with-text elements */
-    justify-content: start; /* Align items to the start */
-    gap: 10px; /* Space between circle containers */
-    align-items: center;
-    position: relative; /* Required for positioning the bookmark */
-  }
+  background-color: #f8e2bb;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  height: 145px; /* Make container height flexible */
+  
+}
   
   /* Bookmark icon with text inside */
   .bookmark-icon {
@@ -204,5 +227,78 @@
     color: #333; /* Text color */
     font-weight: bold;
   }
+  
+  /* Metinler için stil */
+  .additional-text1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    font-weight: normal;
+    color: #555;
+    top: -115px; /* Space between the circle containers and the text */
+    position: relative;
+    margin-left: 356px;
+  }
+
+  .yazilar {
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    
+    color: #000000;
+    top: -190px; /* Space between the circle containers and the text */
+    position: relative;
+    margin-left: 450px;
+  }
+/* Button styling */
+.action-button {
+    white-space:nowrap;
+    margin-left: 420px;
+  background-color: #ff9500; /* Orange color */
+  color: rgb(0, 0, 0); /* Text color */
+  border: 1px solid rgb(243, 94, 40); /* Remove border */
+  padding: 5px 10px; /* Padding for the button */
+  font-size: 12px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: -290px; /* Space above the button */
+  display: block; /* Make it a block element to take full width */
+  width: 100px; /* Button takes full width of its container */
+  height: 27px;
+  text-align: center; /* Center text */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effect */
+.action-button:hover {
+  background-color: #ff6600; /* Darker orange on hover */
+}
+
+.white-button {
+    white-space:nowrap;
+    margin-left: 420px;
+  background-color: #ffffff; /* Orange color */
+  color: rgb(0, 0, 0); /* Text color */
+  border: 1px solid rgb(169, 169, 169); /* Remove border */
+  padding: 5px 10px; /* Padding for the button */
+  font-size: 12px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: -350px; /* Space above the button */
+  display: block; /* Make it a block element to take full width */
+  width: 100px; /* Button takes full width of its container */
+  height: 27px;
+  text-align: center; /* Center text */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effect */
+.white-button:hover {
+  color:rgb(46, 32, 239) ; /* Darker orange on hover */
+}
+
+
   </style>
   
