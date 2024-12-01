@@ -7,22 +7,25 @@
   
       <!-- Flex container for vertical alignment -->
       <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search..." />
+        <input type="text" class="search-bar" placeholder="Email Address" />
         <button class="checkout">SIGN IN</button>
         <button class="checkout2">GET ONE-TIME SIGN IN CODE</button>
       </div>
   
-      <a href="#"> 
-        <p class="text2">What's The One-Time Code?</p>
-      </a>
+      <!-- Text container -->
+      <div class="text-container">
+        <a href="#"> 
+          <p class="text2">What's The One-Time Code?</p>
+        </a>
   
-      <p class="text3">New To Newegg?</p>
+        <p class="text3">New To Newegg?</p>
   
-      <a href="#"> 
-        <p class="text4">Sign Up</p>
-      </a>
+        <a href="#"> 
+          <p class="text4">Sign Up</p>
+        </a>
   
-      <p class="text5">OR</p>
+        <p class="text5">OR</p>
+      </div>
     </div>
   </template>
   
@@ -45,6 +48,7 @@
   .image {
     height: 60px;
     width: auto;
+    margin-left: 25px;
   }
   
   .text1 {
@@ -115,18 +119,49 @@
     color: #1a29c5;
   }
   
-  /* Text styling */
-  .text2,
-  .text3,
-  .text4,
+  /* Text container */
+  .text-container {
+    display: flex;
+    flex-direction: column; /* Stacks text items vertically */
+    align-items: center;    /* Centers text horizontally */
+    gap: 15px;              /* Adds spacing between text items */
+    margin-top: 30px;       /* Adjust top margin as needed */
+  }
+  
+  /* Unique styling for each text */
+  .text2 {
+    color: rgb(87, 87, 87);
+    font-weight: normal;
+    font-size: 13px;
+    text-decoration: underline; /* Underline for the link */
+    margin-left: -50px;
+    margin-top: -20px;
+  }
+  
+  .text3 {
+    color: rgb(18, 18, 18);
+    font-weight: normal;
+    font-size: 16px;
+    margin-left: -105px;
+    margin-top: -10px;
+  }
+  
+  .text4 {
+    color: rgb(0, 0, 0);
+font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+    margin-left: 90px;
+    margin-top: -38px;
+  }
+  
   .text5 {
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    font-size: 14px;
-    position: relative;
-    margin-top: 10px;
-    left: -25px;
+    color: rgb(79, 79, 79);
+    font-weight: normal;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-left: -50px;
+    margin-top: -10px;
   }
   </style>
   
