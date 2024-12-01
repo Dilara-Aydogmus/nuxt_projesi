@@ -30,8 +30,11 @@
 
     <div class="search-container2">
         
-        <button class="alt">SIGN IN WITH GOOGLE</button>
-        <button class="alt2">SIGN IN WITH APPLE</button>
+        <button class="alt">
+            <img src="/icon-google.png"  class="icon" />
+            SIGN IN WITH GOOGLE</button>
+        <button class="alt2">   <img src="/apple.svg" class="icon2" />
+            SIGN IN WITH APPLE</button>
       </div>
   
 
@@ -203,6 +206,11 @@ font-weight: bold;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
+
+    display: flex;               /* Make the button a flex container */
+  justify-content: center;     /* Horizontally center the text */
+  align-items: center;         /* Vertically center the text */
+  position: relative;    
   }
   
   /* Specific styles for each button */
@@ -275,6 +283,15 @@ font-weight: bold;
 .t:hover, 
 .tt:hover {
   color: blue;
+}
+
+.icon, .icon2 {
+  position: absolute;
+  left: 10px;                  /* Adjust to position the icon from the left */
+  top: 50%;                    /* Vertically centers the icon */
+  transform: translateY(-50%); /* Adjusts vertical alignment */
+  width: 20px;                 /* Control the size of the icon */
+  height: 20px;
 }
   </style>
   
