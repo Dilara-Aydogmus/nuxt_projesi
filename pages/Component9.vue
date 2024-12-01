@@ -27,6 +27,25 @@
         <p class="text5">OR</p>
       </div>
     </div>
+
+    <div class="search-container2">
+        
+        <button class="alt">SIGN IN WITH GOOGLE</button>
+        <button class="alt2">SIGN IN WITH APPLE</button>
+      </div>
+  
+
+      <div class="text-container2">
+        <a href="#"> 
+          <p class="t">Terms & Conditions | Privacy Policy </p>
+        </a>
+        <a href="#"> 
+        <p class="tt">Cookie Preferences</p>
+        </a>
+  
+        <p class="tttt">© 2000-2024 Newegg Inc. All rights reserved.</p>
+      </div>
+    
   </template>
   
   <style scoped>
@@ -163,5 +182,99 @@ font-weight: bold;
     margin-left: -50px;
     margin-top: -10px;
   }
+
+  .search-container2 {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;    /* Centers horizontally */
+    gap: 20px;              /* Adds space between items */
+    margin-top: 20px;       /* Adjust top margin as needed */
+    margin-left: -50px;
+  }
+
+  .alt,
+  .alt2 {
+    width: 275px;
+    height: 43px;
+    padding: 0 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Specific styles for each button */
+  .alt {
+    background-color: rgb(253, 253, 253);
+    color: rgb(0, 0, 0);
+    border: 1px solid #ccc;
+  }
+  
+  .alt:hover {
+    border: 1px solid #1a29c5;
+    color: #1a29c5;
+  }
+  
+  .alt2 {
+    background-color: rgb(253, 253, 253);
+    color: rgb(0, 0, 0);
+    border: 1px solid #ccc;
+  }
+  
+  .alt2:hover {
+    border: 1px solid #1a29c5;
+    color: #1a29c5;
+  }
+
+  .text-container2  {
+    display: flex;
+    flex-direction: column; /* Stacks text items vertically */
+    align-items: center;    /* Centers text horizontally */
+    gap: 15px;              /* Adds spacing between text items */
+    margin-top: 80px;       /* Adjust top margin as needed */
+  }
+  .t {
+    color: rgb(87, 87, 87);
+    font-weight: normal;
+    font-size: 13px;
+    text-decoration: underline; /* Underline for the link */
+    margin-left: -50px;
+    margin-top: -20px;
+  }
+  
+  .tt {
+    color: rgb(87, 87, 87);
+    font-weight: normal;
+    font-size: 13px;
+    text-decoration: underline; /* Underline for the link */
+    margin-left: -55px;
+    margin-top: -10px;
+  }
+  
+  .ttt {
+    color: rgb(0, 0, 0);
+font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+    margin-left: 150px;
+    margin-top: -38px;
+  }
+  
+  .tttt {
+    color: rgb(87, 87, 87);
+    font-weight: normal;
+    font-size: 13px;
+    margin-left: -50px;
+    margin-top: -10px;
+  }
+
+  .text2:hover, 
+.text4:hover, 
+.t:hover, 
+.tt:hover {
+  color: blue;
+}
   </style>
   
