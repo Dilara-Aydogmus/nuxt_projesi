@@ -9,9 +9,11 @@
         <a href="#" class="image-text">CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler - AF120 RGB ELITE Fans - 360mm Radiator -</a>
         <a href="#" class="oylama">
             <img src="/oylama1.png" alt="Rating 1" />
+            <span class="oylama-text">(601)</span>
         </a>
         <button class="test">
   <img src="/marka1.png" alt="Button Image" />
+  <span class="button-text">>></span>
 </button>
 
 
@@ -23,12 +25,17 @@
           class="image-container" 
           :style="{ backgroundImage: 'url(' + currentImage2 + ')' }">
         </div>
-        <p>lowest price in 30 days</p>
         <a href="#" class="image-text">SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler For Gaming PC Computer with</a>
         <a href="#" class="oylama2">
             <img src="/oylama2.png" />
+            <span class="oylama-text">(4)</span>
         </a>
-        <p>(601)</p>
+
+        <button class="test2">
+  <img src="/marka2.png" alt="Button Image" />
+  <span class="button-text">>></span>
+</button>
+     
       </div>
   
       <!-- Container 3 -->
@@ -39,8 +46,15 @@
         </div>
         <a href="#" class="image-text">MSI 34" 240 Hz QD-OLED UWQHD Gaming Monitor 3440 x 1440 (2K) 97.8% Adobe RGB </a>
         <<a href="#" class="oylama3">
-            <img src="/oylama1.png" alt="Rating 1" />
+            <img src="/oylama1.png"  />
+            <span class="oylama-text">(758)</span>
         </a>
+
+        <button class="test3">
+  <img src="/marka3.png" alt="Button Image" />
+  <span class="button-text">>></span>
+</button>
+
       </div>
     </div>
   </template>
@@ -138,7 +152,7 @@
 .oylama2 {
   display: flex;
   justify-content: center; /* Centers the image horizontally */
-  margin-top: -110px; /* Adjust vertical spacing */
+  margin-top: -88px; /* Adjust vertical spacing */
   position: relative; /* Allows positioning within the container */
   margin-left: -200px;
 }
@@ -152,7 +166,7 @@
 }
 
 .test {
-  background-color: #111ba5;
+  background-color: #ffffff;
   width: 70px; /* Set a width for the button */
   height: 30px; /* Set a height for the button */
   color: white; /* Optional: Set text color if you want text inside the button */
@@ -164,7 +178,60 @@
   margin-left: 210px; /* Adjust horizontal spacing */
   cursor: pointer; /* Makes it look clickable */
   border: none; /* Removes default border */
-
 }
+
+.test2 {
+  background-color: #ffffff;
+  width: 70px; /* Set a width for the button */
+  height: 30px; /* Set a height for the button */
+  color: white; /* Optional: Set text color if you want text inside the button */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  margin-top: -25px; /* Adjust vertical spacing */
+  position: relative; /* Allows positioning within the container */
+  margin-left: 210px; /* Adjust horizontal spacing */
+  cursor: pointer; /* Makes it look clickable */
+  border: none; /* Removes default border */
+}
+
+.test3 {
+  background-color: #ffffff;
+  width: 70px; /* Set a width for the button */
+  height: 30px; /* Set a height for the button */
+  color: white; /* Optional: Set text color if you want text inside the button */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  margin-top: -25px; /* Adjust vertical spacing */
+  position: relative; /* Allows positioning within the container */
+  margin-left: 210px; /* Adjust horizontal spacing */
+  cursor: pointer; /* Makes it look clickable */
+  border: none; /* Removes default border */
+}
+
+.button-text {
+  margin-left: 5px; /* Space between the image and text */
+  color: #1932ae; /* Lacivert color (dark blue) */
+  font-size: 15px; /* Adjust text size as needed */
+  font-weight: bold;
+}
+
+.oylama-text {
+  margin-left: -5px; /* Space between the image and text */
+  color: #606060; /* Lacivert color (dark blue) */
+  font-size: 12px; /* Adjust text size as needed */
+  font-weight: normal;
+}
+
+
+.oylama-text2 {
+  margin-left: -5px; /* Space between the image and text */
+  color: #606060; /* Lacivert color (dark blue) */
+  font-size: 12px; /* Adjust text size as needed */
+  font-weight: normal;
+}
+
+
   </style>
   
