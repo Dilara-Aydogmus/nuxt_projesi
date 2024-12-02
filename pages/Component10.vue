@@ -16,9 +16,11 @@
   <span class="button-text">>></span>
 </button>
 
+<div class="asagi-text">Save: 49%</div>
+<div class="fiyat-text">$429</div>
 
       </div>
-  
+    
       <!-- Container 2 -->
       <div class="container" @mouseover="changeImage(2)" @mouseleave="resetImage(2)">
         <div 
@@ -35,6 +37,8 @@
   <img src="/marka2.png" alt="Button Image" />
   <span class="button-text">>></span>
 </button>
+<div class="asagi-text2">Save: 22%</div>
+<div class="fiyat-text">$429</div>
      
       </div>
   
@@ -45,7 +49,7 @@
           :style="{ backgroundImage: 'url(' + currentImage3 + ')' }">
         </div>
         <a href="#" class="image-text">MSI 34" 240 Hz QD-OLED UWQHD Gaming Monitor 3440 x 1440 (2K) 97.8% Adobe RGB </a>
-        <<a href="#" class="oylama3">
+        <a href="#" class="oylama3">
             <img src="/oylama1.png"  />
             <span class="oylama-text">(758)</span>
         </a>
@@ -53,6 +57,8 @@
         <button class="test3">
   <img src="/marka3.png" alt="Button Image" />
   <span class="button-text">>></span>
+  <div class="asagi-text3">Save: 24%</div>
+  <div class="fiyat-text2">$429</div>
 </button>
 
       </div>
@@ -113,7 +119,7 @@
     border-radius: 10px; /* Slightly rounded corners */
     overflow: hidden;    /* Ensures images stay within the container bounds */
     width: 300px;
-    height: 700px; /* Reduced height to better fit the image size */
+    height: 510px; /* Reduced height to better fit the image size */
     position: relative;
     margin: 0;
   }
@@ -133,7 +139,7 @@
   .image-text {
     display: block;
     text-align: center;
-    margin-top: -150px;
+    margin-top: -60px;
     font-size: 14px;
     color: #000000;
     
@@ -160,9 +166,9 @@
 .oylama3 {
   display: flex;
   justify-content: center; /* Centers the image horizontally */
-  margin-top: -110px; /* Adjust vertical spacing */
+  margin-top: -90px; /* Adjust vertical spacing */
   position: relative; /* Allows positioning within the container */
-  margin-left: -200px;
+  margin-left: -180px;
 }
 
 .test {
@@ -205,7 +211,7 @@
   align-items: center; /* Centers content vertically */
   margin-top: -25px; /* Adjust vertical spacing */
   position: relative; /* Allows positioning within the container */
-  margin-left: 210px; /* Adjust horizontal spacing */
+  margin-left: 200px; /* Adjust horizontal spacing */
   cursor: pointer; /* Makes it look clickable */
   border: none; /* Removes default border */
 }
@@ -232,6 +238,76 @@
   font-weight: normal;
 }
 
+.asagi-text {
+    display: block;
+    text-align: center;
+    margin-top: 75px;  /* Adjust top margin to position the text properly */
+    font-size: 13px;
+    color: #ffffff;
+    background-color: red;
+    font-weight: bold;
+    padding: -1px 0;
+    width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
+    height: 20px;
+    margin-left: 10px; /* Center align the text horizontally */
+    margin-right: auto; /* Center align the text horizontally */
+}
 
+.asagi-text2 {
+    display: block;
+    text-align: center;
+    margin-top: 75px;  /* Adjust top margin to position the text properly */
+    font-size: 13px;
+    color: #ffffff;
+    background-color: red;
+    font-weight: bold;
+    padding: -1px 0;
+    width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
+    height: 20px;
+    margin-left: 10px; /* Center align the text horizontally */
+    margin-right: auto; /* Center align the text horizontally */
+}
+
+.asagi-text3 {
+    display: block;
+    text-align: center;
+    margin-top: 208px;  /* Adjust top margin to position the text properly */
+    font-size: 13px;
+    color: #ffffff;
+    background-color: red;
+    font-weight: bold;
+    padding: -1px 0;
+    width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
+    height: 20px;
+    margin-left: -290px; /* Center align the text horizontally */
+    margin-right: auto; /* Center align the text horizontally */
+}
+
+.fiyat-text {
+    display: block;
+  text-align: center;
+  font-size: 25px;
+  color: #000000;
+  font-weight: bold;
+  width: 80px;
+  height: 20px;
+  margin-top: 5px; /* Space between 'Save' and price */
+
+}
+.container {
+    position: relative; /* Ensure the positioning of child elements is relative to this container */
+}
+
+.fiyat-text2 {
+    display: block;
+    font-size: 25px;
+    color: #000000;
+    font-weight: bold;
+    width: 80px;
+    height: 20px;
+    margin-top: 255px; /* Adjust space between 'Save' and price */
+    position: absolute;
+    left: -200px; /* Move the text towards the left */
+}
   </style>
   
