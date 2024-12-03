@@ -92,40 +92,50 @@
         <div class="dropdown-lists">
         <!-- Left List -->
         <ul class="list-left">
-          <li><a href="#">Today's Best Deals</a></li>
-          <li><a href="#">Email Deals</a></li>
-          <li><a href="#">Clearance - up to 70% off</a></li>
-          <li><a href="#">Refreshed - Like new </a></li>
-          <li><a href="#">Newegg Store Credit Card</a></li>
-          <li><a href="#">Trending</a></li>
+          <li><a href="#">
+            <img src="/hourglass.png" class="list-item-icon" />
+            Today's Best Deals</a></li>
+          <li><a href="#">
+            <img src="/letter.png" class="list-item-icon" />
+            Email Deals</a></li>
+          <li><a href="#">
+            <img src="/tag.png" class="list-item-icon" />
+            Clearance - up to 70% off</a></li>
+          <li><a href="#">
+            <img src="/refreshed.png" class="list-item-icon" />
+            Refreshed - Like new </a></li>
+          <li><a href="#">
+            <img src="/credit.png" class="list-item-icon" />
+            Newegg Store Credit Card</a></li>
+            <li><a href="#" style="font-weight: bold; font-style: italic;">Trending</a></li>
           <li><a href="#">Black Friday Ultimate Sale</a></li>
-          <li><a href="#">Shopping Tools</a></li>
-          <li><a href="#">Shopping Tools</a></li>
-          <li><a href="#">Shopping Tools</a></li>
-          <li><a href="#">Shopping Tools</a></li>
-          <li><a href="#">Shopping Tools</a></li>
-          <li><a href="#">Shopping Tools</a></li>
-          <li><a href="#">Shopping Tools</a></li>
-          <li><a href="#">Shopping Tools</a></li>
+          <li><a href="#" style="font-weight: bold; font-style: italic;">Shopping Tools</a></li>
+          <li><a href="#">Custom PC Builder</a></li>
+          <li><a href="#">ASUS NUC Configurator</a></li>
+          <li><a href="#">Gaming PC Finder</a></li>
+          <li><a href="#">Laptop Finder</a></li>
+          <li><a href="#">Server Builder</a></li>
+          <li><a href="#">NAS Builder</a></li>
+          <li><a href="#">Memory Finder</a></li>
         </ul>
 
         <!-- Right List -->
         <ul class="list-right ">
-          <li><a href="#">Custom PC Builder</a></li>
-          <li><a href="#">ASUS NUC Configurator</a></li>
-          <li><a href="#">Menu Item 11</a></li>
-          <li><a href="#">Menu Item 12</a></li>
-          <li><a href="#">Menu Item 13</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
-          <li><a href="#">Menu Item 14</a></li>
+            <li><a href="#" style="font-weight: bold; font-style: italic;">All Products</a></li>
+          <li><a href="#">Components & Storage</a></li>
+          <li><a href="#">Computer Systems</a></li>
+          <li><a href="#">Computer Peripherals</a></li>
+          <li><a href="#">Server & Components </a></li>
+          <li><a href="#">Appliances</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Gaming & VR</a></li>
+          <li><a href="#">Networking</a></li>
+          <li><a href="#">Smart Home & Security</a></li>
+          <li><a href="#">Office Solutions</a></li>
+          <li><a href="#">Software & Services</a></li>
+          <li><a href="#">Automotive & Tools</a></li>
+          <li><a href="#">Home & Outdoors</a></li>
+          <li><a href="#">Health & Sports</a></li>
         </ul>
       </div>
       </div>
@@ -409,6 +419,8 @@
   height: 600px; /* Set a fixed height */
   overflow-y: auto; /* Allow scrolling if items overflow */
   width: 500px;
+
+
 }
 
 .dropdown-menu ul {
@@ -529,5 +541,21 @@
   font-size: 14px; /* Adjust font size if needed */
   color: black;
 }
+
+
+
+.list-item-icon {
+  width: 20px; /* Adjust the size of the image */
+  height: auto;
+  margin-right: 10px; /* Space between image and text */
+  vertical-align: middle; /* Aligns the image with the text */
+}
+
+.list-left a {
+  display: flex;
+  align-items: center; /* Align the image and text vertically */
+  padding: 1px 10px; 
+}
+
   </style>
   
