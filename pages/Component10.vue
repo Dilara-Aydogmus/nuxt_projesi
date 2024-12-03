@@ -1,66 +1,66 @@
 <template>
     <div class="container-wrapper">
       <!-- Container 1 -->
-      <div class="container" @mouseover="changeImage(1)" @mouseleave="resetImage(1)">
-        <div 
-          class="image-container" 
+      <div class="container">
+        <div class="image-container" 
+          @mouseover="changeImage(1)" 
+          @mouseleave="resetImage(1)" 
           :style="{ backgroundImage: 'url(' + currentImage1 + ')' }">
         </div>
         <a href="#" class="image-text">CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler - AF120 RGB ELITE Fans - 360mm Radiator -</a>
         <a href="#" class="oylama">
-            <img src="/oylama1.png" alt="Rating 1" />
-            <span class="oylama-text">(601)</span>
+          <img src="/oylama1.png" alt="Rating 1" />
+          <span class="oylama-text">(601)</span>
         </a>
         <button class="test">
-  <img src="/marka1.png" alt="Button Image" />
-  <span class="button-text">>></span>
-</button>
-
-<div class="asagi-text">Save: 49%</div>
-<div class="fiyat-text">$429</div>
-
+          <img src="/marka1.png" alt="Button Image" />
+          <span class="button-text">>></span>
+        </button>
+        <div class="asagi-text">Save: 49%</div>
+        <div class="fiyat-text">$429</div>
+        <button class="cart">ADD TO CART</button>
       </div>
-    
+  
       <!-- Container 2 -->
-      <div class="container" @mouseover="changeImage(2)" @mouseleave="resetImage(2)">
-        <div 
-          class="image-container" 
+      <div class="container">
+        <div class="image-container" 
+          @mouseover="changeImage(2)" 
+          @mouseleave="resetImage(2)" 
           :style="{ backgroundImage: 'url(' + currentImage2 + ')' }">
         </div>
         <a href="#" class="image-text">SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler For Gaming PC Computer with</a>
         <a href="#" class="oylama2">
-            <img src="/oylama2.png" />
-            <span class="oylama-text">(4)</span>
+          <img src="/oylama2.png" />
+          <span class="oylama-text">(4)</span>
         </a>
-
         <button class="test2">
-  <img src="/marka2.png" alt="Button Image" />
-  <span class="button-text">>></span>
-</button>
-<div class="asagi-text2">Save: 22%</div>
-<div class="fiyat-text">$429</div>
-     
+          <img src="/marka2.png" alt="Button Image" />
+          <span class="button-text">>></span>
+        </button>
+        <div class="asagi-text2">Save: 22%</div>
+        <div class="fiyat-text">$429</div>
+        <button class="cart">ADD TO CART</button>
       </div>
   
       <!-- Container 3 -->
-      <div class="container" @mouseover="changeImage(3)" @mouseleave="resetImage(3)">
-        <div 
-          class="image-container" 
+      <div class="container">
+        <div class="image-container" 
+          @mouseover="changeImage(3)" 
+          @mouseleave="resetImage(3)" 
           :style="{ backgroundImage: 'url(' + currentImage3 + ')' }">
         </div>
-        <a href="#" class="image-text">MSI 34" 240 Hz QD-OLED UWQHD Gaming Monitor 3440 x 1440 (2K) 97.8% Adobe RGB </a>
+        <a href="#" class="image-text">MSI 34" 240 Hz QD-OLED UWQHD Gaming Monitor 3440 x 1440 (2K) 97.8% Adobe RGB</a>
         <a href="#" class="oylama3">
-            <img src="/oylama1.png"  />
-            <span class="oylama-text">(758)</span>
+          <img src="/oylama1.png" />
+          <span class="oylama-text">(758)</span>
         </a>
-
         <button class="test3">
-  <img src="/marka3.png" alt="Button Image" />
-  <span class="button-text">>></span>
-  <div class="asagi-text3">Save: 24%</div>
-  <div class="fiyat-text2">$429</div>
-</button>
-
+          <img src="/marka3.png" alt="Button Image" />
+          <span class="button-text">>></span>
+        </button>
+        <div class="asagi-text3">Save: 24%</div>
+        <div class="fiyat-text2">$429</div>
+        <button class="cart2">ADD TO CART</button>
       </div>
     </div>
   </template>
@@ -115,13 +115,15 @@
   }
   
   .container {
+    position: relative;
     background-color: white;
     border-radius: 10px; /* Slightly rounded corners */
     overflow: hidden;    /* Ensures images stay within the container bounds */
     width: 300px;
-    height: 510px; /* Reduced height to better fit the image size */
+    height: 620px; /* Reduced height to better fit the image size */
     position: relative;
     margin: 0;
+    
   }
   
   .image-container {
@@ -133,7 +135,8 @@
     background-size: contain; /* Ensures the whole image is contained within the container */
     background-repeat: no-repeat; /* Avoids image repetition if it doesn't cover the area */
     transition: background-image 0.3s ease; /* Smooth transition when changing the image */
-    margin-top: -100px;
+    margin-top: -160px;
+    margin-bottom: -10px;
   }
   
   .image-text {
@@ -249,7 +252,7 @@
     padding: -1px 0;
     width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
     height: 20px;
-    margin-left: 10px; /* Center align the text horizontally */
+    margin-left: 15px; /* Center align the text horizontally */
     margin-right: auto; /* Center align the text horizontally */
 }
 
@@ -264,14 +267,14 @@
     padding: -1px 0;
     width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
     height: 20px;
-    margin-left: 10px; /* Center align the text horizontally */
+    margin-left: 15px; /* Center align the text horizontally */
     margin-right: auto; /* Center align the text horizontally */
 }
 
 .asagi-text3 {
     display: block;
     text-align: center;
-    margin-top: 208px;  /* Adjust top margin to position the text properly */
+    margin-top: 75px;  /* Adjust top margin to position the text properly */
     font-size: 13px;
     color: #ffffff;
     background-color: red;
@@ -279,8 +282,8 @@
     padding: -1px 0;
     width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
     height: 20px;
-    margin-left: -290px; /* Center align the text horizontally */
-    margin-right: auto; /* Center align the text horizontally */
+    margin-left: 15px; /* Center align the text horizontally */
+  
 }
 
 .fiyat-text {
@@ -291,7 +294,8 @@
   font-weight: bold;
   width: 80px;
   height: 20px;
-  margin-top: 5px; /* Space between 'Save' and price */
+  margin-top: 8px; /* Space between 'Save' and price */
+  margin-left: 5px;
 
 }
 .container {
@@ -305,9 +309,64 @@
     font-weight: bold;
     width: 80px;
     height: 20px;
-    margin-top: 255px; /* Adjust space between 'Save' and price */
+    margin-top: 8px; /* Adjust space between 'Save' and price */
     position: absolute;
-    left: -200px; /* Move the text towards the left */
+    left: 10px; /* Move the text towards the left */
+    margin-left: 5px;
+}
+
+.cart {
+  display: block;
+  width: 100px; /* Button width */
+  height: 25px; /* Button height */
+  background-color: white; /* Blue background */
+  color: rgb(0, 0, 0); /* Text color */
+  font-size: 12px; /* Text size */
+  font-weight: bold;
+  border: 2px solid rgb(203, 203, 203); /* Remove borders */
+  border-radius: 20px; /* Rounded corners */
+  text-align: center;
+  margin: 10px auto; /* Center horizontally and space between price and button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  margin-left: 10px;
+  margin-top: 55px;
+}
+
+.cart:hover {
+  color: #1a50e5; /* Slightly brighter blue on hover */
+  border: 2px solid 
+  #1a50e5; 
+  width: 105px;
+  height: 30px;
+  transition: 0.3s;
+}
+
+.cart2 {
+    display: block;
+  width: 100px; /* Button width */
+  height: 25px; /* Button height */
+  background-color: white; /* Blue background */
+  color: rgb(0, 0, 0); /* Text color */
+  font-size: 12px; /* Text size */
+  font-weight: bold;
+  border: 2px solid rgb(203, 203, 203); /* Remove borders */
+  border-radius: 20px; /* Rounded corners */
+  text-align: center;
+  margin: 10px auto; /* Center horizontally and space between price and button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  margin-left: 10px;
+  margin-top: 80px;
+}
+
+.cart2:hover {
+  color: #1a50e5; /* Slightly brighter blue on hover */
+  border: 2px solid 
+  #1a50e5; 
+  width: 105px;
+  height: 30px;
+  transition: 0.3s;
 }
   </style>
   
