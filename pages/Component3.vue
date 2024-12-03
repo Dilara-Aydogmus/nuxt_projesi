@@ -63,10 +63,12 @@
 
         <!-- Toggle menu button -->
         <button class="toggle-menu-button" @click="toggleMenu">
-   <img src="/cizgiler.png" alt="Icon" class="button-image" />
+   <img src="/menu16.png" alt="Icon" class="button-image" />
             <div class="button-text">
               <span class="button-bold">Menu</span>
+            
             </div>
+            <img src="/down.png" alt="Icon" class="button-image" />
 </button>
 
 <button class="yazilar">
@@ -77,14 +79,86 @@
     </div>
 </button>
 
+
+<button class="yazilargift">
+    <div class="button-text">
+        <span class="button-bold">
+           Holiday Gift Guide
+        </span>
+    </div>
+</button>
+
 <button class="yazilar2">
     <div class="button-text">
         <span class="button-bold">
-           Pc Builder
+           PC Builder
+        </span>
+    </div>
+</button>
+
+<button class="yazilarclearance">
+    <div class="button-text">
+        <span class="button-bold">
+          Clearance
         </span>
     </div>
 </button>
       
+
+<button class="yazilarbest">
+    <div class="button-text">
+        <span class="button-bold">
+         Best Sellers
+        </span>
+    </div>
+</button>
+      
+<button class="yazilarram">
+    <div class="button-text">
+        <span class="button-bold">
+         Free RAM
+        </span>
+    </div>
+</button>
+
+
+<button class="yazilarn">
+    <div class="button-text">
+        <span class="button-bold">
+         NEWEGG
+        </span>
+    </div>
+</button>
+
+<button class="yazilarb">
+    <div class="button-text">
+        <span class="button-bold">
+         BUSINESS
+        </span>
+    </div>
+</button>
+
+
+
+<button class="yazilarone">
+    <img src="/chat.png" alt="icon" class="button-icon">
+    <div class="button-text">
+     
+        <span class="button-bold">
+            Feedback
+        </span>
+    </div>
+</button>
+
+<button class="yazilartwo">
+    <img src="/support.png" alt="icon" class="button-icon">
+    <div class="button-text">
+      
+        <span class="button-bold">
+            Help Center
+        </span>
+    </div>
+</button>
       </div>
   
       <!-- Menu that will show/hide based on the toggle state -->
@@ -122,20 +196,51 @@
         <!-- Right List -->
         <ul class="list-right ">
             <li><a href="#" style="font-weight: bold; font-style: italic;">All Products</a></li>
-          <li><a href="#">Components & Storage</a></li>
-          <li><a href="#">Computer Systems</a></li>
-          <li><a href="#">Computer Peripherals</a></li>
-          <li><a href="#">Server & Components </a></li>
-          <li><a href="#">Appliances</a></li>
-          <li><a href="#">Electronics</a></li>
-          <li><a href="#">Gaming & VR</a></li>
-          <li><a href="#">Networking</a></li>
-          <li><a href="#">Smart Home & Security</a></li>
-          <li><a href="#">Office Solutions</a></li>
-          <li><a href="#">Software & Services</a></li>
-          <li><a href="#">Automotive & Tools</a></li>
-          <li><a href="#">Home & Outdoors</a></li>
-          <li><a href="#">Health & Sports</a></li>
+          <li><a href="#">Components & Storage
+
+            <img src="/xyz.png" class="testing" />
+
+
+          </a></li>
+          <li><a href="#">Computer Systems
+
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Computer Peripherals
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Server & Components
+            <img src="/xyz.png" class="testing" /> </a></li>
+          <li><a href="#">Appliances
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Electronics
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Gaming & VR
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Networking
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Smart Home & Security
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Office Solutions
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Software & Services
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Automotive & Tools
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Home & Outdoors
+            <img src="/xyz.png" class="testing" />
+          </a></li>
+          <li><a href="#">Health & Sports
+            <img src="/xyz.png" class="testing" />
+          </a></li>
         </ul>
       </div>
       </div>
@@ -206,7 +311,9 @@
   }
   
   .button-image {
-    width: 30px;
+    width: 25px;
+    height: 30;
+    margin-top: 2px;
   }
   
   .button-text {
@@ -214,6 +321,7 @@
     flex-direction: column;
     text-align: left;
     color:black;
+
   }
   
   .button-bold {
@@ -238,7 +346,7 @@
     border-radius: 25px;
     border: none;
     font-size: 14px;
-    width: 380px; /* Reduced width */
+    width: 385px; /* Reduced width */
     transition: border 0.3s ease;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('purple-to-blue.jpg');
     background-size: cover;
@@ -247,27 +355,28 @@
   
   .search-input:focus {
     outline: none;
-    border: 2px solid #2703a8;
+    border: 2px solid #1737d6;
   }
   
   .search-button {
-    background-color: #2703a8;
+    background-color: #1737d6;
     border: none;
     border-radius: 25px;
     padding: 8px 20px;
     cursor: pointer;
     position: absolute;
-    right: 570px; /* Adjusted right positioning */
+    right: 565px; /* Adjusted right positioning */
     top: 40px;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease;
+    margin-right: 2px;
   }
   
   .search-button:hover {
-    background-color: #3a1f8e;
+    background-color:#1737d6;
   }
   
   .search-icon {
@@ -282,7 +391,7 @@
     padding: 1px 4px;
     cursor: pointer;
     position: absolute;
-    right: 700px; /* Adjusted right positioning */
+    right: 650px; /* Adjusted right positioning */
     top: 40px;
     transform: translateY(-50%);
     display: flex;
@@ -290,6 +399,7 @@
     align-items: center;
     transition: background-color 0.3s ease;
     color: black;
+    font-size: 13px;
   }
   
   /* Notification button styles */
@@ -300,7 +410,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    padding: 4px;
     border-radius: 50%;
     transition: background-color 0.3s ease;
   }
@@ -310,8 +420,8 @@
   }
   
   .notification-icon {
-    width: 24px;
-    height: 24px;
+    width: 31px;
+    height: 31px;
   }
   
   /* Custom Toggle Styles */
@@ -319,7 +429,7 @@
     position: relative;
     display: inline-block;
     width: 60px;
-    height: 34px;
+    height: 30px;
   }
   
   .switch input {
@@ -338,6 +448,7 @@
     background-color: #ccc;
     transition: 0.4s;
     border-radius: 50px;
+    border: 1px solid rgb(0, 0, 0);
   }
   
   .slider:before {
@@ -347,13 +458,13 @@
     width: 26px;
     border-radius: 50px;
     left: 4px;
-    bottom: 4px;
+    bottom: 2px;
     background-color: white;
     transition: 0.4s;
   }
   
   input:checked + .slider {
-    background-color: #2703a8; /* Purple when toggled */
+    background-color: #d66017;/* Purple when toggled */
   }
   
   input:checked + .slider:before {
@@ -507,24 +618,26 @@
   /* You can adjust the left value to control the horizontal placement */
   display: flex;
   align-items: center; /* Center vertically within the container */
+
 }
 
 .yazilar .button-text {
   display: flex;
   flex-direction: column;
   text-align: right; /* Align text to the right */
+
 }
 
 .yazilar .button-bold {
   font-weight: bold;
-  font-size: 14px; /* Adjust font size if needed */
+  font-size: 13px; /* Adjust font size if needed */
   color: black;
 }
 
 
 .yazilar2 {
   position: absolute; /* Position it absolutely within the container */
-  left: 300px; /* Or use right: 300px; depending on your preference */
+  left: 450px; /* Or use right: 300px; depending on your preference */
   /* You can adjust the left value to control the horizontal placement */
   display: flex;
   align-items: center; /* Center vertically within the container */
@@ -538,9 +651,142 @@
 
 .yazilar2 .button-bold {
   font-weight: bold;
+  font-size: 13px; /* Adjust font size if needed */
+  color: black;
+}
+
+.yazilargift {
+  position: absolute; /* Position it absolutely within the container */
+  left: 305px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+}
+
+.yazilargift .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+}
+
+.yazilargift .button-bold {
+  font-weight: bold;
+  font-size: 13px; /* Adjust font size if needed */
+  color: black;
+}
+
+.yazilarclearance{
+  position: absolute; /* Position it absolutely within the container */
+  left: 540px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+}
+
+.yazilarclearance .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+}
+
+.yazilarclearance .button-bold {
+  font-weight: bold;
+  font-size: 13px; /* Adjust font size if needed */
+  color: black;
+}
+
+
+
+.yazilarbest{
+  position: absolute; /* Position it absolutely within the container */
+  left: 640px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+}
+
+.yazilarbest .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+}
+
+.yazilarbest .button-bold {
+  font-weight: bold;
+  font-size: 13px; /* Adjust font size if needed */
+  color: black;
+}
+
+.yazilarram{
+  position: absolute; /* Position it absolutely within the container */
+  left: 740px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+}
+
+.yazilarram .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+}
+
+.yazilarram .button-bold {
+  font-weight: bold;
+  font-size: 13px; /* Adjust font size if needed */
+  color: black;
+}
+
+.yazilarn{
+  position: absolute; /* Position it absolutely within the container */
+  left: 840px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+}
+
+.yazilarn .button-text {
+  display: flex;
+  flex-direction: column;
+  font-style: italic;
+
+  text-align: right; /* Align text to the right */
+}
+
+.yazilarn .button-bold {
+  font-weight: bold;
+  font-size: 14px; /* Adjust font size if needed */
+  color:#1737d6;
+}
+
+.yazilarb{
+  position: absolute; /* Position it absolutely within the container */
+  left: 902px; /* Or use right: 300px; depending on your preference */
+  /* You can adjust the left value to control the horizontal placement */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+ 
+}
+
+.yazilarb .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+  font-style: italic;
+}
+
+.yazilarb .button-bold {
+  font-weight: bold;
   font-size: 14px; /* Adjust font size if needed */
   color: black;
 }
+
+
+
+
+
+
+
 
 
 
@@ -557,5 +803,105 @@
   padding: 1px 10px; 
 }
 
+.yazilarone {
+  position: absolute; /* Position it absolutely within the container */
+  left: 990px; /* Or use right: 300px; depending on your preference */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+  background-color:#1e59e3; /* Blue background */
+  padding: 10px 17px; /* Add some padding for better button appearance */
+  border-radius: 15px; /* Rounded edges */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  cursor: pointer; /* Make it look clickable */
+  height: 24px;
+
+
+}
+
+.yazilarone .button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* Align text to the right */
+  font-style: italic;
+  color: white; /* Adjust text color to stand out against the blue background */
+}
+
+.yazilarone .button-bold {
+  font-weight: bold;
+  font-size: 13px; /* Adjust font size if needed */
+  color: white; /* Adjust text color to stand out */
+}
+
+
+
+.yazilartwo {
+  position: absolute; /* Position it absolutely within the container */
+  left: 1110px; /* Or use right: 300px; depending on your preference */
+  display: flex;
+  align-items: center; /* Center vertically within the container */
+  background-color: #1e59e3; /* Blue background */
+  padding: 10px 17px; /* Add some padding for better button appearance */
+  border-radius: 15px; /* Rounded edges */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  cursor: pointer; /* Make it look clickable */
+  height: 24px;
+}
+
+.yazilartwo .button-text {
+ 
+  right: 5px; /* Align text to the right */
+  margin-top: 20px; /* Center vertically */
+  transform: translateY(-50%); /* Fine-tune vertical centering */
+  font-size: 14px; /* Font size */
+  color: white; /* Text color */
+  text-align: right; /* Align text within its block */
+  
+}
+
+.yazilartwo .button-bold {
+  font-weight: bold;
+  font-size: 13px; /* Adjust font size if needed */
+  color: white; /* Adjust text color to stand out */
+} 
+
+.yazilarone .button-icon {
+  width: 20px; /* Adjust the size of the icon */
+  height: 20px;
+  margin-left: -13px; /* Space between the image and text */
+  margin-top: 5px;
+  margin-right: 6px;
+}
+
+.yazilartwo .button-icon {
+  width: 20px; /* Adjust the size of the icon */
+  height: 20px;
+  margin-left: -15px; /* Space between the image and text */
+  margin-right: 6px;
+} 
+
+.yazilarone:hover {
+  transform: scale(1.05); /* Increase size by 5% on hover */
+  transition: transform 0.2s ease
+}
+
+.yazilartwo:hover {
+  transform: scale(1.05); /* Increase size by 5% on hover */
+  transition: transform 0.2s ease
+}
+
+
+
+.testing{
+    width: 20px; /* Adjust the size of the image */
+  height: auto;
+  margin-right: 10px; /* Space between image and text */
+  vertical-align: middle; /* Aligns the image with the text */
+  margin-top: -20px;
+  margin-bottom: -30px;
+
+   /* Align the image to the right */
+   position: absolute;
+  right: 0; /* Aligns the image to the right of the container */
+}
   </style>
   
