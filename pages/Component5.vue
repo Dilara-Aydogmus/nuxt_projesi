@@ -3,11 +3,16 @@
     <div class="shopping-cart-header">
       <div class="container-title">Shopping Cart (1 item)</div>
       <div class="button-text move-all">❤︎  Move All To Wishlist</div>
-      <div class="button-text remove-all">Remove All</div>
+      <div class="button-text remove-all">
+  <img src="/trash.png" alt="Remove" class="trash-icon" />
+  Remove All
+</div>
     </div>
   
     <!-- PRINT button aligned to the left -->
-    <button class="print-button">PRINT</button>
+    <button class="print-button">
+        <img src="/printer.png" alt="Trash Icon" class="printer" />
+        PRINT</button>
   
     <div class="container">
       <!-- Sol Konteyner -->
@@ -28,12 +33,12 @@
           </select>
 
         </div>
-        <div class="test4">$139.99</div>
+        <div class="test4">$139</div>
   
         
-        <div class="ikinci">#1 Best Seller</div>
+        <div class="ikinci">#1 BEST SELLER</div>
         <div class="ucuncu">
-          <a href="#" class="clickable-link">in operating systems</a>
+          <a href="#" class="clickable-link">in Operating Systems</a>
          
         </div>
         <div class="test">
@@ -41,16 +46,20 @@
         </div>
         <div class="test2"> <a href="#" class="clickable-link3">2,000+ people have this item in their cart.</a></div>
 
-        <div class="alt1">Operating Systems: Windows 11</div>
+        <span class="normal-font">Operating Systems:</span> <span class="bold-font">Windows 11</span>
+        
         <div class="alt2">Bit Version: 64 Bit</div>
         <div class="alt3">Version: Home</div>
 
 
-        <button class="wish-button">MOVE TO WISHLIST</button>
-        <button class="save-button">SAVE FOR LATER</button>
-        <button class="remove-button">REMOVE</button>
-
-        <div class="alt4">Available Promo Discount</div>
+        <button class="wish-button">❤︎ MOVE TO WISH LIST</button>
+        <button class="save-button">
+            <img src="/kitap.png"  class="kitap" />
+            SAVE FOR LATER</button>
+        <button class="remove-button">
+  <img src="/trash.png" alt="Trash Icon" class="trash-icon2" />
+  REMOVE
+</button>
         
       </div>
   
@@ -61,8 +70,12 @@
       <div class="container-item container-item-right">
         <div class="container-title">Summary</div>
        <div class="sag1"> Item(s): </div>
+       <div class="bir">$139</div> 
        <div class="sag2">Est. Delivery: </div>
+       <div class="iki">$139</div> 
        <div class="sag3">Promo Code Discount:</div>
+
+       
        <div class="sag4">Apply Promo Code</div>
 
        <div class="search-container">
@@ -71,6 +84,8 @@
 </div>
 
 <div class="sag5">Est. Total:</div>
+<div class="sag5-value">$139</div> 
+
 <button class="checkout">SECURE CHECKOUT</button>
 <div class="or">OR</div>
 <button class="checkout2">PAYPAL ile satın alın</button>
@@ -101,9 +116,10 @@
   
   /* Title */
   .container-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: #333;
+    margin-left:-3px;
   }
   
   /* Button text */
@@ -113,21 +129,28 @@
     color: #000000;
     cursor: pointer;
   }
+
+  .button-text:hover{
+    color:#007bff;
+  }
   
   /* Move All To Wishlist */
   .move-all {
-    margin-left: 200px;
+    position: relative;
+    left: 240px;
   }
   
   /* Remove All */
   .remove-all {
-    margin-left: 20px;
+    margin-left: 295px;
+    position: relative;
+    top:-10px;
   }
   
   /* Main container */
   .container {
     display: flex;
-    height: 600px;
+    height: 290px;
     width: 80%;
     gap: 0;
     margin-top: 20px;
@@ -168,10 +191,19 @@
     position: absolute;
     right: 20px;
     top: 25px;
+
+    text-align: center; /* Align text to the center */
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+
+  display: flex; /* Flexbox layout for icon and text alignment */
+  align-items: flex-start; /* Aligns text at the top */
+  gap: 7px; /* Space between icon and text */
   }
   
 
-
+.print-button:hover{
+    color:#007bff;
+}
 
   .wish-button {
   color: black;
@@ -182,7 +214,7 @@
   border: 1px solid rgba(0, 0, 0, 0.258);
   margin-right: 215px;
   position: relative;  /* Add relative positioning */
-  top: -190px;  /* Adjust this to move the button upwards */
+  top: -185px;  /* Adjust this to move the button upwards */
   font-size: 11px;
   padding: 5px;
   right: 5px;
@@ -197,17 +229,20 @@
   background-color: rgba(193, 189, 189, 0.648);
   font-weight: bold;
   height: 30px;
-  width: 160px; /* Increase width to make the button longer */
+  width: 140px; /* Increase width to make the button longer */
   border: 1px solid rgba(0, 0, 0, 0.258);
-  margin-right: 215px;
+  margin-right: 255px;
   position: relative;  /* Add relative positioning */
-  top: -220px;  /* Adjust this to move the button upwards */
+  top: -215px;  /* Adjust this to move the button upwards */
   font-size: 11px;
   padding: 5px;
-  right: -310px;
+  right: -340px;
   border-radius: 4px;
   text-align: center; /* Align text to the center */
   white-space: nowrap; /* Prevent text from wrapping to a new line */
+  display: flex; /* Flexbox layout for icon and text alignment */
+  align-items: flex-start; /* Aligns text at the top */
+  gap: -5px; /* Space between icon and text */
 }
 
 
@@ -221,16 +256,29 @@
   border: 1px solid rgba(0, 0, 0, 0.258);
   margin-right: 215px;
   position: relative;  /* Add relative positioning */
-  top: -220px;  /* Adjust this to move the button upwards */
+  top: -247px;  /* Adjust this to move the button upwards */
   font-size: 11px;
   padding: 5px;
-  right: -240px;
+  right: -650px;
   border-radius: 4px;
   text-align: center; /* Align text to the center */
   white-space: nowrap; /* Prevent text from wrapping to a new line */
+
+  display: flex; /* Flexbox layout for icon and text alignment */
+  align-items: flex-start; /* Aligns text at the top */
+  gap: -5px; /* Space between icon and text */
 }
 
+.wish-button:hover{
+    background-color: #bcbbbb;
+}
 
+.remove-button:hover{
+    background-color: #bcbbbb;
+}
+.save-button:hover{
+    background-color: #bcbbbb;
+}
 
   /* Image, text, and dropdown container */
   .image-text-container {
@@ -244,6 +292,8 @@
     max-width: 160px;
     height: auto;
     margin: 0;
+    position: relative; /* Add this line */
+  top: 50px; /* Adjust this value to move the image down */
   }
   
   /* Text link styling */
@@ -258,6 +308,7 @@
   
   .text-link:hover {
     text-decoration: underline;
+    color:#007bff
   }
   
   /* Dropdown styling */
@@ -288,7 +339,7 @@
 
   .test{
     color: black;
-    left: 65px;
+    left: 60px;
     top: -129px;
     font-size: 12px;
     font-weight: bold;
@@ -300,23 +351,24 @@
   
   .test2{
     color: black;
-    margin-left: 590px;
-    top: -155px;
-
+    margin-left: 580px;
+    top: -130px;
     font-size: 12px;
     font-weight: bold;
     padding: 5px;
     position: relative; 
-     
+    white-space: normal; 
+    text-align: left;
+
   }
   
   
   .test4 {
   color: rgb(0, 0, 0);
-  margin-left: 600px;
+  margin-left: 660px;
   position: relative;  /* Add relative positioning */
   top: -80px;  /* Adjust this to move the price upwards */
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   padding: 5px;
 }
@@ -358,19 +410,6 @@
 }
 
 
-
-.alt4 {
-  color: rgb(0, 0, 0);
-  margin-right: 215px;
-  position: relative;  /* Add relative positioning */
-  top: -190px;  /* Adjust this to move the price upwards */
-  font-size: 14px;
-  font-weight: bold;
-  padding: 5px;
-  right:6px;
-}
-
-
 .sag1 {
   color: rgb(0, 0, 0);
   font-size: 14px;
@@ -380,13 +419,15 @@
   top: 0;  /* Remove or adjust if needed */
   margin-left: 10px;  /* Adjust margin-left to keep it within the container */
   right: 30px; 
+  top:20px;
+  
 }
 
 .sag2 {
   color: rgb(0, 0, 0);
   font-size: 14px;
  
-  padding: 5px;
+  padding: -45px;
   position: relative;  /* Use relative positioning */
   top: 5;  /* Remove or adjust if needed */
   margin-left: 10px;  /* Adjust margin-left to keep it within the container */
@@ -398,7 +439,7 @@
   color: rgb(0, 0, 0);
   font-size: 14px;
  
-  padding: 5px;
+  padding: -45px;
   position: relative;  /* Use relative positioning */
   top: 5;  /* Remove or adjust if needed */
   margin-left: 10px;  /* Adjust margin-left to keep it within the container */
@@ -416,6 +457,7 @@
   margin-left: 10px;  /* Adjust margin-left to keep it within the container */
   right: -15px; 
   white-space: nowrap;
+  margin-top: 20px;
 }
 
 
@@ -425,11 +467,12 @@
   font-size: 20px;
  font-weight:normal;
   padding: 5px;
-  position: relative;  /* Use relative positioning */
-  top: 5;  /* Remove or adjust if needed */
+  margin-top: 25px;  /* Remove or adjust if needed */
   margin-left: 10px;  /* Adjust margin-left to keep it within the container */
   right: 15px; 
   white-space: nowrap;
+  position: relative; /* Ensure it has relative positioning */
+  top: 15px; /* Adjust this value as needed to move the text down */
 }
 
 
@@ -437,10 +480,11 @@
   /* Ensure clickable-link and clickable-link2 are positioned independently */
 .clickable-link {
   font-size: 12px;
-  color: #000000; /* Blue color for the link */
+  color: #242424; /* Blue color for the link */
   text-decoration: none;
   padding: 7px;
-  margin-left: 160px;  /* Independent margin */
+  margin-left: 120px;  /* Independent margin */
+  text-decoration: underline;
   
 }
 
@@ -464,6 +508,7 @@
 
   .clickable-link:hover {
     text-decoration: underline; /* Add underline effect on hover */
+    color:#007bff
   }
   
   .ikinci {
@@ -475,13 +520,13 @@
     margin-left: 170px;
     top: -80px;
     background-color: #0d50b5; /* Blue background */
-    width: 85px; /* Reduce width */
-    height: 25px; /* Set a fixed height for rectangle shape */
+    width: 90px; /* Reduce width */
+    height: 20px; /* Set a fixed height for rectangle shape */
     font-weight: bold;
-    font-size: 12px; /* Adjust font size */
-    padding: 0; /* Remove any extra padding */
+    font-size: 11px; /* Adjust font size */
+    padding: 0px; /* Remove any extra padding */
     position: relative;
-    
+    white-space: nowrap;
   }
 
 
@@ -491,6 +536,7 @@
   align-items: center;  /* Vertically align the items */
   gap: 10px;  /* Add space between the search bar and button */
   margin-left: 27px;  /* Move the entire search bar and button to the right */
+  margin-top: 20px;
 }
 
 /* Styling for the search bar */
@@ -526,7 +572,9 @@
   font-weight: bold;
 }
 
-
+.apply-button:hover{
+    color:#007bff;
+}
 
 .checkout {
   margin-left: 27px;
@@ -581,7 +629,94 @@
 
 }
 
+.trash-icon {
+  width: 20px; /* Adjust size of the icon */
+  height: 20px;
+  right:20px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon with text */
 
+  position: relative;
+  top:23px;
+  
+}
 
+.trash-icon2 {
+  width: 20px; /* Adjust size of the icon */
+  height: 20px;
+  right:5px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon with text */
+
+  position: relative;
+  top:0px;
+  
+}
+
+.printer {
+  width: 20px; /* Adjust size of the icon */
+  height: 20px;
+  right:-5px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon with text */
+
+  position: relative;
+  top:5px;
+  
+}
+
+.kitap {
+  width: 20px; /* Adjust size of the icon */
+  height: 20px;
+  right:5px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon with text */
+
+  position: relative;
+  top:0px;
+  
+}
+
+.sag5-value {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right; /* Align the value to the right */
+  position: relative;
+  top:-15px;
+  left: 150px;
+}
+
+.bir {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right; /* Align the value to the right */
+  position: relative;
+  top:-10px;
+  left: 150px;
+}
+
+.iki {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right; /* Align the value to the right */
+  position: relative;
+  top:-25px;
+  left: 150px;
+}
+
+.normal-font {
+  font-weight: normal; /* Normal font */
+  position: relative; /* Set position to relative */
+  top: -190px; /* Adjust this value to move the text up */
+  left: -104px; /* Adjust this value to move the text to the left */
+  font-size: 12px;
+}
+
+.bold-font {
+  font-weight: bold; /* Bold font */
+  position: relative; /* Set position to relative */
+  top: -190px; /* Adjust this value to move the text up */
+  left: -104px; /* Adjust this value to move the text to the left */
+  font-size: 12px;
+}
   </style>
   
