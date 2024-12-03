@@ -3,7 +3,7 @@
       <!-- UCarousel component with items -->
       <UCarousel
         :items="items"
-        :ui="{ item: 'basis-full md:basis-1/3 lg:basis-1/4' }"
+        :ui="{ item: 'basis-1/5 md:basis-1/3 lg:basis-1/3' }"
         arrows
         class="rounded-lg overflow-hidden flex gap-1"
       >
@@ -188,7 +188,12 @@
   
   /* Set the height of the carousel to make it shorter */
   .carousel-container {
-    height: 500px; /* Adjust the height as needed */
-  }
+  height: 500px; /* Adjust the height as needed */
+  width: 800px; /* Take up the full width of the parent */
+  /* Optional: Set a max-width to control the carousel's overall width */
+  margin: auto; /* Center the carousel */
+}
+
+
   </style>
   
