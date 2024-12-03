@@ -50,29 +50,37 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 5" class="inner-image" />
+                <img src="/a1.png" alt="Item 5" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">Headphones</a> 
+              <a href="#" class="inner-link red-link">Up to 50% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 6" class="inner-image" />
+                <img src="/a2.png" alt="Item 6" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">Apple Renewed</a> 
+              <a href="#" class="inner-link red-link">Up to 60% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
           </div>
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 7" class="inner-image" />
+                <img src="/a3.png" alt="Item 7" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">Smart Home</a> 
+              <a href="#" class="inner-link red-link">Up to 70% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 8" class="inner-image" />
+                <img src="/a4.png" alt="Item 8" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">Digital Cameras</a> 
+              <a href="#" class="inner-link red-link">Up to 70% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
           </div>
         </div>
@@ -85,29 +93,37 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 9" class="inner-image" />
+                <img src="/b1.png" alt="Item 9" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">Cleaning Gadgets</a> 
+              <a href="#" class="inner-link red-link">Up to 40% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 10" class="inner-image" />
+                <img src="/b2.png" alt="Item 10" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">Power Generators</a> 
+              <a href="#" class="inner-link red-link">Up to 70% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
           </div>
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 11" class="inner-image" />
+                <img src="/b3.png" alt="Item 11" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">Health & Wellness</a> 
+              <a href="#" class="inner-link red-link">Up to 20% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
-                <img src="/a.svg" alt="Item 12" class="inner-image" />
+                <img src="/b4.png" alt="Item 12" class="inner-image" />
               </div>
-              <a href="#" class="inner-link">More Info</a>
+              <a href="#" class="inner-link first-link normal-link">E-Bikes & Scooters</a> 
+              <a href="#" class="inner-link red-link">Up to 70% Off!</a>
+              <a href="#" class="inner-link ">Black Friday Deals</a>
             </div>
           </div>
         </div>
@@ -163,7 +179,7 @@
   background-color: white;
   border-radius: 8px;
   padding: 20px; /* Reduced padding */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ width: 100%;
   max-width: 500px;
   height: 400px;
   text-align: center;
