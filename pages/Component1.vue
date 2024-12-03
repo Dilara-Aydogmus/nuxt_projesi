@@ -19,9 +19,13 @@
       <!-- Submenu -->
       <ul v-if="expandedLink !== null" class="submenu">
         <li class="submenu-item">
+            <img src="/pages/ok2.png" alt="ok icon" class="toggle-icon2" />
+
           <button @click="backToMain" class="back-to-main-btn">Back to Main</button>
         </li>
         <li class="submenu-item">
+            <img :src="getIconForLink(expandedLink)" alt="submenu icon" class="submenu-icon" />
+
           <span class="main-menu-name">{{ getLinkName(expandedLink) }}</span>
           <span class="view-all-text">View All</span>
         </li>
@@ -111,123 +115,158 @@
   </script>
   
   <style scoped>
-  .center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 38%;
-    margin: auto;
-    padding: 16px;
-    background-image: url('/bkg.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    height: 590px;
-  }
+ .center-container {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: flex-start; /* Align items to the top */
+  flex-direction: column;
+  width: 38%;
+  margin: auto;
+  padding: 16px;
+  background-image: url('/bkg.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  height: 590px;
+}
+
+/* Main menu styles */
+.navigation-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.navigation-item {
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.link-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.link-label:hover {
+  background-image: url('/mavi.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  color: white;
+}
+
+.link-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.link-text {
+  flex-grow: 1;
+  padding-left: 8px;
+  color: white;
+}
+
+.toggle-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+.toggle-icon2 {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+
+}
+
+
+.toggle-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Submenu styling - Align to the left, full width of container */
+.submenu {
+  width: 100%; /* Full width of container */
+  margin-top: 4px;
+  padding-left: 0; /* Remove padding from left side */
+  list-style: none;
+  padding: 0;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+ 
+  padding: 3px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 4px;
+  transition: background-color 0.3s ease;
+
   
-  .navigation-list {
-    width: 100%;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .navigation-item {
-    margin-bottom: 8px;
-    width: 100%;
-  }
-  
-  .link-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s ease;
-  }
-  
-  .link-label:hover {
-    background-image: url('/mavi.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 4px;
-    color: white;
-  }
-  
-  .link-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-  }
-  
-  .link-text {
-    flex-grow: 1;
-    padding-left: 8px;
-    color: white;
-  }
-  
-  .toggle-icon {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.3s ease;
-  }
-  
-  .toggle-icon.expanded {
-    transform: rotate(180deg);
-  }
-  
-  /* Submenu styling */
-  .submenu {
-    margin-top: 4px;
-    padding-left: 16px;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .submenu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 4px;
-    color: white;
-    margin-bottom: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submenu-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .submenu-toggle-icon {
-    width: 16px;
-    height: 16px;
-  }
-  
-  /* New styling for "Back to Main" and "View All" */
-  .back-to-main-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    padding: 8px;
-  }
-  
-  .main-menu-name {
-    font-weight: bold;
-    color: white;
-  }
-  
-  .view-all-text {
-    color: #ffffff;
-    font-size: 14px;
-    margin-left: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+
+ 
+  justify-content: flex-start;  /* Aligns both items to the left */
+ 
+}
+.submenu-item .view-all-text {
+  margin-left: auto; /* Push "View All" to the right */
+}
+
+.submenu-item .submenu-toggle-icon {
+  margin-left: auto; /* Push the icon to the right */
+  margin-right: 0; /* Remove any unnecessary right margin */
+}
+.submenu-item:hover {
+  background-image: url('/mavi.png');  /* Similar hover effect as main menu */
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  color: white;
+}
+
+.submenu-toggle-icon {
+  width: 16px;
+  height: 16px;
+
+}
+
+/* New styling for "Back to Main" and "View All" */
+.back-to-main-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.main-menu-name {
+  font-weight: bold;
+  color: white;
+  font-style: italic;
+
+}
+
+.view-all-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submenu-item .submenu-icon {
+  margin-right: 8px; /* Add space between the icon and the text */
+}
+
+
   </style>
   
