@@ -373,10 +373,13 @@
     align-items: center;
     transition: background-color 0.3s ease;
     margin-right: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
   
   .search-button:hover {
-    background-color:#1737d6;
+    background-color:#3065d8;
+    transform: translateY(-50%) scale(1.11);
+
   }
   
   .search-icon {
