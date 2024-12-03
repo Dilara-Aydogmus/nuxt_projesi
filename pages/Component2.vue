@@ -102,7 +102,7 @@
       heading: 'Limited Time',
       discount: '25%',
       description: 'Kitchen Appliances',
-      smallImage: '/carousel5.png',
+      smallImage: '/kitchen.png',
     },
   ];
   </script>
