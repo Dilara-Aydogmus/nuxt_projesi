@@ -1,6 +1,7 @@
 <template>
     <div class="center-container">
-      <ul class="navigation-list">
+      <!-- Main Menu -->
+      <ul class="navigation-list" v-if="showMainMenu">
         <li v-for="link in links" :key="link.label" class="navigation-item">
           <div class="link-label" @click="toggleSubmenu(link.label)">
             <img :src="getIconForLink(link.label)" alt="link icon" class="link-icon" />
@@ -12,17 +13,25 @@
               :class="{ expanded: expandedLink === link.label }"
             />
           </div>
-          <!-- Submenu that appears when the link is expanded -->
-          <ul v-if="expandedLink === link.label" class="submenu">
-            <li v-for="(subItem, index) in link.subItems" :key="index" class="submenu-item">
-              <span>{{ subItem }}</span>
-              <img
-                src="/pages/ok.png"
-                alt="submenu toggle icon"
-                class="submenu-toggle-icon"
-              />
-            </li>
-          </ul>
+        </li>
+      </ul>
+  
+      <!-- Submenu -->
+      <ul v-if="expandedLink !== null" class="submenu">
+        <li class="submenu-item">
+          <button @click="backToMain" class="back-to-main-btn">Back to Main</button>
+        </li>
+        <li class="submenu-item">
+          <span class="main-menu-name">{{ getLinkName(expandedLink) }}</span>
+          <span class="view-all-text">View All</span>
+        </li>
+        <li v-for="(subItem, index) in getSubItems(expandedLink)" :key="index" class="submenu-item">
+          <span>{{ subItem }}</span>
+          <img
+            src="/pages/ok.png"
+            alt="submenu toggle icon"
+            class="submenu-toggle-icon"
+          />
         </li>
       </ul>
     </div>
@@ -50,11 +59,35 @@
   ];
   
   const expandedLink = ref<string | null>(null);
+  const showMainMenu = ref<boolean>(true);
   
+  // Toggle Submenu visibility
   function toggleSubmenu(label: string) {
     expandedLink.value = expandedLink.value === label ? null : label;
+    showMainMenu.value = expandedLink.value === null; // Hide main menu when submenu is open
   }
   
+  // Go back to main menu
+  function backToMain() {
+    expandedLink.value = null;
+    showMainMenu.value = true; // Show main menu when back to main is clicked
+  }
+  
+  // Get subitems for a given link
+  function getSubItems(label: string | null) {
+    if (label) {
+      const link = links.find((link) => link.label === label);
+      return link?.subItems || [];
+    }
+    return [];
+  }
+  
+  // Get link name based on expandedLink
+  function getLinkName(label: string | null) {
+    return label ? label : '';
+  }
+  
+  // Get icon for each link
   function getIconForLink(label: string): string {
     const iconMap: { [key: string]: string } = {
       'Components & Storage': '/a.svg',
@@ -83,13 +116,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30%;
+    width: 38%;
     margin: auto;
     padding: 16px;
     background-image: url('/bkg.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 8px;
+    height: 590px;
   }
   
   .navigation-list {
@@ -144,13 +178,12 @@
     transform: rotate(180deg);
   }
   
-  /* Removed background color for the submenu */
+  /* Submenu styling */
   .submenu {
     margin-top: 4px;
     padding-left: 16px;
     list-style: none;
     padding: 0;
-    
   }
   
   .submenu-item {
@@ -172,6 +205,29 @@
   .submenu-toggle-icon {
     width: 16px;
     height: 16px;
+  }
+  
+  /* New styling for "Back to Main" and "View All" */
+  .back-to-main-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px;
+  }
+  
+  .main-menu-name {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .view-all-text {
+    color: #ffffff;
+    font-size: 14px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
   }
   </style>
   
