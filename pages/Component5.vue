@@ -2,7 +2,7 @@
     <!-- Shopping Cart title and Move to Wishlist button -->
     <div class="shopping-cart-header">
       <div class="container-title">Shopping Cart (1 item)</div>
-      <div class="button-text move-all">Move All To Wishlist</div>
+      <div class="button-text move-all">❤︎  Move All To Wishlist</div>
       <div class="button-text remove-all">Remove All</div>
     </div>
   

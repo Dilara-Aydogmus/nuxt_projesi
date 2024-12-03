@@ -7,7 +7,9 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/1_8.png" alt="Item 1" class="inner-image" />
+              </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Consoles & VR</a> 
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
@@ -15,7 +17,9 @@
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/GamingFurnitures.png" alt="Item 2" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Gaming Furnitures</a>
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
@@ -25,7 +29,9 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/GameDeals.png" alt="Item 3" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link  first-link normal-link">Game Deals</a>
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
@@ -33,7 +39,9 @@
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/24.png" alt="Item 4" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link  first-link normal-link">Gaming Monitors</a>
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
@@ -50,7 +58,9 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/a1.png" alt="Item 5" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Headphones</a> 
               <a href="#" class="inner-link red-link">Up to 50% Off!</a>
@@ -58,7 +68,9 @@
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/a2.png" alt="Item 6" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Apple Renewed</a> 
               <a href="#" class="inner-link red-link">Up to 60% Off!</a>
@@ -68,7 +80,9 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/a3.png" alt="Item 7" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Smart Home</a> 
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
@@ -76,7 +90,9 @@
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/a4.png" alt="Item 8" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Digital Cameras</a> 
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
@@ -93,7 +109,9 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/b1.png" alt="Item 9" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Cleaning Gadgets</a> 
               <a href="#" class="inner-link red-link">Up to 40% Off!</a>
@@ -101,7 +119,9 @@
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/b2.png" alt="Item 10" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Power Generators</a> 
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
@@ -111,7 +131,9 @@
           <div class="inner-container">
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/b3.png" alt="Item 11" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">Health & Wellness</a> 
               <a href="#" class="inner-link red-link">Up to 20% Off!</a>
@@ -119,7 +141,9 @@
             </div>
             <div class="inner-item-wrapper">
               <div class="inner-item">
+                <a href="#" class="inner-image-link">
                 <img src="/b4.png" alt="Item 12" class="inner-image" />
+                </a>
               </div>
               <a href="#" class="inner-link first-link normal-link">E-Bikes & Scooters</a> 
               <a href="#" class="inner-link red-link">Up to 70% Off!</a>
