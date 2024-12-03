@@ -150,7 +150,7 @@
     padding-left: 16px;
     list-style: none;
     padding: 0;
-    display: none;
+    
   }
   
   .submenu-item {
