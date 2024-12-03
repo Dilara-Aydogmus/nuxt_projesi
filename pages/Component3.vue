@@ -307,7 +307,7 @@
   }
   
   .navbar-button:hover {
-    background-color: #e1dedeeb;
+    background-color: #dee0e1eb;
   }
   
   .button-image {
@@ -552,9 +552,13 @@
 
 .dropdown-menu a:hover {
   color: #3a1f8e;
+  background-color: rgba(235, 245, 253, 0.9);
+  background-size: cover;
+   
 }
 
 .dropdown-lists {
+    
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -567,10 +571,17 @@
 }
 
 
-.list-left li,
-.list-right li {
+.list-left li
+{
   margin-bottom: 8px;
   margin-top:  20px;
+}
+
+
+
+.list-right li {
+  margin-bottom: -16px;
+  margin-top:  0px;
 }
 
 .list-left a,
@@ -579,23 +590,51 @@
   color: #000000;
   font-size: 14px;
   padding: 20px;
+
+  display: block; /* Make the link a block-level element */
+  position: relative; /* Required for absolute positioning of the background */
+}
+
+
+
+
+/* Pseudo-element for hover background */
+.list-left a::after,
+.list-right a::after {
+  content: ''; /* Empty content for the background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(235, 245, 253, 0.9); /* Same hover background color */
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  z-index: -1; /* Place the background behind the text */
+}
+
+/* Make the background appear when hovered */
+.list-left a:hover::after,
+.list-right a:hover::after {
+  opacity: 1;
 }
 
 .list-left a:hover,
 .list-right a:hover {
-  color: #3a1f8e;
+  color: #1e59e3;
 }
 
 .list-right {
   background-color: white; /* White background for the right list */
   border-radius: 0px;
- 
- 
+  
+
 }
 
 .list-left {
   background-color: rgba(235, 245, 253, 0.9); /* White background for the right list */
   border-radius: 0px;
+  
 
 }
 
@@ -621,6 +660,10 @@
 
 }
 
+.yazilar:hover{
+    text-decoration: underline;
+}
+
 .yazilar .button-text {
   display: flex;
   flex-direction: column;
@@ -642,7 +685,9 @@
   display: flex;
   align-items: center; /* Center vertically within the container */
 }
-
+.yazilar2:hover{
+    text-decoration: underline;
+}
 .yazilar2 .button-text {
   display: flex;
   flex-direction: column;
@@ -661,6 +706,9 @@
   /* You can adjust the left value to control the horizontal placement */
   display: flex;
   align-items: center; /* Center vertically within the container */
+}
+.yazilargift:hover{
+    text-decoration: underline;
 }
 
 .yazilargift .button-text {
@@ -682,7 +730,9 @@
   display: flex;
   align-items: center; /* Center vertically within the container */
 }
-
+.yazilarclearance:hover{
+    text-decoration: underline;
+}
 .yazilarclearance .button-text {
   display: flex;
   flex-direction: column;
@@ -704,7 +754,9 @@
   display: flex;
   align-items: center; /* Center vertically within the container */
 }
-
+.yazilarbest:hover{
+    text-decoration: underline;
+}
 .yazilarbest .button-text {
   display: flex;
   flex-direction: column;
@@ -724,7 +776,9 @@
   display: flex;
   align-items: center; /* Center vertically within the container */
 }
-
+.yazilarram:hover{
+    text-decoration: underline;
+}
 .yazilarram .button-text {
   display: flex;
   flex-direction: column;
