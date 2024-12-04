@@ -57,31 +57,48 @@
         <div class="bookmark-icon">
           <span class="bookmark-text">02</span>
         </div>
+        <a href="#">
+
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 5" class="circle-image" />
+            <img src="/x1.png" alt="Image 5" class="circle-image" />
           </div>
-          <p class="circle-text">Image 5</p>
+          <p class="circle-text">Ryzen 7</p>
         </div>
+        </a>
+        <a href="#">
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 6" class="circle-image" />
+            <img src="/x2.png" alt="Image 6" class="circle-image" />
           </div>
-          <p class="circle-text">Image 6</p>
+          <p class="circle-text">AMD X870</p>
         </div>
+        </a>
+        <a href="#">
+
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 7" class="circle-image" />
+            <img src="/x3.png" alt="Image 7" class="circle-image" />
           </div>
-          <p class="circle-text">Image 7</p>
+          <p class="circle-text">32 GB DDR5</p>
         </div>
+        </a>
+        <a href="#">
+
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 8" class="circle-image" />
+            <img src="/x4.png" alt="Image 8" class="circle-image" />
           </div>
-          <p class="circle-text">Image 8</p>
+          <p class="circle-text">RX 7900 XTX</p>
         </div>
-        <p class="additional-text">This text appears after the 4th circle container in the second row.</p> <!-- 2. Container sonrası metin -->
+        </a>
+        <a href="#">
+        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+        </a>
+        <p class="yazilar">$2,150.89</p> 
+        <!-- Button under the price -->
+        <button class="white-button">VIEW DETAIL</button>
+        <button class="action-button">CUSTOMIZE IT</button>
       </div>
   
       <!-- 3rd Row Container -->
@@ -89,31 +106,51 @@
         <div class="bookmark-icon">
           <span class="bookmark-text">03</span>
         </div>
+
+        <a href="#">
+
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 9" class="circle-image" />
+            <img src="/y1.png" alt="Image 9" class="circle-image" />
           </div>
-          <p class="circle-text">Image 9</p>
+          <p class="circle-text">RYZEN 7700X</p>
         </div>
+
+        </a>
+        <a href="#">
+
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 10" class="circle-image" />
+            <img src="/y2.png" alt="Image 10" class="circle-image" />
           </div>
-          <p class="circle-text">Image 10</p>
+          <p class="circle-text">AMD B65DE</p>
         </div>
+        </a>
+        <a href="#">
+
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 11" class="circle-image" />
+            <img src="/y3.png" alt="Image 11" class="circle-image" />
           </div>
-          <p class="circle-text">Image 11</p>
+          <p class="circle-text">32 GB DDR5</p>
         </div>
+        </a>
+        <a href="#">
+
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 12" class="circle-image" />
+            <img src="/y4.png" alt="Image 12" class="circle-image" />
           </div>
-          <p class="circle-text">Image 12</p>
+          <p class="circle-text">RTX 4060 Ti</p>
         </div>
-        <p class="additional-text">This text appears after the 4th circle container in the third row.</p> <!-- 3. Container sonrası metin -->
+        </a>
+        <a href="#">
+        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+        </a>
+        <p class="yazilar">$2,150.89</p> 
+        <!-- Button under the price -->
+        <button class="white-button">VIEW DETAIL</button>
+        <button class="action-button">CUSTOMIZE IT</button>
       </div>
   
       <!-- 4th Row Container -->
@@ -123,29 +160,35 @@
         </div>
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 13" class="circle-image" />
+            <img src="/o1.png" alt="Image 13" class="circle-image" />
           </div>
-          <p class="circle-text">Image 13</p>
+          <p class="circle-text">Ryzen 5 7600</p>
         </div>
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 14" class="circle-image" />
+            <img src="/o2.png" alt="Image 14" class="circle-image" />
           </div>
-          <p class="circle-text">Image 14</p>
+          <p class="circle-text">32 GB DDR5</p>
         </div>
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 15" class="circle-image" />
+            <img src="/o3.png" alt="Image 15" class="circle-image" />
           </div>
-          <p class="circle-text">Image 15</p>
+          <p class="circle-text">AMD B650</p>
         </div>
         <div class="circle-with-text">
           <div class="circle-container">
-            <img src="/a.svg" alt="Image 16" class="circle-image" />
+            <img src="/o4.png" alt="Image 16" class="circle-image" />
           </div>
-          <p class="circle-text">Image 16</p>
+          <p class="circle-text">RTX 4060 Ti</p>
         </div>
-        <p class="additional-text">This text appears after the 4th circle container in the fourth row.</p> <!-- 4. Container sonrası metin -->
+        <a href="#">
+        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+        </a>
+        <p class="yazilar">$2,150.89</p> 
+        <!-- Button under the price -->
+        <button class="white-button">VIEW DETAIL</button>
+        <button class="action-button">CUSTOMIZE IT</button>
       </div>
     </div>
   </template>
