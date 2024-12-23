@@ -1,5 +1,8 @@
 <template>
+  
     <div class="layout">
+          <!--
+
       <div class="sidebar">
         <header>
           <nav>
@@ -11,11 +14,12 @@
           </nav>
         </header>
       </div>
-  
+    -->
       <div class="main-content">
         <NuxtPage />
       </div>
     </div>
+  
   </template>
   
   <script>
@@ -78,4 +82,5 @@
     background-color: #f4f4f4;
   }
   </style>
+  
   

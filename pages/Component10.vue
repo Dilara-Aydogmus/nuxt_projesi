@@ -2,9 +2,9 @@
     <div class="container-wrapper">
       <!-- Container 1 -->
       <div class="container">
-        <div class="image-container" 
-          @mouseover="changeImage(1)" 
-          @mouseleave="resetImage(1)" 
+        <div class="image-container"
+          @mouseover="changeImage(1)"
+          @mouseleave="resetImage(1)"
           :style="{ backgroundImage: 'url(' + currentImage1 + ')' }">
         </div>
         <a href="#" class="image-text">CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler - AF120 RGB ELITE Fans - 360mm Radiator -</a>
@@ -23,9 +23,9 @@
   
       <!-- Container 2 -->
       <div class="container">
-        <div class="image-container" 
-          @mouseover="changeImage(2)" 
-          @mouseleave="resetImage(2)" 
+        <div class="image-container"
+          @mouseover="changeImage(2)"
+          @mouseleave="resetImage(2)"
           :style="{ backgroundImage: 'url(' + currentImage2 + ')' }">
         </div>
         <a href="#" class="image-text">SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler For Gaming PC Computer with</a>
@@ -44,9 +44,9 @@
   
       <!-- Container 3 -->
       <div class="container">
-        <div class="image-container" 
-          @mouseover="changeImage(3)" 
-          @mouseleave="resetImage(3)" 
+        <div class="image-container"
+          @mouseover="changeImage(3)"
+          @mouseleave="resetImage(3)"
           :style="{ backgroundImage: 'url(' + currentImage3 + ')' }">
         </div>
         <a href="#" class="image-text">MSI 34" 240 Hz QD-OLED UWQHD Gaming Monitor 3440 x 1440 (2K) 97.8% Adobe RGB</a>
@@ -63,13 +63,13 @@
         <button class="cart2">ADD TO CART</button>
       </div>
     </div>
-
+  
     <div class="container-wrapper">
-      <!-- Container 1 -->
+      <!-- Container 4 -->
       <div class="container">
-        <div class="image-container" 
-          @mouseover="changeImage(4)" 
-          @mouseleave="resetImage(4)" 
+        <div class="image-container"
+          @mouseover="changeImage(4)"
+          @mouseleave="resetImage(4)"
           :style="{ backgroundImage: 'url(' + currentImage4 + ')' }">
         </div>
         <a href="#" class="image-text">CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler - AF120 RGB ELITE Fans - 360mm Radiator -</a>
@@ -86,11 +86,11 @@
         <button class="cart">ADD TO CART</button>
       </div>
   
-      <!-- Container 2 -->
+      <!-- Container 5 -->
       <div class="container">
-        <div class="image-container" 
-          @mouseover="changeImage(5)" 
-          @mouseleave="resetImage(5)" 
+        <div class="image-container"
+          @mouseover="changeImage(5)"
+          @mouseleave="resetImage(5)"
           :style="{ backgroundImage: 'url(' + currentImage5 + ')' }">
         </div>
         <a href="#" class="image-text">SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler For Gaming PC Computer with</a>
@@ -107,11 +107,11 @@
         <button class="cart">ADD TO CART</button>
       </div>
   
-      <!-- Container 3 -->
+      <!-- Container 6 -->
       <div class="container">
-        <div class="image-container" 
-          @mouseover="changeImage(6)" 
-          @mouseleave="resetImage(6)" 
+        <div class="image-container"
+          @mouseover="changeImage(6)"
+          @mouseleave="resetImage(6)"
           :style="{ backgroundImage: 'url(' + currentImage6 + ')' }">
         </div>
         <a href="#" class="image-text">MSI 34" 240 Hz QD-OLED UWQHD Gaming Monitor 3440 x 1440 (2K) 97.8% Adobe RGB</a>
@@ -138,13 +138,13 @@
         image1: '/kapak1.jpg',
         image2: '/kapak2.jpg',
         image3: '/kapak3.jpg',
-        image4:  '/d1.jpg',
-        image5:     'kapak5.jpg',
+        image4: '/d1.jpg',
+        image5: 'kapak5.jpg',
         image6: 'kapak6.jpg',
         hoverImage1: '/kapak1alt.jpg',
         hoverImage2: '/kapak2alt.jpg',
         hoverImage3: '/kapak3alt.jpg',
-        hoverImage4:  '/d2.jpg',
+        hoverImage4: '/d2.jpg',
         hoverImage5: 'kapak5alt.jpg',
         hoverImage6: 'kapak6alt.jpg',
   
@@ -152,9 +152,9 @@
         currentImage1: '/kapak1.jpg',
         currentImage2: '/kapak2.jpg',
         currentImage3: '/kapak3.jpg',
-        currentImage4:   '/d1.jpg',
-        currentImage5:   '/kapak5.jpg',
-        currentImage6:   '/kapak6.jpg',
+        currentImage4: '/d1.jpg',
+        currentImage5: 'kapak5.jpg',
+        currentImage6: 'kapak6.jpg',
       };
     },
     methods: {
@@ -166,12 +166,12 @@
           this.currentImage2 = this.hoverImage2;
         } else if (containerNumber === 3) {
           this.currentImage3 = this.hoverImage3;
-        } else if (containerNumber ===4){
-            this.currentImage4 = this.hoverImage4;
-        } else if (containerNumber === 5){
-            this.currentImage5 = this.hoverImage5;
-        } else if(containerNumber ===6){
-            this.currentImage6 = this.hoverImage6;
+        } else if (containerNumber === 4) {
+          this.currentImage4 = this.hoverImage4;
+        } else if (containerNumber === 5) {
+          this.currentImage5 = this.hoverImage5;
+        } else if (containerNumber === 6) {
+          this.currentImage6 = this.hoverImage6;
         }
       },
       resetImage(containerNumber) {
@@ -186,14 +186,12 @@
           this.currentImage4 = this.image4;
         } else if (containerNumber === 5) {
           this.currentImage5 = this.image5;
-        } else if (containerNumber === 6){
-            this.currentImage6 = this.image6;
+        } else if (containerNumber === 6) {
+          this.currentImage6 = this.image6;
         }
       }
     }
   };
-
-  
   </script>
   
   <style scoped>
@@ -211,7 +209,6 @@
     height: 620px; /* Reduced height to better fit the image size */
     position: relative;
     margin: 0;
-    
   }
   
   .image-container {
@@ -233,228 +230,113 @@
     margin-top: -60px;
     font-size: 14px;
     color: #000000;
-    
     font-weight: normal;
     padding: 10px 0;
   }
-
-  .oylama {
-  display: flex;
-  justify-content: center; /* Centers the image horizontally */
-  margin-top: -110px; /* Adjust vertical spacing */
-  position: relative; /* Allows positioning within the container */
-  margin-left: -200px;
-}
-
-.oylama2 {
-  display: flex;
-  justify-content: center; /* Centers the image horizontally */
-  margin-top: -88px; /* Adjust vertical spacing */
-  position: relative; /* Allows positioning within the container */
-  margin-left: -200px;
-}
-
-.oylama3 {
-  display: flex;
-  justify-content: center; /* Centers the image horizontally */
-  margin-top: -90px; /* Adjust vertical spacing */
-  position: relative; /* Allows positioning within the container */
-  margin-left: -180px;
-}
-
-.test {
-  background-color: #ffffff;
-  width: 70px; /* Set a width for the button */
-  height: 30px; /* Set a height for the button */
-  color: white; /* Optional: Set text color if you want text inside the button */
-  display: flex;
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  margin-top: -25px; /* Adjust vertical spacing */
-  position: relative; /* Allows positioning within the container */
-  margin-left: 210px; /* Adjust horizontal spacing */
-  cursor: pointer; /* Makes it look clickable */
-  border: none; /* Removes default border */
-}
-
-.test2 {
-  background-color: #ffffff;
-  width: 70px; /* Set a width for the button */
-  height: 30px; /* Set a height for the button */
-  color: white; /* Optional: Set text color if you want text inside the button */
-  display: flex;
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  margin-top: -25px; /* Adjust vertical spacing */
-  position: relative; /* Allows positioning within the container */
-  margin-left: 210px; /* Adjust horizontal spacing */
-  cursor: pointer; /* Makes it look clickable */
-  border: none; /* Removes default border */
-}
-
-.test3 {
-  background-color: #ffffff;
-  width: 70px; /* Set a width for the button */
-  height: 30px; /* Set a height for the button */
-  color: white; /* Optional: Set text color if you want text inside the button */
-  display: flex;
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  margin-top: -25px; /* Adjust vertical spacing */
-  position: relative; /* Allows positioning within the container */
-  margin-left: 200px; /* Adjust horizontal spacing */
-  cursor: pointer; /* Makes it look clickable */
-  border: none; /* Removes default border */
-}
-
-.button-text {
-  margin-left: 5px; /* Space between the image and text */
-  color: #1932ae; /* Lacivert color (dark blue) */
-  font-size: 15px; /* Adjust text size as needed */
-  font-weight: bold;
-}
-
-.oylama-text {
-  margin-left: -5px; /* Space between the image and text */
-  color: #606060; /* Lacivert color (dark blue) */
-  font-size: 12px; /* Adjust text size as needed */
-  font-weight: normal;
-}
-
-
-.oylama-text2 {
-  margin-left: -5px; /* Space between the image and text */
-  color: #606060; /* Lacivert color (dark blue) */
-  font-size: 12px; /* Adjust text size as needed */
-  font-weight: normal;
-}
-
-.asagi-text {
-    display: block;
-    text-align: center;
-    margin-top: 75px;  /* Adjust top margin to position the text properly */
-    font-size: 13px;
-    color: #ffffff;
-    background-color: red;
-    font-weight: bold;
-    padding: -1px 0;
-    width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
-    height: 20px;
-    margin-left: 15px; /* Center align the text horizontally */
-    margin-right: auto; /* Center align the text horizontally */
-}
-
-.asagi-text2 {
-    display: block;
-    text-align: center;
-    margin-top: 75px;  /* Adjust top margin to position the text properly */
-    font-size: 13px;
-    color: #ffffff;
-    background-color: red;
-    font-weight: bold;
-    padding: -1px 0;
-    width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
-    height: 20px;
-    margin-left: 15px; /* Center align the text horizontally */
-    margin-right: auto; /* Center align the text horizontally */
-}
-
-.asagi-text3 {
-    display: block;
-    text-align: center;
-    margin-top: 75px;  /* Adjust top margin to position the text properly */
-    font-size: 13px;
-    color: #ffffff;
-    background-color: red;
-    font-weight: bold;
-    padding: -1px 0;
-    width: 80px;  /* Set a specific width, so it doesn't cover the whole container */
-    height: 20px;
-    margin-left: 15px; /* Center align the text horizontally */
   
-}
-
-.fiyat-text {
+  .oylama {
+    display: flex;
+    justify-content: center;
+    margin-top: -110px;
+    position: relative;
+    margin-left: -200px;
+  }
+  
+  .oylama2 {
+    display: flex;
+    justify-content: center;
+    margin-top: -88px;
+    position: relative;
+    margin-left: -200px;
+  }
+  
+  .oylama3 {
+    display: flex;
+    justify-content: center;
+    margin-top: -90px;
+    position: relative;
+    margin-left: -180px;
+  }
+  
+  .test, .test2, .test3 {
+    background-color: #ffffff;
+    width: 70px;
+    height: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -25px;
+    position: relative;
+    margin-left: 210px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .button-text {
+    margin-left: 5px;
+    color: #1932ae;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .oylama-text {
+    margin-left: -5px;
+    color: #606060;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  .asagi-text, .asagi-text2, .asagi-text3 {
     display: block;
-  text-align: center;
-  font-size: 25px;
-  color: #000000;
-  font-weight: bold;
-  width: 80px;
-  height: 20px;
-  margin-top: 8px; /* Space between 'Save' and price */
-  margin-left: 5px;
-
-}
-.container {
-    position: relative; /* Ensure the positioning of child elements is relative to this container */
-}
-
-.fiyat-text2 {
+    text-align: center;
+    margin-top: 75px;
+    font-size: 13px;
+    color: #ffffff;
+    background-color: red;
+    font-weight: bold;
+    padding: -1px 0;
+    width: 80px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: auto;
+  }
+  
+  .fiyat-text, .fiyat-text2 {
     display: block;
     font-size: 25px;
     color: #000000;
     font-weight: bold;
     width: 80px;
     height: 20px;
-    margin-top: 8px; /* Adjust space between 'Save' and price */
-    position: absolute;
-    left: 10px; /* Move the text towards the left */
+    margin-top: 8px;
     margin-left: 5px;
-}
-
-.cart {
-  display: block;
-  width: 100px; /* Button width */
-  height: 25px; /* Button height */
-  background-color: white; /* Blue background */
-  color: rgb(0, 0, 0); /* Text color */
-  font-size: 12px; /* Text size */
-  font-weight: bold;
-  border: 2px solid rgb(203, 203, 203); /* Remove borders */
-  border-radius: 20px; /* Rounded corners */
-  text-align: center;
-  margin: 10px auto; /* Center horizontally and space between price and button */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
-  margin-left: 10px;
-  margin-top: 55px;
-}
-
-.cart:hover {
-  color: #1a50e5; /* Slightly brighter blue on hover */
-  border: 2px solid 
-  #1a50e5; 
-  width: 105px;
-  height: 30px;
-  transition: 0.3s;
-}
-
-.cart2 {
+  }
+  
+  .cart, .cart2 {
     display: block;
-  width: 100px; /* Button width */
-  height: 25px; /* Button height */
-  background-color: white; /* Blue background */
-  color: rgb(0, 0, 0); /* Text color */
-  font-size: 12px; /* Text size */
-  font-weight: bold;
-  border: 2px solid rgb(203, 203, 203); /* Remove borders */
-  border-radius: 20px; /* Rounded corners */
-  text-align: center;
-  margin: 10px auto; /* Center horizontally and space between price and button */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
-  margin-left: 10px;
-  margin-top: 80px;
-}
+    width: 100px;
+    height: 25px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid rgb(203, 203, 203);
+    border-radius: 20px;
+    text-align: center;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  .cart:hover, .cart2:hover {
+    color: #1a50e5;
+    border: 2px solid #1a50e5;
+    width: 105px;
+    height: 30px;
+    transition: 0.3s;
+  }
 
-.cart2:hover {
-  color: #1a50e5; /* Slightly brighter blue on hover */
-  border: 2px solid 
-  #1a50e5; 
-  width: 105px;
-  height: 30px;
-  transition: 0.3s;
-}
   </style>
   

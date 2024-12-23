@@ -2,10 +2,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content', '@nuxt/ui'],
+
   routeRules: {
     '/': { prerender: true }
   },
+
   colorMode: {
     preference: 'light'
-  }
+  },
+
+  compatibilityDate: '2024-12-04'
 })

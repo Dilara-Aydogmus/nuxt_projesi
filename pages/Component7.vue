@@ -1,208 +1,208 @@
 <template>
-    <div class="grid-container">
+    <div class="grid-container_yedi">
       <!-- 1st Row Container -->
-      <div class="container">
-        <div class="bookmark-icon">
-          <span class="bookmark-text">01</span> <!-- Bookmark üzerindeki yazı -->
+      <div class="container_yedi">
+        <div class="bookmark-icon_yedi">
+          <span class="bookmark-text_yedi">01</span> <!-- Bookmark üzerindeki yazı -->
         </div>
         <a href="#">
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/71.png" alt="Image 1" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/71.png" alt="Image 1" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">Core Ultra 7</p>
+          <p class="circle-text_yedi">Core Ultra 7</p>
         </div>
     </a>
 
     <a href="#">
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/72.png" alt="Image 2" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/72.png" alt="Image 2" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">Intel z890</p>
+          <p class="circle-text_yedi">Intel z890</p>
         </div>
 </a>
 
 
 <a href="#">
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/73.png" alt="Image 3" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/73.png" alt="Image 3" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">32GB DDR5</p>
+          <p class="circle-text_yedi">32GB DDR5</p>
         </div>
         </a>
 
         <a href="#">
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/74.png" alt="Image 4" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/74.png" alt="Image 4" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">RTX 470Ti</p>
+          <p class="circle-text_yedi">RTX 470Ti</p>
         </div>
 
         </a>
         <a href="#">
-        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+        <p class="additional-text1_yedi">...</p> <!-- 1. Container sonrası metin -->
         </a>
-        <p class="yazilar">$2,150.89</p> 
+        <p class="yazilar_yedi">$2,150.89</p> 
         <!-- Button under the price -->
-        <button class="white-button">VIEW DETAIL</button>
-        <button class="action-button">CUSTOMIZE IT</button>
+        <button class="white-button_yedi">VIEW DETAIL</button>
+        <button class="action-button_yedi">CUSTOMIZE IT</button>
       </div>
       
   
       <!-- 2nd Row Container -->
-      <div class="container">
-        <div class="bookmark-icon">
-          <span class="bookmark-text">02</span>
+      <div class="container_yedi">
+        <div class="bookmark-icon_yedi">
+          <span class="bookmark-text_yedi">02</span>
         </div>
         <a href="#">
 
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/x1.png" alt="Image 5" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/x1.png" alt="Image 5" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">Ryzen 7</p>
+          <p class="circle-text_yedi">Ryzen 7</p>
         </div>
         </a>
         <a href="#">
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/x2.png" alt="Image 6" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/x2.png" alt="Image 6" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">AMD X870</p>
-        </div>
-        </a>
-        <a href="#">
-
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/x3.png" alt="Image 7" class="circle-image" />
-          </div>
-          <p class="circle-text">32 GB DDR5</p>
+          <p class="circle-text_yedi">AMD X870</p>
         </div>
         </a>
         <a href="#">
 
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/x4.png" alt="Image 8" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/x3.png" alt="Image 7" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">RX 7900 XTX</p>
+          <p class="circle-text_yedi">32 GB DDR5</p>
         </div>
         </a>
         <a href="#">
-        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/x4.png" alt="Image 8" class="circle-image_yedi" />
+          </div>
+          <p class="circle-text_yedi">RX 7900 XTX</p>
+        </div>
         </a>
-        <p class="yazilar">$2,150.89</p> 
+        <a href="#">
+        <p class="additional-text1_yedi">...</p> <!-- 1. Container sonrası metin -->
+        </a>
+        <p class="yazilar_yedi">$2,150.89</p> 
         <!-- Button under the price -->
-        <button class="white-button">VIEW DETAIL</button>
-        <button class="action-button">CUSTOMIZE IT</button>
+        <button class="white-button_yedi">VIEW DETAIL</button>
+        <button class="action-button_yedi">CUSTOMIZE IT</button>
       </div>
   
       <!-- 3rd Row Container -->
-      <div class="container">
-        <div class="bookmark-icon">
-          <span class="bookmark-text">03</span>
+      <div class="container_yedi">
+        <div class="bookmark-icon_yedi">
+          <span class="bookmark-text_yedi">03</span>
         </div>
 
         <a href="#">
 
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/y1.png" alt="Image 9" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/y1.png" alt="Image 9" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">RYZEN 7700X</p>
+          <p class="circle-text_yedi">RYZEN 7700X</p>
         </div>
 
         </a>
         <a href="#">
 
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/y2.png" alt="Image 10" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/y2.png" alt="Image 10" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">AMD B65DE</p>
+          <p class="circle-text_yedi">AMD B65DE</p>
         </div>
         </a>
         <a href="#">
 
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/y3.png" alt="Image 11" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/y3.png" alt="Image 11" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">32 GB DDR5</p>
+          <p class="circle-text_yedi">32 GB DDR5</p>
         </div>
         </a>
         <a href="#">
 
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/y4.png" alt="Image 12" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/y4.png" alt="Image 12" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">RTX 4060 Ti</p>
+          <p class="circle-text_yedi">RTX 4060 Ti</p>
         </div>
         </a>
         <a href="#">
-        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+        <p class="additional-text1_yedi">...</p> <!-- 1. Container sonrası metin -->
         </a>
-        <p class="yazilar">$2,150.89</p> 
+        <p class="yazilar_yedi">$2,150.89</p> 
         <!-- Button under the price -->
-        <button class="white-button">VIEW DETAIL</button>
-        <button class="action-button">CUSTOMIZE IT</button>
+        <button class="white-button_yedi">VIEW DETAIL</button>
+        <button class="action-button_yedi">CUSTOMIZE IT</button>
       </div>
   
       <!-- 4th Row Container -->
-      <div class="container">
-        <div class="bookmark-icon">
-          <span class="bookmark-text">04</span>
+      <div class="container_yedi">
+        <div class="bookmark-icon_yedi">
+          <span class="bookmark-text_yedi">04</span>
         </div>
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/o1.png" alt="Image 13" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/o1.png" alt="Image 13" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">Ryzen 5 7600</p>
+          <p class="circle-text_yedi">Ryzen 5 7600</p>
         </div>
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/o2.png" alt="Image 14" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/o2.png" alt="Image 14" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">32 GB DDR5</p>
+          <p class="circle-text_yedi">32 GB DDR5</p>
         </div>
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/o3.png" alt="Image 15" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/o3.png" alt="Image 15" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">AMD B650</p>
+          <p class="circle-text_yedi">AMD B650</p>
         </div>
-        <div class="circle-with-text">
-          <div class="circle-container">
-            <img src="/o4.png" alt="Image 16" class="circle-image" />
+        <div class="circle-with-text_yedi">
+          <div class="circle-container_yedi">
+            <img src="/o4.png" alt="Image 16" class="circle-image_yedi" />
           </div>
-          <p class="circle-text">RTX 4060 Ti</p>
+          <p class="circle-text_yedi">RTX 4060 Ti</p>
         </div>
         <a href="#">
-        <p class="additional-text1">...</p> <!-- 1. Container sonrası metin -->
+        <p class="additional-text1_yedi">...</p> <!-- 1. Container sonrası metin -->
         </a>
-        <p class="yazilar">$2,150.89</p> 
+        <p class="yazilar_yedi">$2,150.89</p> 
         <!-- Button under the price -->
-        <button class="white-button">VIEW DETAIL</button>
-        <button class="action-button">CUSTOMIZE IT</button>
+        <button class="white-button_yedi">VIEW DETAIL</button>
+        <button class="action-button_yedi">CUSTOMIZE IT</button>
       </div>
     </div>
   </template>
   
   <style scoped>
   /* Grid container with 2x2 layout */
-  .grid-container {
+  .grid-container_yedi{
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
     grid-gap: 20px; /* Space between containers */
     padding: 20px;
   }
   
-  .container {
+  .container_yedi {
   background-color: #f8e2bb;
   border-radius: 10px;
   padding: 20px;
@@ -217,7 +217,7 @@
 }
   
   /* Bookmark icon with text inside */
-  .bookmark-icon {
+  .bookmark-icon_yedi {
     position: absolute;
     top: -4px; /* Distance from the top edge */
     left: -6px; /* Distance from the left edge */
@@ -231,20 +231,20 @@
     border-radius: 50%; /* Optional: round the bookmark */
   }
   
-  .bookmark-text {
+  .bookmark-text_yedi {
     font-size: 14px; /* Adjust font size */
     font-weight: bold; /* Bold text for better visibility */
     color: white; /* Text color (adjust based on bookmark color) */
     text-align: center;
   }
   
-  .circle-with-text {
+  .circle-with-text_yedi {
     display: flex;
     flex-direction: column; /* Stack circle and text vertically */
     align-items: center; /* Center align items */
   }
   
-  .circle-container {
+  .circle-container_yedi {
     width: 80px; /* Circle size */
     height: 80px;
     background-color: white;
@@ -256,14 +256,14 @@
   }
   
   /* Image inside the circle */
-  .circle-image {
+  .circle-image_yedi {
     width: auto;
     height: 60px; /* Adjust size */
     object-fit: cover;
   }
   
   /* Text below the circle */
-  .circle-text {
+  .circle-text_yedi {
     margin-top: 5px; /* Space between circle and text */
     font-size: 12px; /* Adjust font size */
     text-align: center;
@@ -272,7 +272,7 @@
   }
   
   /* Metinler için stil */
-  .additional-text1 {
+  .additional-text1_yedi {
     font-weight: bold;
     text-align: center;
     font-size: 40px;
@@ -283,7 +283,7 @@
     margin-left: 356px;
   }
 
-  .yazilar {
+  .yazilar_yedi {
     font-weight: bold;
     text-align: center;
     font-size: 16px;
@@ -294,7 +294,7 @@
     margin-left: 450px;
   }
 /* Button styling */
-.action-button {
+.action-button_yedi {
     white-space:nowrap;
     margin-left: 420px;
   background-color: #ff9500; /* Orange color */
@@ -314,11 +314,11 @@
 }
 
 /* Button hover effect */
-.action-button:hover {
+.action-button_yedi:hover {
   background-color: #ff6600; /* Darker orange on hover */
 }
 
-.white-button {
+.white-button_yedi {
     white-space:nowrap;
     margin-left: 420px;
   background-color: #ffffff; /* Orange color */
@@ -338,7 +338,7 @@
 }
 
 /* Button hover effect */
-.white-button:hover {
+.white-button_yedi:hover {
   color:rgb(46, 32, 239) ; /* Darker orange on hover */
 }
 
