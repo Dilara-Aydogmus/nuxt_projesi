@@ -612,7 +612,24 @@
         </button>
         <div class="asagi-text_on">Save: 49%</div>
         <div class="fiyat-text_on">$429</div>
-        <button class="cart_on">ADD TO CART</button>
+
+
+
+    <!-- component10 firebase-->
+    <button class="cart_on" @click="addToCart({
+  id: '2', 
+  name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
+  price: 429,
+  image: currentImage1,
+  operatingSystem: 'Windows 11',
+  version: 'Elite',
+  quantity: 1// Varsayılan bir değer ekleniyor
+})">ADD TO CART</button>
+
+
+
+
+
       </div>
   
       <!-- Container 2 -->
@@ -947,16 +964,17 @@
       <img :src="item.image" :alt="item.name" class="image-left_bes" />
       <a href="#" class="text-link_bes">{{ item.name }}</a>
 
-      <select class="select-options_bes">
-        <option disabled selected>{{ item.quantity || 1 }}</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>Delete</option>
-      </select>
-    </div>
+      <select class="select-options_bes" :value="item.quantity" @change="handleSelectChange($event, item)">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="delete">Delete</option>
+</select>
+
+
+</div>
 
     <!-- Fiyat -->
     <div class="test4_bes">${{ item.price }}</div>
@@ -986,12 +1004,12 @@
       SAVE FOR LATER
     </button>
     <button
-      class="remove-button_bes"
-      @click="removeItemFromCart(item.id)" 
-    >
-      <img src="/trash.png" alt="Trash Icon" class="trash-icon2_bes" />
-      REMOVE
-    </button>
+  class="remove-button_bes"
+  @click="removeItemFromCart(item.id)"
+>
+  <img src="/trash.png" alt="Trash Icon" class="trash-icon2_bes" />
+  REMOVE
+</button>
   </div>
 
   
@@ -1096,76 +1114,132 @@
   </template>
   
   <script setup lang="ts">
-
   import { db } from "@/firebase";
-  import { collection, getDocs, addDoc, deleteDoc, doc } from "firebase/firestore";
-  import { ref, onMounted } from "vue";
+  import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
+  import { ref, onMounted, onUnmounted } from "vue";
   
-  // Tür Tanımı
+  // Define Cart Item Type
   interface CartItem {
     id: string;
     name: string;
     price: number;
     image: string;
-    quantity?: number;
+    quantity: number;
     operatingSystem?: string;
     version?: string;
   }
   
-  // Reactive Data
-  const cartItems = ref<CartItem[]>([
-  {
-    id: "1",
-    name: "Microsoft Windows 11 Home (USB)",
-    price: 139.99,
-    image: "/w11.jpg",
-    quantity: 1,
-    operatingSystem: "Windows 11",
-    version: "Home",
-  },
-]); // Örnek ürün, Firestore'dan veri gelmeden önce test için.
+  // Reactive cart items data
+  const cartItems = ref<CartItem[]>([]);
   
-  // Verileri Firebase'den Çekme
+  // Fetch cart items from Firebase
   async function fetchCartItems() {
+    try {
+      const querySnapshot = await getDocs(collection(db, "shoppingCart"));
+      cartItems.value = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as CartItem[];
+      console.log("Cart items fetched successfully.");
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+    }
+  }
+  
+  // Add item to cart
+  async function addToCart(item: CartItem) {
   try {
-    const querySnapshot = await getDocs(collection(db, "shoppingCart"));
-    cartItems.value = querySnapshot.docs.map((doc) => ({
+    // Check if the item already exists in the cart
+    const existingItem = cartItems.value.find((cartItem) => cartItem.name === item.name);
+
+    if (existingItem) {
+      // If the item exists, increment its quantity
+      existingItem.quantity += 1;
+
+      const itemDocRef = doc(db, "shoppingCart", existingItem.id);
+      await updateDoc(itemDocRef, { quantity: existingItem.quantity });
+      console.log(`Quantity updated for item: ${existingItem.name}`);
+    } else {
+      // If the item does not exist, add it with quantity 1
+      const newItem = { ...item, quantity: 1 };
+      const docRef = await addDoc(collection(db, "shoppingCart"), newItem);
+
+      // Add the new item to the local state with the generated Firestore ID
+      cartItems.value.push({ ...newItem, id: docRef.id });
+      console.log("New item added to Firebase:", newItem);
+    }
+  } catch (error) {
+    console.error("Error adding item to Firebase:", error);
+  }
+}
+  
+  // Remove item from cart
+  async function removeItemFromCart(id: string) {
+    try {
+      const itemIndex = cartItems.value.findIndex((item) => item.id === id);
+  
+      if (itemIndex !== -1) {
+        const item = cartItems.value[itemIndex];
+  
+        if (item.quantity > 1) {
+          // Decrease quantity if more than one exists
+          item.quantity -= 1;
+  
+          const itemDocRef = doc(db, "shoppingCart", id);
+          await updateDoc(itemDocRef, { quantity: item.quantity });
+          console.log(`Quantity decreased for item ${item.name}.`);
+        } else {
+          // Remove item if quantity is 1
+          const itemDocRef = doc(db, "shoppingCart", id);
+          await deleteDoc(itemDocRef); // Remove from Firebase
+          cartItems.value.splice(itemIndex, 1); // Remove from local state
+          console.log(`Item ${item.name} removed successfully.`);
+        }
+      }
+    } catch (error) {
+      console.error("Error removing item from Firebase:", error);
+    }
+  }
+  
+  // Real-time Firebase listener
+  onMounted(() => {
+  const unsubscribe = onSnapshot(collection(db, "shoppingCart"), (snapshot) => {
+    const updatedCartItems = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     })) as CartItem[];
 
-    // Eğer Firebase'den gelen veri yoksa varsayılan ürün eklenir
-    if (cartItems.value.length === 0) {
-      cartItems.value.push({
-        id: "1",
-        name: "Microsoft Windows 11 Home (USB)",
-        price: 139.99,
-        image: "/w11.jpg",
-        quantity: 1,
-        operatingSystem: "Windows 11",
-        version: "Home",
-      });
+    // Ensure local cartItems are synchronized without duplicates
+    cartItems.value = updatedCartItems;
+    console.log("Real-time cart data synced.");
+  });
+
+  onUnmounted(() => {
+    unsubscribe();
+  });
+});
+
+async function handleSelectChange(event: Event, item: CartItem) {
+  const selectedValue = (event.target as HTMLSelectElement).value;
+
+  if (selectedValue === "delete") {
+    await removeItemFromCart(item.id);
+  } else {
+    const newQuantity = parseInt(selectedValue, 10);
+
+    if (!isNaN(newQuantity) && newQuantity > 0) {
+      item.quantity = newQuantity;
+
+      try {
+        const itemDocRef = doc(db, "shoppingCart", item.id);
+        await updateDoc(itemDocRef, { quantity: newQuantity });
+        console.log(`Quantity updated for item: ${item.name} to ${newQuantity}`);
+      } catch (error) {
+        console.error("Error updating item quantity:", error);
+      }
     }
-  } catch (error) {
-    console.error("Error fetching cart items:", error);
   }
 }
-  
-  // Öğeyi Firebase'den Silme
-  async function removeItemFromCart(id: string) {
-    try {
-      await deleteDoc(doc(db, "shoppingCart", id));
-      cartItems.value = cartItems.value.filter((item) => item.id !== id);
-    } catch (error) {
-      console.error("Error removing item from cart:", error);
-    }
-  }
-  
-  // İlk yüklemede verileri çek
-  onMounted(() => {
-    fetchCartItems();
-  });
-  
 
 
 
