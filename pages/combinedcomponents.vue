@@ -1154,8 +1154,10 @@
         <div class="sol2_alti">Sign up to receive exclusive offers in your inbox.</div>
   
         <div class="search-container_alti">
-          <input type="text" class="search-bar_alti" placeholder="Enter your email address" />
-          <button class="apply-button_alti">Sign Up</button>
+          <input type="text" class="search-bar_alti" placeholder="Enter your email address"  v-model="emailInput" 
+           />
+         
+          <button class="apply-button_alti"  @click="subscribeToNewsletter">Sign Up</button>
         </div>
         
         <!-- Clickable text wrapped in <a> tag -->
@@ -1324,6 +1326,55 @@ async function handleSelectChange(event: Event, item: CartItem) {
     }
   }
 }
+
+
+
+
+
+
+
+const emailInput = ref(""); // Reactive property for email input
+async function subscribeToNewsletter() {
+  const email = emailInput.value.trim();
+  console.log("Email entered:", email); // Check the email value
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    console.error("Invalid email address.");
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  try {
+    const docRef = await addDoc(collection(db, "newsletterSubscribers"), { email });
+    console.log("Document created with ID:", docRef.id);
+    alert("Thank you for subscribing!");
+    emailInput.value = ""; // Clear the input
+  } catch (error) {
+    console.error("Error subscribing:", error);
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
