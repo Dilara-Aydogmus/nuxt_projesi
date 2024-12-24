@@ -14,7 +14,7 @@
   
       <!-- Input Fields -->
       <div class="search-container_giris">
-        <input type="text" class="search-bar_giris" placeholder="First and Last Name" />
+        <input type="text"  class="search-bar_giris" placeholder="First and Last Name" />
       </div>
   
       <div class="search-container_giris">
