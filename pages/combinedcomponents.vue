@@ -591,6 +591,12 @@
       </div>
     </div>
 
+
+
+
+
+
+
                   <!-- component10 -->
 
     <div class="container-wrapper_on">
@@ -616,7 +622,8 @@
 
 
     <!-- component10 firebase-->
-    <button class="cart_on" @click="addToCart({
+     
+    <button class="cart_on" @click.stop="addToCart({
   id: '2', 
   name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
   price: 429,
@@ -650,7 +657,18 @@
         </button>
         <div class="asagi-text2_on">Save: 22%</div>
         <div class="fiyat-text_on">$429</div>
-        <button class="cart_on">ADD TO CART</button>
+        <button class="cart_on" 
+  @click.stop="addToCart({
+    id: '3', 
+    name: 'SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler',
+    price: 399,
+    image: currentImage2,
+    operatingSystem: 'Windows 11',
+    version: 'Standard',
+    quantity: 1
+  })">
+  ADD TO CART
+</button>
       </div>
   
       <!-- Container 3 -->
@@ -671,7 +689,20 @@
         </button>
         <div class="asagi-text3_on">Save: 24%</div>
         <div class="fiyat-text2_on">$429</div>
-        <button class="cart2_on">ADD TO CART</button>
+        <button 
+  class="cart_on" 
+  @click.stop="addToCart({
+    id: '4', 
+    name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
+    price: 429,
+    image: currentImage1,
+    operatingSystem: 'Windows 11',
+    version: 'Elite',
+    quantity: 1
+  })"
+>
+  ADD TO CART
+</button>
       </div>
     </div>
   
@@ -694,7 +725,20 @@
         </button>
         <div class="asagi-text_on">Save: 49%</div>
         <div class="fiyat-text_on">$429</div>
-        <button class="cart_on">ADD TO CART</button>
+        <button 
+  class="cart_on" 
+  @click.stop="addToCart({
+    id: '5', 
+    name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
+    price: 429,
+    image: currentImage1,
+    operatingSystem: 'Windows 11',
+    version: 'Elite',
+    quantity: 1
+  })"
+>
+  ADD TO CART
+</button>
       </div>
   
       <!-- Container 5 -->
@@ -715,7 +759,20 @@
         </button>
         <div class="asagi-text2_on">Save: 22%</div>
         <div class="fiyat-text_on">$429</div>
-        <button class="cart_on">ADD TO CART</button>
+        <button 
+  class="cart_on" 
+  @click.stop="addToCart({
+    id: '6', 
+    name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
+    price: 429,
+    image: currentImage1,
+    operatingSystem: 'Windows 11',
+    version: 'Elite',
+    quantity: 1
+  })"
+>
+  ADD TO CART
+</button>
       </div>
   
       <!-- Container 6 -->
@@ -736,9 +793,25 @@
         </button>
         <div class="asagi-text3_on">Save: 24%</div>
         <div class="fiyat-text2_on">$429</div>
-        <button class="cart2_on">ADD TO CART</button>
+        <button 
+  class="cart_on" 
+  @click.stop="addToCart({
+    id: '7', 
+    name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
+    price: 429,
+    image: currentImage1,
+    operatingSystem: 'Windows 11',
+    version: 'Elite',
+    quantity: 1
+  })"
+>
+  ADD TO CART
+</button>
       </div>
     </div>
+
+
+
 
 <!-- component7-->
 
@@ -964,7 +1037,7 @@
       <img :src="item.image" :alt="item.name" class="image-left_bes" />
       <a href="#" class="text-link_bes">{{ item.name }}</a>
 
-      <select class="select-options_bes" :value="item.quantity" @change="handleSelectChange($event, item)">
+      <select :value="item.quantity" @change="handleSelectChange($event, item)">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
@@ -972,7 +1045,6 @@
   <option value="5">5</option>
   <option value="delete">Delete</option>
 </select>
-
 
 </div>
 
@@ -1112,106 +1184,110 @@
     </div>
     
   </template>
-  
-  <script setup lang="ts">
-  import { db } from "@/firebase";
-  import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
-  import { ref, onMounted, onUnmounted } from "vue";
-  
-  // Define Cart Item Type
-  interface CartItem {
-    id: string;
-    name: string;
-    price: number;
-    image: string;
-    quantity: number;
-    operatingSystem?: string;
-    version?: string;
-  }
-  
-  // Reactive cart items data
-  const cartItems = ref<CartItem[]>([]);
-  
-  // Fetch cart items from Firebase
-  async function fetchCartItems() {
-    try {
-      const querySnapshot = await getDocs(collection(db, "shoppingCart"));
-      cartItems.value = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as CartItem[];
-      console.log("Cart items fetched successfully.");
-    } catch (error) {
-      console.error("Error fetching cart items:", error);
-    }
-  }
-  
-  // Add item to cart
-  async function addToCart(item: CartItem) {
+<script setup lang="ts">
+import { db } from "@/firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+  updateDoc,
+  onSnapshot,
+} from "firebase/firestore";
+import { ref, onMounted, onUnmounted } from "vue";
+
+// Define Cart Item Type
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+  operatingSystem?: string;
+  version?: string;
+}
+
+// Reactive cart items data
+const cartItems = ref<CartItem[]>([]);
+
+// Fetch cart items from Firebase
+async function fetchCartItems() {
   try {
-    // Check if the item already exists in the cart
-    const existingItem = cartItems.value.find((cartItem) => cartItem.name === item.name);
+    const querySnapshot = await getDocs(collection(db, "shoppingCart"));
+    cartItems.value = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    })) as CartItem[];
+    console.log("Cart items fetched successfully.");
+  } catch (error) {
+    console.error("Error fetching cart items:", error);
+  }
+}
 
-    if (existingItem) {
-      // If the item exists, increment its quantity
-      existingItem.quantity += 1;
+// Add item to cart
+async function addToCart(item: CartItem) {
+  try {
+    console.log("Tıklanan ürün:", item);
 
-      const itemDocRef = doc(db, "shoppingCart", existingItem.id);
-      await updateDoc(itemDocRef, { quantity: existingItem.quantity });
-      console.log(`Quantity updated for item: ${existingItem.name}`);
+    const querySnapshot = await getDocs(collection(db, "shoppingCart"));
+    const existingItemDoc = querySnapshot.docs.find((doc) => doc.data().id === item.id);
+
+    if (existingItemDoc) {
+      // Mevcut belge varsa miktarı artır
+      const itemDocRef = doc(db, "shoppingCart", existingItemDoc.id);
+      const existingItemData = existingItemDoc.data() as CartItem;
+      const updatedQuantity = (existingItemData.quantity || 1) + 1;
+
+      await updateDoc(itemDocRef, { quantity: updatedQuantity });
+      console.log(`Quantity updated for item: ${item.name}`);
     } else {
-      // If the item does not exist, add it with quantity 1
-      const newItem = { ...item, quantity: 1 };
-      const docRef = await addDoc(collection(db, "shoppingCart"), newItem);
-
-      // Add the new item to the local state with the generated Firestore ID
-      cartItems.value.push({ ...newItem, id: docRef.id });
-      console.log("New item added to Firebase:", newItem);
+      // Yeni belge ekle
+      const newDocRef = await addDoc(collection(db, "shoppingCart"), item);
+      console.log("New item added with ID:", newDocRef.id);
     }
   } catch (error) {
     console.error("Error adding item to Firebase:", error);
   }
 }
-  
-  // Remove item from cart
-  async function removeItemFromCart(id: string) {
-    try {
-      const itemIndex = cartItems.value.findIndex((item) => item.id === id);
-  
-      if (itemIndex !== -1) {
-        const item = cartItems.value[itemIndex];
-  
-        if (item.quantity > 1) {
-          // Decrease quantity if more than one exists
-          item.quantity -= 1;
-  
-          const itemDocRef = doc(db, "shoppingCart", id);
-          await updateDoc(itemDocRef, { quantity: item.quantity });
-          console.log(`Quantity decreased for item ${item.name}.`);
-        } else {
-          // Remove item if quantity is 1
-          const itemDocRef = doc(db, "shoppingCart", id);
-          await deleteDoc(itemDocRef); // Remove from Firebase
-          cartItems.value.splice(itemIndex, 1); // Remove from local state
-          console.log(`Item ${item.name} removed successfully.`);
-        }
+
+// Remove item from cart
+async function removeItemFromCart(id: string) {
+  try {
+    const querySnapshot = await getDocs(collection(db, "shoppingCart"));
+    const existingItemDoc = querySnapshot.docs.find((doc) => doc.data().id === id);
+
+    if (existingItemDoc) {
+      const itemDocRef = doc(db, "shoppingCart", existingItemDoc.id);
+      const existingItemData = existingItemDoc.data() as CartItem;
+
+      if (existingItemData.quantity > 1) {
+        await updateDoc(itemDocRef, { quantity: existingItemData.quantity - 1 });
+        console.log(`Quantity decreased for item: ${existingItemData.name}`);
+      } else {
+        await deleteDoc(itemDocRef);
+        console.log(`Item removed from Firebase: ${existingItemData.name}`);
       }
-    } catch (error) {
-      console.error("Error removing item from Firebase:", error);
+    } else {
+      console.error("Error: Document does not exist for item with ID:", id);
     }
+  } catch (error) {
+    console.error("Error removing item from Firebase:", error);
   }
-  
-  // Real-time Firebase listener
-  onMounted(() => {
+}
+
+// Real-time Firebase listener
+onMounted(() => {
   const unsubscribe = onSnapshot(collection(db, "shoppingCart"), (snapshot) => {
     const updatedCartItems = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     })) as CartItem[];
 
-    // Ensure local cartItems are synchronized without duplicates
-    cartItems.value = updatedCartItems;
-    console.log("Real-time cart data synced.");
+    if (JSON.stringify(cartItems.value) !== JSON.stringify(updatedCartItems)) {
+      cartItems.value = updatedCartItems;
+      console.log("Real-time cart data synced.");
+    }
   });
 
   onUnmounted(() => {
@@ -1219,6 +1295,7 @@
   });
 });
 
+// Handle select change for quantity update or delete
 async function handleSelectChange(event: Event, item: CartItem) {
   const selectedValue = (event.target as HTMLSelectElement).value;
 
@@ -1228,8 +1305,6 @@ async function handleSelectChange(event: Event, item: CartItem) {
     const newQuantity = parseInt(selectedValue, 10);
 
     if (!isNaN(newQuantity) && newQuantity > 0) {
-      item.quantity = newQuantity;
-
       try {
         const itemDocRef = doc(db, "shoppingCart", item.id);
         await updateDoc(itemDocRef, { quantity: newQuantity });
@@ -1240,19 +1315,6 @@ async function handleSelectChange(event: Event, item: CartItem) {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   
