@@ -348,12 +348,6 @@
   
         <p class="tttt_dokuz">© 2000-2024 Newegg Inc. All rights reserved.</p>
       </div>
-
-
-
-
-
-
       </div>
 
 
