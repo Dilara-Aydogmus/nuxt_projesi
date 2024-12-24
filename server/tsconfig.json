@@ -1,3 +1,18 @@
 {
-  "extends": "../.nuxt/tsconfig.server.json"
-}
+    "extends": "../.nuxt/tsconfig.server.json",
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      },
+      "strict": true,
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+    },
+    "include": ["./**/*.ts", "./**/*.d.ts", "./**/*.tsx", "./**/*.vue"],
+    "exclude": ["node_modules"]
+  }
+  

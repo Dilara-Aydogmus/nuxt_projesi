@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     '/': { prerender: true }
   },
 
+  plugins: ['~/plugins/firebase.js'],
+
   colorMode: {
     preference: 'light'
   },

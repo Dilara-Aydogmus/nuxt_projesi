@@ -922,7 +922,7 @@
     <!-- component5-->
          <!-- Shopping Cart title and Move to Wishlist button -->
     <div class="shopping-cart-header_bes">
-      <div class="container-title_bes">Shopping Cart (1 item)</div>
+        <div class="container-title_bes">Shopping Cart ({{ cartItems.length }} items)</div>
       <div class="button-text_bes move-all_bes">❤︎  Move All To Wishlist</div>
       <div class="button-text_bes remove-all_bes">
   <img src="/trash.png" alt="Remove" class="trash-icon_bes" />
@@ -936,53 +936,64 @@
         PRINT</button>
   
     <div class="container_bes">
-      <!-- Sol Konteyner -->
-      <div class="container-item_bes container-item-left_bes">
-        <!-- Image, text, and dropdown side-by-side -->
-        <div class="image-text-container_bes">
-          <img src="/w11.jpg" alt="Description of Image" class="image-left_bes" />
-          <a href="#" class="text-link_bes">Microsoft Windows 11 Home (USB)</a>
+    <!-- Sol Konteyner -->
+    <div
+    v-for="item in cartItems"
+    :key="item.id"
+    class="container-item_bes container-item-left_bes"
+  >
+    <!-- Image, text, and dropdown side-by-side -->
+    <div class="image-text-container_bes">
+      <img :src="item.image" :alt="item.name" class="image-left_bes" />
+      <a href="#" class="text-link_bes">{{ item.name }}</a>
 
-          <select class="select-options_bes">
-            <option disabled selected>1</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>Delete</option>
-          </select>
+      <select class="select-options_bes">
+        <option disabled selected>{{ item.quantity || 1 }}</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>Delete</option>
+      </select>
+    </div>
 
-        </div>
-        <div class="test4_bes">$139</div>
-  
-        
-        <div class="ikinci_bes">#1 BEST SELLER</div>
-        <div class="ucuncu_bes">
-          <a href="#" class="clickable-link_bes">in Operating Systems</a>
-         
-        </div>
-        <div class="test_bes">
-            <a href="#" class="clickable-link2_bes">Limit 5</a>
-        </div>
-        <div class="test2_bes"> <a href="#" class="clickable-link3_bes">2,000+ people have this item in their cart.</a></div>
+    <!-- Fiyat -->
+    <div class="test4_bes">${{ item.price }}</div>
 
-        <span class="normal-font_bes">Operating Systems:</span> <span class="bold-font_bes">Windows 11</span>
-        
-        <div class="alt2_bes">Bit Version: 64 Bit</div>
-        <div class="alt3_bes">Version: Home</div>
+    <!-- Diğer Bilgiler -->
+    <div class="ikinci_bes">#1 BEST SELLER</div>
+    <div class="ucuncu_bes">
+      <a href="#" class="clickable-link_bes">in Operating Systems</a>
+    </div>
+    <div class="test_bes">
+      <a href="#" class="clickable-link2_bes">Limit 5</a>
+    </div>
+    <div class="test2_bes">
+      <a href="#" class="clickable-link3_bes">2,000+ people have this item in their cart.</a>
+    </div>
 
+    <!-- Teknik Özellikler -->
+    <span class="normal-font_bes">Operating Systems:</span>
+    <span class="bold-font_bes">{{ item.operatingSystem || 'Unknown' }}</span>
+    <div class="alt2_bes">Bit Version: 64 Bit</div>
+    <div class="alt3_bes">Version: {{ item.version || 'Standard' }}</div>
 
-        <button class="wish-button_bes">❤︎ MOVE TO WISH LIST</button>
-        <button class="save-button_bes">
-            <img src="/kitap.png"  class="kitap_bes" />
-            SAVE FOR LATER</button>
-        <button class="remove-button_bes">
-  <img src="/trash.png" alt="Trash Icon" class="trash-icon2_bes" />
-  REMOVE
-</button>
-        
-      </div>
+    <!-- Butonlar -->
+    <button class="wish-button_bes">❤︎ MOVE TO WISH LIST</button>
+    <button class="save-button_bes">
+      <img src="/kitap.png" class="kitap_bes" />
+      SAVE FOR LATER
+    </button>
+    <button
+      class="remove-button_bes"
+      @click="removeItemFromCart(item.id)" 
+    >
+      <img src="/trash.png" alt="Trash Icon" class="trash-icon2_bes" />
+      REMOVE
+    </button>
+  </div>
+
   
 
 
@@ -1085,7 +1096,91 @@
   </template>
   
   <script setup lang="ts">
-  import { ref } from 'vue';
+
+  import { db } from "@/firebase";
+  import { collection, getDocs, addDoc, deleteDoc, doc } from "firebase/firestore";
+  import { ref, onMounted } from "vue";
+  
+  // Tür Tanımı
+  interface CartItem {
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+    quantity?: number;
+    operatingSystem?: string;
+    version?: string;
+  }
+  
+  // Reactive Data
+  const cartItems = ref<CartItem[]>([
+  {
+    id: "1",
+    name: "Microsoft Windows 11 Home (USB)",
+    price: 139.99,
+    image: "/w11.jpg",
+    quantity: 1,
+    operatingSystem: "Windows 11",
+    version: "Home",
+  },
+]); // Örnek ürün, Firestore'dan veri gelmeden önce test için.
+  
+  // Verileri Firebase'den Çekme
+  async function fetchCartItems() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "shoppingCart"));
+    cartItems.value = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    })) as CartItem[];
+
+    // Eğer Firebase'den gelen veri yoksa varsayılan ürün eklenir
+    if (cartItems.value.length === 0) {
+      cartItems.value.push({
+        id: "1",
+        name: "Microsoft Windows 11 Home (USB)",
+        price: 139.99,
+        image: "/w11.jpg",
+        quantity: 1,
+        operatingSystem: "Windows 11",
+        version: "Home",
+      });
+    }
+  } catch (error) {
+    console.error("Error fetching cart items:", error);
+  }
+}
+  
+  // Öğeyi Firebase'den Silme
+  async function removeItemFromCart(id: string) {
+    try {
+      await deleteDoc(doc(db, "shoppingCart", id));
+      cartItems.value = cartItems.value.filter((item) => item.id !== id);
+    } catch (error) {
+      console.error("Error removing item from cart:", error);
+    }
+  }
+  
+  // İlk yüklemede verileri çek
+  onMounted(() => {
+    fetchCartItems();
+  });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   // Links and submenu data
   const links = [
@@ -1241,7 +1336,30 @@ function resetImage(containerNumber: number) {
   else if (containerNumber === 5) currentImage5.value = image5;
   else if (containerNumber === 6) currentImage6.value = image6;
 }
+
+
+
+
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <style scoped>
   /*component1 style*/
   .center-container {
