@@ -154,6 +154,8 @@
     width: 80%;
     gap: 0;
     margin-top: 20px;
+
+    
   }
   
   /* Each container item styling */

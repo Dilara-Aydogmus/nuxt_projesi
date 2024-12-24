@@ -1032,6 +1032,8 @@
     :key="item.id"
     class="container-item_bes container-item-left_bes"
   >
+
+  
     <!-- Image, text, and dropdown side-by-side -->
     <div class="image-text-container_bes">
       <img :src="item.image" :alt="item.name" class="image-left_bes" />
@@ -1185,6 +1187,13 @@
     
   </template>
 <script setup lang="ts">
+
+
+
+
+
+
+
 import { db } from "@/firebase";
 import {
   collection,
@@ -2580,6 +2589,7 @@ function resetImage(containerNumber: number) {
     justify-content: flex-end; /* Align all items to the right */
     margin-right: 150px; /* Add some spacing from the right edge */
     margin-top: 50px;
+
   }
   
   .container_on {
@@ -2880,6 +2890,7 @@ function resetImage(containerNumber: number) {
     align-items: flex-start;
     height: 100vh;
     background-color: #f0f0f0;
+
   }
   
   /* Shopping Cart Header */
@@ -2888,6 +2899,7 @@ function resetImage(containerNumber: number) {
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
+  
 
   }
   
@@ -2926,11 +2938,14 @@ function resetImage(containerNumber: number) {
   
   /* Main container */
   .container_bes {
-    display: flex;
     height: 290px;
     width: 80%;
     gap: 0;
     margin-top: 20px;
+  justify-content: space-between; /* Sol ve sağ içeriği ayır */
+  align-items: flex-start; /* Üst hizalama */
+  gap: 20px; /* Konteynerler arası boşluk */
+  position: relative; /* Sağ konteyner için referans noktası */
   }
   
   /* Each container item styling */
@@ -2938,18 +2953,24 @@ function resetImage(containerNumber: number) {
     padding: 20px;
    
     text-align: center;
+    
   }
   
   /* Left container (white background) */
   .container-item-left_bes {
     background-color: white;
-    width: 900px;
+    width: 770px;
+height: 220px;
+
   }
   
   /* Right container (light gray background) */
   .container-item-right_bes {
     background-color: #f5f5f5;
     width:200px;
+    margin-left: 810px;
+    top: -50px;
+    position: absolute;
   }
   
   /* Container content text */
