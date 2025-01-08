@@ -66,9 +66,11 @@
       <button class="checkout_giris">SIGN UP</button>
   
       <!-- Already Have Account -->
+      <NuxtLink to="/component9">
       <p class="signin-text_giris">
         Have an account? <a href="#" class="signin-link_giris">Sign In</a>
       </p>
+      </NuxtLink>
     </div>
   
     <!-- Footer -->
@@ -89,6 +91,7 @@
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     padding: 20px;
+    margin-top: 150px;
   }
   
   .header_giris {

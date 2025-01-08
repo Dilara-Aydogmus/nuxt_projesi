@@ -1,4 +1,5 @@
 <template>
+    <div class="wrapper">
     <!-- Shopping Cart title and Move to Wishlist button -->
     <div class="shopping-cart-header_bes">
       <div class="container-title_bes">Shopping Cart (1 item)</div>
@@ -91,9 +92,14 @@
 <button class="checkout2_bes">PAYPAL ile satın alın</button>
     </div>
 </div>
+</div>
   </template>
   
   <style scoped>
+  .wrapper {
+  margin-top: 50px; /* İçeriği 50px aşağı taşır */
+  padding-top: 20px; /* Eğer içerik arasında boşluk isterseniz padding kullanabilirsiniz */
+}
   /* General styling */
   body {
     font-family: Arial, sans-serif;
@@ -104,6 +110,7 @@
     align-items: flex-start;
     height: 100vh;
     background-color: #f0f0f0;
+   
   }
   
   /* Shopping Cart Header */
