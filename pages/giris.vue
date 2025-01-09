@@ -14,23 +14,23 @@
   
       <!-- Input Fields -->
       <div class="search-container_giris">
-        <input type="text"  class="search-bar_giris" placeholder="First and Last Name" />
-      </div>
+        <input type="text" class="search-bar_giris" placeholder="First and Last Name" v-model="firstName" />
+    </div>
   
       <div class="search-container_giris">
-        <input type="email" class="search-bar_giris" placeholder="Email Address" />
-      </div>
+        <input type="email" class="search-bar_giris" placeholder="Email Address" v-model="email" />
+    </div>
   
       <div class="search-container_giris">
         <div class="input-group_giris">
-          <input type="text" class="search-bar_giris" placeholder="Mobile Phone Number (optional)" />
-          <span class="help-icon_giris">?</span>
+            <input type="text" class="search-bar_giris" placeholder="Mobile Phone Number (optional)" v-model="phoneNumber" />
+            <span class="help-icon_giris">?</span>
         </div>
       </div>
   
       <div class="search-container_giris">
-        <input type="password" class="search-bar_giris" placeholder="Password" />
-      </div>
+        <input type="password" class="search-bar_giris" placeholder="Password" v-model="password" />
+    </div>
   
       <!-- Password Guidelines -->
       <div class="password-guidelines-giris">
