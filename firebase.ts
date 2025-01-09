@@ -1,20 +1,19 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // Firestore için import
+import { getFirestore } from "firebase/firestore"; // Firestore
+import { getDatabase } from "firebase/database"; // Realtime Database
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDLaIZdVJyuukKE7pGET21q-Ww5ryPytwQ",
-  authDomain: "nuxt-project-84adb.firebaseapp.com",
-  projectId: "nuxt-project-84adb",
-  storageBucket: "nuxt-project-84adb.firebasestorage.app",
-  messagingSenderId: "806563431404",
-  appId: "1:806563431404:web:e183c28309aa45d14876c9",
-  measurementId: "G-2EX1WEPB7P"
+  apiKey: "AIzaSyChnQN9QX9jcuLEQ1ewQqWdEiel2Jt-5GI",
+  authDomain: "nuxt-proje2.firebaseapp.com",
+  projectId: "nuxt-proje2",
+  storageBucket: "nuxt-proje2.appspot.com",
+  messagingSenderId: "1058376311425",
+  appId: "1:1058376311425:web:5ad56a1a7db4cbfda56380",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app); // Firestore başlatma
+const db = getFirestore(app); // Firestore instance
+const realtimeDb = getDatabase(app); // Realtime Database instance
 
-export { app, db };
+export { app, db, realtimeDb };

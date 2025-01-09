@@ -18,8 +18,17 @@
         </button>
         <div class="asagi-text">Save: 49%</div>
         <div class="fiyat-text">$429</div>
-        <button class="cart">ADD TO CART</button>
-      </div>
+        <button
+  class="cart"
+  @click="addToCart({
+    id: 1,
+    name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
+    price: 429,
+    image: currentImage1
+  })"
+>
+  ADD TO CART
+</button>     </div>
   
       <!-- Container 2 -->
       <div class="container">
@@ -39,7 +48,17 @@
         </button>
         <div class="asagi-text2">Save: 22%</div>
         <div class="fiyat-text">$429</div>
-        <button class="cart">ADD TO CART</button>
+        <button
+        class="cart"
+        @click="addToCart({
+          id: 2,
+          name: 'SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler',
+          price: 299,
+          image: currentImage2
+        })"
+      >
+        ADD TO CART
+      </button>
       </div>
   
       <!-- Container 3 -->
@@ -60,7 +79,17 @@
         </button>
         <div class="asagi-text3">Save: 24%</div>
         <div class="fiyat-text2">$429</div>
-        <button class="cart2">ADD TO CART</button>
+        <button
+  class="cart"
+  @click="addToCart({
+    id: 3,
+    name: 'CCORSAIR iCUE H150i ELITE CAPELLIX XT Liquid CPU Cooler',
+    price: 429,
+    image: currentImage3
+  })"
+>
+  ADD TO CART
+</button> 
       </div>
     </div>
   
@@ -83,7 +112,17 @@
         </button>
         <div class="asagi-text">Save: 49%</div>
         <div class="fiyat-text">$429</div>
-        <button class="cart">ADD TO CART</button>
+        <button
+        class="cart"
+        @click="addToCart({
+          id: 4,
+          name: '3SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler',
+          price: 399,
+          image: currentImage4
+        })"
+      >
+        ADD TO CART
+      </button>
       </div>
   
       <!-- Container 5 -->
@@ -104,7 +143,17 @@
         </button>
         <div class="asagi-text2">Save: 22%</div>
         <div class="fiyat-text">$429</div>
-        <button class="cart">ADD TO CART</button>
+        <button
+        class="cart"
+        @click="addToCart({
+          id: 5,
+          name: '4SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler',
+          price: 499,
+          image: currentImage5
+        })"
+      >
+        ADD TO CART
+      </button>
       </div>
   
       <!-- Container 6 -->
@@ -125,12 +174,25 @@
         </button>
         <div class="asagi-text3">Save: 24%</div>
         <div class="fiyat-text2">$429</div>
-        <button class="cart2">ADD TO CART</button>
+        <button
+        class="cart"
+        @click="addToCart({
+          id: 6,
+          name: '5SAMA SM360 Black 360mm Liquid Water AIO CPU Cooler',
+          price: 599,
+          image: currentImage6
+        })"
+      >
+        ADD TO CART
+      </button>
       </div>
     </div>
   </template>
   
   <script>
+  import { useCartStore } from "~/stores/cart";
+import { saveCartToFirebase } from "~/helpers/firebase";
+
   export default {
     data() {
       return {
@@ -189,8 +251,19 @@
         } else if (containerNumber === 6) {
           this.currentImage6 = this.image6;
         }
-      }
-    }
+      },
+      
+      async addToCart(product) {
+  try {
+    const cartStore = useCartStore();
+    cartStore.addToCart(product); // Add the product to the cart store
+    await saveCartToFirebase(cartStore.items); // Update Firebase with the updated cart
+    console.log(`Product ${product.name} added to the cart successfully!`);
+  } catch (error) {
+    console.error("Error adding product to cart:", error);
+  }
+}
+  },
   };
   </script>
   

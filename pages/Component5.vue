@@ -1,107 +1,131 @@
 <template>
     <div class="wrapper">
-    <!-- Shopping Cart title and Move to Wishlist button -->
-    <div class="shopping-cart-header_bes">
-      <div class="container-title_bes">Shopping Cart (1 item)</div>
-      <div class="button-text_bes move-all_bes">❤︎  Move All To Wishlist</div>
-      <div class="button-text_bes remove-all_bes">
-  <img src="/trash.png" alt="Remove" class="trash-icon_bes" />
-  Remove All
-</div>
-    </div>
-  
-    <!-- PRINT button aligned to the left -->
-    <button class="print-button_bes">
-        <img src="/printer.png" alt="Trash Icon" class="printer_bes" />
-        PRINT</button>
-  
-    <div class="container_bes">
-      <!-- Sol Konteyner -->
-      <div class="container-item_bes container-item-left_bes">
-        <!-- Image, text, and dropdown side-by-side -->
-        <div class="image-text-container_bes">
-          <img src="/w11.jpg" alt="Description of Image" class="image-left_bes" />
-          <a href="#" class="text-link_bes">Microsoft Windows 11 Home (USB)</a>
-
-          <select class="select-options_bes">
-            <option disabled selected>1</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>Delete</option>
-          </select>
-
+      <!-- Shopping Cart title and Move to Wishlist button -->
+      <div class="shopping-cart-header_bes">
+        <div class="container-title_bes">Shopping Cart ({{ cartItems.length }} item)</div>
+        <div class="button-text_bes move-all_bes">❤︎ Move All To Wishlist</div>
+        <div class="button-text_bes remove-all_bes" @click="removeAll">
+          <img src="/trash.png" alt="Remove" class="trash-icon_bes" />
+          Remove All
         </div>
-        <div class="test4_bes">$139</div>
-  
-        
-        <div class="ikinci_bes">#1 BEST SELLER</div>
-        <div class="ucuncu_bes">
-          <a href="#" class="clickable-link_bes">in Operating Systems</a>
-         
-        </div>
-        <div class="test_bes">
-            <a href="#" class="clickable-link2_bes">Limit 5</a>
-        </div>
-        <div class="test2_bes"> <a href="#" class="clickable-link3_bes">2,000+ people have this item in their cart.</a></div>
-
-        <span class="normal-font_bes">Operating Systems:</span> <span class="bold-font_bes">Windows 11</span>
-        
-        <div class="alt2_bes">Bit Version: 64 Bit</div>
-        <div class="alt3_bes">Version: Home</div>
-
-
-        <button class="wish-button_bes">❤︎ MOVE TO WISH LIST</button>
-        <button class="save-button_bes">
-            <img src="/kitap.png"  class="kitap_bes" />
-            SAVE FOR LATER</button>
-        <button class="remove-button_bes">
-  <img src="/trash.png" alt="Trash Icon" class="trash-icon2_bes" />
-  REMOVE
-</button>
-        
       </div>
   
-
-
-
-      <!-- Sağ Konteyner -->
-      <div class="container-item_bes container-item-right_bes">
-        <div class="container-title_bes">Summary</div>
-       <div class="sag1_bes"> Item(s): </div>
-       <div class="bir_bes">$139</div> 
-       <div class="sag2_bes">Est. Delivery: </div>
-       <div class="iki_bes">$139</div> 
-       <div class="sag3_bes">Promo Code Discount:</div>
-
-       
-       <div class="sag4_bes">Apply Promo Code</div>
-
-       <div class="search-container_bes">
-  <input type="text" class="search-bar_bes"  />
-  <button class="apply-button_bes">Apply</button>
-</div>
-
-<div class="sag5_bes">Est. Total:</div>
-<div class="sag5-value_bes">$139</div> 
-
-<button class="checkout_bes">SECURE CHECKOUT</button>
-<div class="or_bes">OR</div>
-<button class="checkout2_bes">PAYPAL ile satın alın</button>
+      <!-- Print button -->
+      <button class="print-button_bes">
+        <img src="/printer.png" alt="Print Icon" class="printer_bes" /> PRINT
+      </button>
+  
+      <div class="container_bes">
+        <!-- Sol Konteyner -->
+        <div v-for="item in cartItems" :key="item.id" class="container-item_bes container-item-left_bes">
+          <div class="image-text-container_bes">
+            <img :src="item.image" alt="Product Image" class="image-left_bes" />
+            <a href="#" class="text-link_bes">{{ item.name }}</a>
+            <select class="select-options_bes">
+              <option disabled selected>1</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>Delete</option>
+            </select>
+          </div>
+          <div class="test4_bes">${{ item.price }}</div>
+          <div class="ikinci_bes">#1 BEST SELLER</div>
+          <div class="ucuncu_bes">
+            <a href="#" class="clickable-link_bes">in Operating Systems</a>
+          </div>
+          <div class="test_bes">
+            <a href="#" class="clickable-link2_bes">Limit 5</a>
+          </div>
+          <div class="test2_bes">
+            <a href="#" class="clickable-link3_bes">2,000+ people have this item in their cart.</a>
+          </div>
+          <span class="normal-font_bes">Operating Systems:</span>
+          <span class="bold-font_bes">Windows 11</span>
+          <div class="alt2_bes">Bit Version: 64 Bit</div>
+          <div class="alt3_bes">Version: Home</div>
+          <button class="wish-button_bes">❤︎ MOVE TO WISH LIST</button>
+          <button class="save-button_bes">
+            <img src="/kitap.png" class="kitap_bes" /> SAVE FOR LATER
+          </button>
+          <button class="remove-button_bes" @click="removeFromCart(item.id)">
+            <img src="/trash.png" alt="Trash Icon" class="trash-icon2_bes" /> REMOVE
+          </button>
+        </div>
+  
+        <!-- Sağ Konteyner -->
+        <div class="container-item_bes container-item-right_bes">
+          <div class="container-title_bes">Summary</div>
+          <div class="sag1_bes">Item(s):</div>
+          <div class="bir_bes">${{ calculateTotal }}</div>
+          <div class="sag2_bes">Est. Delivery:</div>
+          <div class="iki_bes">$10</div>
+          <div class="sag3_bes">Promo Code Discount:</div>
+          <div class="search-container_bes">
+            <input type="text" class="search-bar_bes" />
+            <button class="apply-button_bes">Apply</button>
+          </div>
+          <div class="sag5_bes">Est. Total:</div>
+          <div class="sag5-value_bes">${{ calculateTotal + 10 }}</div>
+          <button class="checkout_bes">SECURE CHECKOUT</button>
+          <div class="or_bes">OR</div>
+          <button class="checkout2_bes">Pay with PayPal</button>
+        </div>
+      </div>
     </div>
-</div>
-</div>
   </template>
   
+  
+  
+  <script setup lang="ts">
+  import { useCartStore } from "~/stores/cart";
+  import { getFirestore, doc, setDoc } from "firebase/firestore"; // Firestore imports
+  
+  const cartStore = useCartStore();
+  const cartItems = cartStore.items;
+  
+  // Firestore reference
+  const firestore = getFirestore();
+  
+  // Save cart to Firestore
+  async function saveCartToFirestore(cartItems: Array<{ id: number; name: string; price: number; image: string }>) {
+    try {
+      // Create a document in Firestore under 'cart' collection
+      const userCartDocRef = doc(firestore, "cart", "userCart"); // Adjust the path if necessary
+      await setDoc(userCartDocRef, { cartItems }); // Store the cart items
+      console.log("Cart saved to Firestore successfully");
+    } catch (error) {
+      console.error("Error saving cart to Firestore:", error);
+    }
+  }
+  
+  // Remove an item from the cart
+  function removeFromCart(productId: number) {
+    cartStore.removeFromCart(productId);
+    saveCartToFirestore(cartStore.items); // Update Firestore
+  }
+  
+  // Clear all items from the cart
+  function removeAll() {
+    cartStore.clearCart();
+    saveCartToFirestore(cartStore.items); // Update Firestore
+  }
+  
+  // Compute the total price of items in the cart
+  const calculateTotal = computed(() =>
+    cartItems.reduce((total, item) => total + item.price, 0)
+  );
+  </script>
   <style scoped>
   .wrapper {
   margin-top: 50px; /* İçeriği 50px aşağı taşır */
   padding-top: 20px; /* Eğer içerik arasında boşluk isterseniz padding kullanabilirsiniz */
 }
-  /* General styling */
-  body {
+ /*component5*/
+ /* General styling */
+ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -110,7 +134,7 @@
     align-items: flex-start;
     height: 100vh;
     background-color: #f0f0f0;
-   
+
   }
   
   /* Shopping Cart Header */
@@ -119,6 +143,8 @@
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
+  
+
   }
   
   /* Title */
@@ -156,13 +182,14 @@
   
   /* Main container */
   .container_bes {
-    display: flex;
     height: 290px;
     width: 80%;
     gap: 0;
     margin-top: 20px;
-
-    
+  justify-content: space-between; /* Sol ve sağ içeriği ayır */
+  align-items: flex-start; /* Üst hizalama */
+  gap: 20px; /* Konteynerler arası boşluk */
+  position: relative; /* Sağ konteyner için referans noktası */
   }
   
   /* Each container item styling */
@@ -170,18 +197,24 @@
     padding: 20px;
    
     text-align: center;
+    
   }
   
   /* Left container (white background) */
   .container-item-left_bes {
     background-color: white;
-    width: 900px;
+    width: 770px;
+height: 220px;
+
   }
   
   /* Right container (light gray background) */
   .container-item-right_bes {
     background-color: #f5f5f5;
     width:200px;
+    margin-left: 810px;
+    top: -50px;
+    position: absolute;
   }
   
   /* Container content text */
@@ -197,16 +230,18 @@
     height: 30px;
     width: 90px;
     border: 1px solid rgba(0, 0, 0, 0.258);
-    position: absolute;
-    right: 20px;
-    top: 25px;
 
-    text-align: center; /* Align text to the center */
+    right: 20px;
+    margin-top: -50px;
+    transform: translateX(1050px);   
+
+     text-align: center; /* Align text to the center */
   white-space: nowrap; /* Prevent text from wrapping to a new line */
 
   display: flex; /* Flexbox layout for icon and text alignment */
   align-items: flex-start; /* Aligns text at the top */
   gap: 7px; /* Space between icon and text */
+
   }
   
 
@@ -665,7 +700,7 @@
   height: 20px;
   right:-5px; /* Space between icon and text */
   vertical-align: middle; /* Align icon with text */
-
+    
   position: relative;
   top:5px;
   
