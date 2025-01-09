@@ -1,5 +1,5 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore, doc, setDoc } from "firebase/firestore"; // Firestore modülü
+import { getFirestore, doc, setDoc, getDoc, updateDoc } from "firebase/firestore"; // Firestore modülü
 
 // Firebase config
 const firebaseConfig = {
@@ -34,32 +34,67 @@ export const saveCartToFirebase = async (
   }
 };
 
-// Save user data to Firestore
-// Save user data to Firestore
-export const saveUserToFirebase = async (
-    nameSurname: string,
-    email: string,
-    phoneNumber: string
-) => {
-    try {
-        // Ensure the email is safely used as a document ID
-        const encodedEmail = encodeURIComponent(email); // Encode the email to avoid illegal characters in Firestore paths
-        
-        // Create a document reference using the encoded email
-        const userRef = doc(db, "users", encodedEmail); // Use encoded email as document ID
-        
-        // Set user data with combined nameSurname field
-        await setDoc(userRef, {
-            nameSurname,
-            email,
-            phoneNumber,
-        });
+import { v4 as uuidv4 } from 'uuid'; // This will help in generating unique IDs for the user
 
-        console.log("User registered successfully:", nameSurname);
-    } catch (error) {
-        console.error("Error registering user:", error);
-    }
+export const saveUserToFirebase = async (
+  nameSurname: string,
+  email: string,
+  phoneNumber: string
+) => {
+  try {
+    // Generate a unique userId using the email or UUID
+    const userId = uuidv4();  // This generates a random unique ID
+
+    // Create a document reference using the userId
+    const userRef = doc(db, "users", userId); // Use the generated userId as document ID
+
+    // Set user data
+    await setDoc(userRef, {
+      userId, // Save the userId as part of the user data
+      nameSurname,
+      email,
+      phoneNumber,
+    });
+
+    console.log("User registered successfully:", nameSurname);
+  } catch (error) {
+    console.error("Error registering user:", error);
+  }
 };
 
+
+
+// Function to get user data by userId
+export const getUser = async (userId: string) => {
+    try {
+      const userRef = doc(db, "users", userId);  // Get document reference
+      const userSnap = await getDoc(userRef);  // Fetch document snapshot
+  
+      if (userSnap.exists()) {
+        return userSnap.data();  // Return the document data if it exists
+      } else {
+        console.log("No such user!");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error getting user data:", error);  // Handle error
+    }
+  };
+  
+  // Function to update user data by userId
+  export const updateUser = async (userId: string, nameSurname: string, email: string, phoneNumber: string) => {
+    try {
+      const userRef = doc(db, "users", userId);  // Get document reference for the user
+      await updateDoc(userRef, {  // Update user document in Firestore
+        nameSurname,  // Update the user's name and other fields
+        email,
+        phoneNumber
+      });
+  
+      console.log("User updated successfully");
+    } catch (error) {
+      console.error("Error updating user:", error);  // Handle error
+    }
+  };
 // Export Firebase instance
 export { app, db };
