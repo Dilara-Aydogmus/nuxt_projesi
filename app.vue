@@ -173,9 +173,12 @@
         <div class="dropdown-lists">
         <!-- Left List -->
         <ul class="list-left">
-          <li><a href="#">
-            <img src="/hourglass.png" class="list-item-icon" />
-            Today's Best Deals</a></li>
+            <li>
+    <NuxtLink to="/component10">
+      <img src="/hourglass.png" class="list-item-icon" />
+      Today's Best Deals
+    </NuxtLink>
+  </li>
           <li><a href="#">
             <img src="/letter.png" class="list-item-icon" />
             Email Deals</a></li>
@@ -303,7 +306,7 @@
     display: flex;
     flex-direction: column; /* Allow navbar to grow vertically */
     align-items: center; /* Center items vertically */
-
+margin-bottom:70px;
     /*deneme üste gelmesi icin*/
      z-index: 1000;
   }

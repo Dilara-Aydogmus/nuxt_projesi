@@ -201,7 +201,6 @@
   }
   
   .container {
-    position: relative;
     background-color: white;
     border-radius: 10px; /* Slightly rounded corners */
     overflow: hidden;    /* Ensures images stay within the container bounds */
@@ -209,6 +208,8 @@
     height: 620px; /* Reduced height to better fit the image size */
     position: relative;
     margin: 0;
+    margin-top: 80px;
+    margin-left: 80px;
   }
   
   .image-container {
