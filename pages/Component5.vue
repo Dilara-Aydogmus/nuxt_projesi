@@ -57,7 +57,7 @@
   
         <!-- Sağ Konteyner -->
         <div class="container-item_bes container-item-right_bes">
-          <div class="container-title_bes">Summary</div>
+          <div class="container-title_bes_summary">Summary</div>
           <div class="sag1_bes">Item(s):</div>
           <div class="bir_bes">${{ calculateTotal }}</div>
           <div class="sag2_bes">Est. Delivery:</div>
@@ -79,49 +79,60 @@
   
   
   
-  <script setup lang="ts">
-  import { useCartStore } from "~/stores/cart";
-  import { getFirestore, doc, setDoc } from "firebase/firestore"; // Firestore imports
-  
-  const cartStore = useCartStore();
-  const cartItems = cartStore.items;
-  
-  // Firestore reference
-  const firestore = getFirestore();
-  
-  // Save cart to Firestore
-  async function saveCartToFirestore(cartItems: Array<{ id: number; name: string; price: number; image: string }>) {
-    try {
-      // Create a document in Firestore under 'cart' collection
-      const userCartDocRef = doc(firestore, "cart", "userCart"); // Adjust the path if necessary
-      await setDoc(userCartDocRef, { cartItems }); // Store the cart items
-      console.log("Cart saved to Firestore successfully");
-    } catch (error) {
-      console.error("Error saving cart to Firestore:", error);
-    }
+ 
+
+<script setup lang="ts">
+import { useCartStore } from "~/stores/cart";
+import { doc, setDoc } from "firebase/firestore"; // Firestore imports
+import { db } from "~/firebase"; // Firestore instance from your firebase.ts
+import { computed } from "vue"; // Vue reaktif sistem için computed kullanımı
+
+// Pinia Store
+const cartStore = useCartStore();
+
+// Reaktif olarak cartItems'ı computed ile tanımlayın
+const cartItems = computed(() => cartStore.items);
+
+// Firestore reference
+// Firestore instance "db" direkt firebase.ts dosyasından import ediliyor
+const firestore = db;
+
+// Save cart to Firestore
+async function saveCartToFirestore(
+  cartItems: Array<{ id: number; name: string; price: number; image: string }>
+) {
+  try {
+    // Create a document in Firestore under 'cart' collection
+    const userCartDocRef = doc(firestore, "cart", "userCart"); // Adjust the path if necessary
+    await setDoc(userCartDocRef, { cartItems }); // Store the cart items
+    console.log("Cart saved to Firestore successfully");
+  } catch (error) {
+    console.error("Error saving cart to Firestore:", error);
   }
-  
-  // Remove an item from the cart
-  function removeFromCart(productId: number) {
-    cartStore.removeFromCart(productId);
-    saveCartToFirestore(cartStore.items); // Update Firestore
-  }
-  
-  // Clear all items from the cart
-  function removeAll() {
-    cartStore.clearCart();
-    saveCartToFirestore(cartStore.items); // Update Firestore
-  }
-  
-  // Compute the total price of items in the cart
-  const calculateTotal = computed(() =>
-    cartItems.reduce((total, item) => total + item.price, 0)
-  );
-  </script>
+}
+
+// Remove an item from the cart
+function removeFromCart(productId: number) {
+  cartStore.removeFromCart(productId); // Remove item from store
+  saveCartToFirestore(cartStore.items); // Update Firestore
+}
+
+// Clear all items from the cart
+function removeAll() {
+  cartStore.clearCart(); // Clear all items in store
+  saveCartToFirestore(cartStore.items); // Update Firestore
+}
+
+// Compute the total price of items in the cart
+const calculateTotal = computed(() =>
+  cartItems.value.reduce((total, item) => total + item.price, 0) // cartItems.value kullanımı
+);
+</script>
   <style scoped>
   .wrapper {
-  margin-top: 50px; /* İçeriği 50px aşağı taşır */
+  margin-top: 90px; /* İçeriği 50px aşağı taşır */
   padding-top: 20px; /* Eğer içerik arasında boşluk isterseniz padding kullanabilirsiniz */
+  margin-left: 20px;
 }
  /*component5*/
  /* General styling */
@@ -154,7 +165,12 @@
     color: #333;
     margin-left:-3px;
   }
-  
+  .container-title_bes_summary {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-left:-200px;
+  }
   /* Button text */
   .button-text_bes {
     font-size: 16px;
@@ -211,10 +227,11 @@ height: 220px;
   /* Right container (light gray background) */
   .container-item-right_bes {
     background-color: #f5f5f5;
-    width:200px;
+    width:360px;
     margin-left: 810px;
-    top: -50px;
+    top: -0px;
     position: absolute;
+
   }
   
   /* Container content text */
@@ -329,6 +346,7 @@ height: 220px;
     display: flex;
     align-items: center; /* Vertically align the text and dropdown with the image */
     gap: 10px; /* Add spacing between items */
+    margin-top: -25px;
   }
   
   /* Image styling */
@@ -347,6 +365,7 @@ height: 220px;
     color: rgba(0, 0, 0, 0.776);
     text-decoration: none;
     cursor: pointer;
+    margin-top: -8px;
     
   }
   
@@ -411,7 +430,7 @@ height: 220px;
   color: rgb(0, 0, 0);
   margin-left: 660px;
   position: relative;  /* Add relative positioning */
-  top: -80px;  /* Adjust this to move the price upwards */
+  top: -45px;  /* Adjust this to move the price upwards */
   font-size: 25px;
   font-weight: bold;
   padding: 5px;
@@ -461,7 +480,7 @@ height: 220px;
   padding: 5px;
   position: relative;  /* Use relative positioning */
   top: 0;  /* Remove or adjust if needed */
-  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  margin-left:-200px;
   right: 30px; 
   top:20px;
   
@@ -474,7 +493,7 @@ height: 220px;
   padding: -45px;
   position: relative;  /* Use relative positioning */
   top: 5;  /* Remove or adjust if needed */
-  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  margin-left:-200px;
   right: 15px; 
   white-space: nowrap;
 }
@@ -486,7 +505,7 @@ height: 220px;
   padding: -45px;
   position: relative;  /* Use relative positioning */
   top: 5;  /* Remove or adjust if needed */
-  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  margin-left:-200px;
   right: -15px; 
   white-space: nowrap;
 }
@@ -498,7 +517,7 @@ height: 220px;
   padding: 5px;
   position: relative;  /* Use relative positioning */
   top: 5;  /* Remove or adjust if needed */
-  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  margin-left: -150px;   /* Adjust margin-left to keep it within the container */
   right: -15px; 
   white-space: nowrap;
   margin-top: 20px;
@@ -512,7 +531,7 @@ height: 220px;
  font-weight:normal;
   padding: 5px;
   margin-top: 25px;  /* Remove or adjust if needed */
-  margin-left: 10px;  /* Adjust margin-left to keep it within the container */
+  margin-left: -200px;   /* Adjust margin-left to keep it within the container */
   right: 15px; 
   white-space: nowrap;
   position: relative; /* Ensure it has relative positioning */
@@ -579,7 +598,7 @@ height: 220px;
   display: flex;
   align-items: center;  /* Vertically align the items */
   gap: 10px;  /* Add space between the search bar and button */
-  margin-left: 27px;  /* Move the entire search bar and button to the right */
+  margin-left: 20px;  /* Move the entire search bar and button to the right */
   margin-top: 20px;
 }
 
@@ -594,6 +613,7 @@ height: 220px;
   outline: none;  /* Remove default focus outline */
   background-color: white;
   color: black;  /* Set text color to black */
+  margin-left:-15px;
 }
 
 /* Focus style for the search bar */
@@ -621,7 +641,7 @@ height: 220px;
 }
 
 .checkout_bes {
-  margin-left: 27px;
+  margin-left: 10px;
   width: 300px;
   height: 30px; /* Increased height for better visual appearance */
   padding: 0 30px;
@@ -646,13 +666,12 @@ height: 220px;
 .or_bes{
     color:#333;
     padding: 10px;
-    margin-left: 150px;
-}
+    left: 15px;}
 
 
 
 .checkout2_bes {
-  margin-left: 55px;
+    margin-left: 15px;
   width: 250px;
   height: 30px; /* Increased height for better visual appearance */
   padding: 0 30px;
@@ -724,8 +743,7 @@ height: 220px;
   text-align: right; /* Align the value to the right */
   position: relative;
   top:-15px;
-  left: 150px;
-}
+  left: 15px;}
 
 .bir_bes {
   color: rgb(0, 0, 0);
@@ -734,7 +752,7 @@ height: 220px;
   text-align: right; /* Align the value to the right */
   position: relative;
   top:-10px;
-  left: 150px;
+  left: 15px;
 }
 
 .iki_bes {
@@ -744,7 +762,7 @@ height: 220px;
   text-align: right; /* Align the value to the right */
   position: relative;
   top:-25px;
-  left: 150px;
+  left: 15px;
 }
 
 .normal-font_bes {

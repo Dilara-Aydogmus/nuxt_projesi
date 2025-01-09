@@ -191,7 +191,7 @@
   
   <script>
   import { useCartStore } from "~/stores/cart";
-import { saveCartToFirebase } from "~/helpers/firebase";
+import { saveCartToFirebase } from  "~/firebase";
 
   export default {
     data() {

@@ -1,4 +1,4 @@
-import { realtimeDb } from "~/firebase"; // Ensure the path is correct
+/*import { realtimeDb } from "~/firebase"; // Ensure the path is correct
 import { ref, set } from "firebase/database";
 
 export const saveCartToFirebase = async (
@@ -12,3 +12,4 @@ export const saveCartToFirebase = async (
     console.error("Error saving cart to Firebase:", error);
   }
 };
+*/
