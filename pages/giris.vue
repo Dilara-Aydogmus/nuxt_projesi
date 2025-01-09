@@ -63,7 +63,7 @@
       </p>
   
       <!-- Sign Up Button -->
-      <button class="checkout_giris">SIGN UP</button>
+      <button class="checkout_giris" @click="handleSignUp">SIGN UP</button>
   
       <!-- Already Have Account -->
       <NuxtLink to="/component9">
@@ -80,7 +80,49 @@
       <p>© 2000-2024 Newegg Inc. All rights reserved.</p>
     </div>
   </template>
+
   
+<script setup lang="ts">
+import { ref } from "vue";
+import { useUserStore } from "~/stores/userStore";
+import { useRouter } from "vue-router";  // Import the router if you want to redirect after sign-up
+
+// Creating references for the form input fields
+const firstName = ref("");
+const lastName = ref("");
+const email = ref("");
+const phoneNumber = ref("");
+const password = ref("");
+
+// Accessing the user store
+const userStore = useUserStore();
+const router = useRouter();  // Initialize the router for redirect
+
+// Handle the sign-up logic
+const handleSignUp = async () => {
+  try {
+    // Combine first name and last name into one field (nameSurname)
+    userStore.nameSurname = `${firstName.value} ${lastName.value}`; // Concatenate first and last name
+
+    // Set other fields in the user store
+    userStore.email = email.value;
+    userStore.phoneNumber = phoneNumber.value;
+    userStore.password = password.value;
+
+    // Call the registerUser method to store the user data in Firestore
+    await userStore.registerUser();
+
+    // Success message or redirection
+    console.log("User registered successfully");
+
+    // Redirect to the home page or another page
+    router.push('/component9');  // Change '/home' to your desired page
+
+  } catch (error) {
+    console.error("Error during sign up:", error);
+  }
+};
+</script>
   <style scoped>
   /* General Container */
   .container_giris {

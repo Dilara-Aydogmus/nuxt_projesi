@@ -34,5 +34,32 @@ export const saveCartToFirebase = async (
   }
 };
 
+// Save user data to Firestore
+// Save user data to Firestore
+export const saveUserToFirebase = async (
+    nameSurname: string,
+    email: string,
+    phoneNumber: string
+) => {
+    try {
+        // Ensure the email is safely used as a document ID
+        const encodedEmail = encodeURIComponent(email); // Encode the email to avoid illegal characters in Firestore paths
+        
+        // Create a document reference using the encoded email
+        const userRef = doc(db, "users", encodedEmail); // Use encoded email as document ID
+        
+        // Set user data with combined nameSurname field
+        await setDoc(userRef, {
+            nameSurname,
+            email,
+            phoneNumber,
+        });
+
+        console.log("User registered successfully:", nameSurname);
+    } catch (error) {
+        console.error("Error registering user:", error);
+    }
+};
+
 // Export Firebase instance
 export { app, db };

@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { db } from "~/firebase"; // Firestore instance
+
+const db = getFirestore(); // Firestore instance
+
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
@@ -9,14 +11,20 @@ export const useCartStore = defineStore("cart", {
   actions: {
     async addToCart(item: { id: number; name: string; price: number; image: string }) {
       this.items.push(item);
+
+      // Firestore'a kaydet
       await this.saveCartToFirestore();
     },
     async removeFromCart(productId: number) {
       this.items = this.items.filter((item) => item.id !== productId);
+
+      // Firestore'u güncelle
       await this.saveCartToFirestore();
     },
     async clearCart() {
       this.items = [];
+
+      // Firestore'daki sepeti temizle
       await this.saveCartToFirestore();
     },
     async saveCartToFirestore() {

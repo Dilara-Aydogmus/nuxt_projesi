@@ -1,4 +1,6 @@
 <template>
+        <keep-alive>
+
     <div class="wrapper">
       <!-- Shopping Cart title and Move to Wishlist button -->
       <div class="shopping-cart-header_bes">
@@ -75,6 +77,7 @@
         </div>
       </div>
     </div>
+    </keep-alive>
   </template>
   
   
