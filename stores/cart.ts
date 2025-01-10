@@ -3,7 +3,6 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 const db = getFirestore(); // Firestore instance
 
-
 export const useCartStore = defineStore("cart", {
   state: () => ({
     items: [] as Array<{ id: number; name: string; price: number; image: string }>,
@@ -29,8 +28,7 @@ export const useCartStore = defineStore("cart", {
     },
     async saveCartToFirestore() {
       try {
-        const userId = "sampleUserId"; // Gerçek kullanıcı kimliğini kullanın
-        const userCartDocRef = doc(db, "cart", userId);
+        const userCartDocRef = doc(db, "cart", "userCart"); // Doğrudan "userCart" belgesine yaz
         await setDoc(userCartDocRef, { cartItems: this.items });
         console.log("Cart saved to Firestore successfully:", this.items);
       } catch (error) {

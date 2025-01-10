@@ -116,7 +116,7 @@ const handleSignUp = async () => {
     console.log("User registered successfully");
 
     // Redirect to the home page or another page
-    router.push('/component9');  // Change '/home' to your desired page
+    router.push('/accountSettings');  // Change '/home' to your desired page
 
   } catch (error) {
     console.error("Error during sign up:", error);

@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-      <!-- Left Sidebar (Orders Section) -->
       <div class="left-sidebar">
         <div class="account-header">
           <h1>HI, {{ user.nameSurname }}</h1>
@@ -12,23 +11,9 @@
           <li><a href="#">Digital Orders</a></li>
           <li><a href="#">Subscription Orders</a></li>
           <li><a href="#">Return Status / History</a></li>
-          <li><a href="#">Marketplace Claim History</a></li>
-          <li><a href="#">Trade-in Orders</a></li>
-          <li><a href="#">Offers</a></li>
-        </ul>
-  
-        <!-- Additional sections for testing -->
-        <h3>Manage Account</h3>
-        <ul>
-            <li><a href="#" class="italic">Account Settings</a></li>
-            <li><a href="#">Security Settings</a></li>
-          <li><a href="#">Notification Preferences</a></li>
-          <li><a href="#">Payment Methods</a></li>
-          <li><a href="#">Subscription Plan</a></li>
         </ul>
       </div>
   
-      <!-- Right Settings Section (Account Settings) -->
       <div class="right-settings">
         <div class="header">
           <p class="text italic">Account Settings</p>
@@ -53,90 +38,127 @@
   
         <div v-if="isEditing" class="edit-form">
           <div v-if="editField === 'name'">
-            <label>Name:</label>
-            <input v-model="editName" type="text" placeholder="Enter your name">
+            <label>Old Name:</label>
+            <input v-model="editOldName" type="text" placeholder="Enter your old name" />
+            <label>New Name:</label>
+            <input v-model="editNewName" type="text" placeholder="Enter your new name" />
           </div>
           <div v-if="editField === 'email'">
-            <label>Email:</label>
-            <input v-model="editEmail" type="email" placeholder="Enter your email">
+            <label>Old Email:</label>
+            <input v-model="editOldEmail" type="email" placeholder="Enter your old email" />
+            <label>New Email:</label>
+            <input v-model="editNewEmail" type="email" placeholder="Enter your new email" />
           </div>
           <div v-if="editField === 'phone'">
-            <label>Phone Number:</label>
-            <input v-model="editPhoneNumber" type="text" placeholder="Enter your phone number">
+            <label>Old Phone:</label>
+            <input v-model="editOldPhoneNumber" type="text" placeholder="Enter your old phone" />
+            <label>New Phone:</label>
+            <input v-model="editNewPhoneNumber" type="text" placeholder="Enter your new phone" />
           </div>
   
-          <button @click="saveChanges">Save Changes</button>
-          <button @click="cancelEdit">Cancel</button>
+          <div class="button-container">
+            <button @click="saveChanges" class="save-button">Save Changes</button>
+            <button @click="cancelEdit" class="cancel-button">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
-</template>
+  </template>
   
   <script setup>
   import { ref, onMounted } from 'vue';
-  import { useUserStore } from '~/stores/userStore';  // Importing user store
-  import { useRouter } from 'vue-router';  // For redirection after update
-  import { getUser, updateUser } from '~/firebase';  // Firebase methods to get and update user data
+  import { useUserStore } from '~/stores/userStore';
+  import { getUser, updateUser } from '~/firebase';
   
-  const router = useRouter();
-  const userStore = useUserStore();
+  const userStore = useUserStore(); // Access the store
   
-  // State variables for user data and edit mode
-  const user = ref({
-    nameSurname: '',
-    email: '',
-    phoneNumber: ''
-  });
+// Logs to ensure userId is correctly set in the store
+console.log("User ID in Pinia store:", userStore.userId);
+  const user = ref({ nameSurname: '', email: '', phoneNumber: '' });
   const isEditing = ref(false);
   const editField = ref('');
-  const editName = ref('');
-  const editEmail = ref('');
-  const editPhoneNumber = ref('');
+  const editOldName = ref('');
+  const editNewName = ref('');
+  const editOldEmail = ref('');
+  const editNewEmail = ref('');
+  const editOldPhoneNumber = ref('');
+  const editNewPhoneNumber = ref('');
   
-  // Fetch user data when component is mounted
   onMounted(async () => {
-    const userData = await getUser(userStore.userId);  // Fetch data from Firestore
-    if (userData) {
-      user.value = userData;
-    }
-    editName.value = user.value.nameSurname;
-    editEmail.value = user.value.email;
-    editPhoneNumber.value = user.value.phoneNumber;
-  });
-  
-  // Toggle edit mode for specific field
+  console.log("Before fetching user: userId =", userStore.userId);
+
+  userStore.initializeUser();
+
+// Check if userId is available in the store
+if (userStore.userId) {
+  console.log("Restored userId from localStorage:", userStore.userId);
+  await userStore.fetchUser(userStore.userId); // Fetch the user data
+
+  // Update local user state
+  user.value.nameSurname = userStore.nameSurname;
+  user.value.email = userStore.email;
+  user.value.phoneNumber = userStore.phoneNumber;
+}
+});
   const toggleEdit = (field) => {
     editField.value = field;
     isEditing.value = !isEditing.value;
   };
   
-  // Cancel editing and reset the fields
   const cancelEdit = () => {
     isEditing.value = false;
-    editName.value = user.value.nameSurname;
-    editEmail.value = user.value.email;
-    editPhoneNumber.value = user.value.phoneNumber;
+    editOldName.value = user.value.nameSurname;
+    editNewName.value = user.value.nameSurname;
+    editOldEmail.value = user.value.email;
+    editNewEmail.value = user.value.email;
+    editOldPhoneNumber.value = user.value.phoneNumber;
+    editNewPhoneNumber.value = user.value.phoneNumber;
   };
   
-  // Save changes and update user data in Firestore
   const saveChanges = async () => {
-    try {
-      if (editField.value === 'name') {
-        await updateUser(userStore.userId, editName.value, user.value.email, user.value.phoneNumber);
-        user.value.nameSurname = editName.value;
-      } else if (editField.value === 'email') {
-        await updateUser(userStore.userId, user.value.nameSurname, editEmail.value, user.value.phoneNumber);
-        user.value.email = editEmail.value;
-      } else if (editField.value === 'phone') {
-        await updateUser(userStore.userId, user.value.nameSurname, user.value.email, editPhoneNumber.value);
-        user.value.phoneNumber = editPhoneNumber.value;
-      }
-      isEditing.value = false;
-      console.log("User data updated successfully");
-    } catch (error) {
-      console.error("Error updating user data:", error);
+  try {
+    // Get userId from Pinia store
+    const userId = userStore.userId; 
+    console.log("User ID:", userId); // Add this log for debugging
+
+    // Check if userId is available
+    if (!userId) {
+      console.error("User ID is missing"); // Debug log
+      throw new Error("User ID is required.");
     }
-  };
+
+    console.log("Current user data", { editOldName, editNewName, editOldEmail, editNewEmail });
+
+    // Check if the name is being updated and ensure the old and new names are different
+    if (editField.value === 'name' && editOldName.value !== editNewName.value) {
+      console.log("Updating user name:", editNewName.value);
+      await updateUser(userId, editNewName.value, '', ''); // Only update name
+    }
+
+    // Check if the email is being updated and ensure the old and new emails are different
+    if (editField.value === 'email' && editOldEmail.value !== editNewEmail.value) {
+      console.log("Updating user email:", editNewEmail.value);
+      await updateUser(userId, '', editNewEmail.value, ''); // Update email
+    }
+
+    // Check if the phone number is being updated and ensure the old and new phone numbers are different
+    if (editField.value === 'phone' && editOldPhoneNumber.value !== editNewPhoneNumber.value) {
+      console.log("Updating user phone number:", editNewPhoneNumber.value);
+      await updateUser(userId, '', '', editNewPhoneNumber.value); // Update phone number
+    }
+
+    // Update local state after successful update
+    user.value.nameSurname = editNewName.value;
+    user.value.email = editNewEmail.value;
+    user.value.phoneNumber = editNewPhoneNumber.value;
+
+    isEditing.value = false;
+    console.log("User data updated successfully");
+  } catch (error) {
+    console.error("Error updating user data:", error);
+  }
+
+};
   </script>
   
   <style scoped>
@@ -168,9 +190,10 @@
   }
   
   .left-sidebar h3 {
-  margin-bottom: 15px;
-  font-weight: bold;  /* Added this line to make it bold */
-}
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
   .left-sidebar ul {
     list-style-type: none;
     padding: 0;
@@ -209,47 +232,49 @@
   .subtitle {
     font-size: 16px;
     color: #666;
-    margin-top:50px;
-    margin-left : -200px;
+    margin-top: 50px;
+    margin-left: -200px;
   }
   
   .account-info {
-  width: 100%;
-  margin-bottom: 30px;
-  white-space: nowrap;  /* Prevent text from wrapping */
-}
+    width: 100%;
+    margin-bottom: 30px;
+    white-space: nowrap;
+  }
+  
   .account-info h3 {
     font-size: 18px;
     margin-bottom: 10px;
   }
   
   .account-info p {
-  font-size: 16px;
-  margin-bottom: 10px;
-  white-space: nowrap;  /* Prevent text from wrapping */
-}
+    font-size: 16px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
   
-.info-row {
-  margin-bottom: 10px;
-  white-space: nowrap;  /* Prevent text from wrapping */
-}
-
-button {
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: bold;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-}
-
-button:hover {
-  background-color: #e0e0e0;
-  border-color: #999;
-}
+  .info-row {
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+  
+  button {
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+  }
+  
   .edit-form {
     display: flex;
     flex-direction: column;
@@ -273,38 +298,42 @@ button:hover {
     font-size: 13px;
     color: #888;
   }
+  
   .italic {
-  font-style: italic;
-}
-
-/* Add a specific class for the edit button */
-.edit-button {
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: bold;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  margin-left: 800px;  /* This will push the button to the right */
-  display: block;     /* Ensures the button occupies a full line */
-  margin-top: -25px;
-}
-
-.edit-button:hover {
-  background-color: #e0e0e0;
-  border-color: #999;
-}
-/* Adjusting the Save and Cancel buttons specifically */
-.edit-form button {
-  padding: 6px 12px;  /* Adjust padding to make the buttons shorter */
-  font-size: 14px;     /* Optionally adjust the font size */
-width: 150px;
-margin-left: 110px;
-
-}
-
+    font-style: italic;
+  }
+  
+  .edit-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-left: 800px;
+    display: block;
+    margin-top: -25px;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+  }
+  
+  .edit-form button {
+    padding: 6px 12px;
+    font-size: 14px;
+    width: 150px;
+    margin-left: 110px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+  }
   </style>
   
